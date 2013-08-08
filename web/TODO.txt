@@ -1,0 +1,2 @@
+[] Cambiar la visualización de los mensajes el issuer ahora es el recipient
+[] Cambiar la forma de visualizar cuando se paga una deuda
