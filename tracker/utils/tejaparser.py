@@ -459,22 +459,6 @@ class Parser(Harvester):
         else:
             return True
             
-    # createOffer
-    # Create an offer or need from parsed tweet
-    def createOffer(self, code, tweet):
-        try:
-            query = "SELECT id FROM tracker_notes WHERE id = '%s'" % tweet['tweet_id']        
-            if self.getSingleValue(query) is None:            
-                query = "INSERT INTO tracker_notes(id, issuer, bearer, promise, created, expiry, status, transferable, type, conditional) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
-                params = (tweet['tweet_id'], tweet['author'].lower(), '', tweet['item'].lower(), tweet['created'], tweet['expiry'], 0, 0, code, tweet['condition'])
-                self.queryDB(query, params)
-            else:
-                self.logWarning('Note %s already exists' % tweet['tweet_id'])
-                return False
-        except Exception, e:
-            raise Exception("Creating note from tweet %s failed: %s" % (tweet['tweet_id'], e))
-        else:
-            return True
             
     # createThanks
     # Create a thanks note
@@ -488,26 +472,6 @@ class Parser(Harvester):
                 
                 # Create an event
                 E = Event(tweet['tweet_id'],1,1,tweet['created'],tweet['author'], tweet['recipient'])
-                E.save()
-            else:
-                self.logWarning('Note %s already exists' % tweet['tweet_id'])
-                return False
-        except Exception, e:
-            raise Exception("Creating thanks note from tweet %s failed: %s" % (tweet['tweet_id'], e))
-        else:
-            return True
-            
-    # createRequest
-    # Create a request note
-    def createRequest(self, tweet):
-        try:
-            query = "SELECT id FROM tracker_notes WHERE id = '%s'" % tweet['tweet_id']        
-            if self.getSingleValue(query) is None:            
-                query = "INSERT INTO tracker_notes(id, issuer, bearer, promise, created, expiry, status, transferable, type) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)"
-                params = (tweet['tweet_id'], tweet['author'].lower(), tweet['recipient'].lower(), tweet['message'], tweet['created'], tweet['expiry'], 0, 0, 10)
-                self.queryDB(query, params)
-                # Create an event
-                E = Event(tweet['tweet_id'],10,10,tweet['created'], tweet['author'], tweet['recipient'])
                 E.save()
             else:
                 self.logWarning('Note %s already exists' % tweet['tweet_id'])
