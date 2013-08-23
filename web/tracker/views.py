@@ -1,16 +1,36 @@
-from django.http import HttpResponse, HttpResponseRedirect
-from django.shortcuts import render_to_response
-from tracker.models import *
-from django.template import Context, loader, RequestContext
-from datetime import datetime
-from operator import itemgetter
-from itertools import chain
+from django.http import HttpResponse,HttpResponseRedirect
+from django.contrib.auth import logout as auth_logout
+from django.contrib.auth.decorators import login_required
+from django.template import RequestContext
+from django.shortcuts import render_to_response, redirect
+from django.contrib.messages.api import get_messages
 from django.db.models import Q
 from django.utils import simplejson
-import re
+
+from tracker.models import *
+from operator import itemgetter
+from itertools import chain
+#import re
 import operator
 
+from social_auth.models import UserSocialAuth
+from social_auth import __version__ as version
+from local_settings import ISSUER_ACCOUNT, TWITTER_CONSUMER_KEY,TWITTER_CONSUMER_SECRET,TW_ACCESS_KEY,TW_ACCESS_SECRET
+import tweepy
+
 # Create your views here.
+
+def error(request):
+    """Error view"""
+    messages = get_messages(request)
+    return render_to_response('error.html', {'version': version,
+                                             'messages': messages},
+                              RequestContext(request))
+
+def disconnect(request):
+    """Logs out user"""
+    auth_logout(request)
+    return HttpResponseRedirect('/tracker')
 
 def home(request):
     return render_to_response('home.html')
@@ -42,8 +62,10 @@ def tracker(request, tag_1 = None, tag_2 = None, tag_3 = None):
     
     if related_tags is not None:
         variables['related_tags'] = related_tags
+    
+    
 
-    return render_to_response('tracker.html', variables)
+    return render_to_response('tracker.html', variables,RequestContext(request))
 
 
 def ticker(
@@ -202,19 +224,34 @@ def shownet(request):
         'page':'trustlist',
     }
     
-    return render_to_response('trustnet.html', variables)   
+    return render_to_response('trustnet.html', variables,RequestContext(request))   
     
 def press(request):
     
-    return render_to_response('press.html', {})  
+    return render_to_response('press.html', {},RequestContext(request))  
     
 def faq(request):
     
-    return render_to_response('faq.html', {})    
+    return render_to_response('faq.html', {},RequestContext(request))    
 
+def connectTwitter(request):
+        try:
+            auth = tweepy.OAuthHandler(TWITTER_CONSUMER_KEY, TWITTER_CONSUMER_SECRET)
+            auth.set_access_token(TW_ACCESS_KEY, TW_ACCESS_SECRET)
+            api = tweepy.API(auth)
+        except Exception, e:
+            raise Exception("Error connecting to Twitter API: %s" % e)
+        else:
+            return api
 
 def user(request, username):
-
+        
+    user_icon = 'https://twimg0-a.akamaihd.net/sticky/default_profile_images/default_profile_5_normal.png'
+    #if request.user:
+        #connectTwitter(UserSocialAuth.resolve_user_or_id(user.id))
+        #api = connectTwitter(request)
+        #user_icon = api.get_user(username).profile_image_url
+            
     variables = {}
 
     notes_bearer = notes.objects.filter(bearer=username).filter(status=0)
@@ -270,10 +307,11 @@ def user(request, username):
         'trusters':trusters_list,
         'top_trusters':top_trusters,
         'karma':karma,
+        'user_icon':user_icon
     }
     
     # return all
-    return render_to_response('user.html', variables)
+    return render_to_response('user.html', variables,RequestContext(request))
     
 
 def getnote(request, noteid):
@@ -326,21 +364,47 @@ def getnote(request, noteid):
     elif note.type == 10:
         template = 'request.html'
     
-    return render_to_response(template, variables)
+    return render_to_response(template, variables,RequestContext(request))
     
     
 def printer(request):
     variables = {
         'page':'printer',
+        'issuer':ISSUER_ACCOUNT
     }
-    return render_to_response('printer.html', variables)
+    return render_to_response('printer.html', variables,RequestContext(request))
+
+def batch_printer(request):
+    variables = {
+        'page':'batch_printer',
+        'issuer':ISSUER_ACCOUNT
+    }
+    return render_to_response('batch_printer.html', variables,RequestContext(request))
     
+def generate_debt(request):
+    if request.method == 'POST':
+        file = request.FILES['recipients'] 
+        print file
+        print file.content_type
+        if file.content_type == 'text/csv':
+            csv = DebtModel.import_data(data=open(file.temporary_file_path))
+            print csv
+        else:
+            error = 'Formato inadecuado'
+            
+        
+    variables = {
+        'page':'batch_printer',
+        'issuer':ISSUER_ACCOUNT
+    }
+    
+    return render_to_response('batch_printer.html', variables,RequestContext(request))
 
 def help(request):
     variables = {
         'page':'help',
     }
-    return render_to_response('help.html', variables)
+    return render_to_response('help.html', variables,RequestContext(request))
 
 # [!] Check if for non-note ids too
 def search(request, term=None):
@@ -469,7 +533,7 @@ def user_info(request, username):
         'username':username,
     }
     
-    return render_to_response('user_info.html', variables)
+    return render_to_response('user_info.html', variables,RequestContext(request))
     
     
 ''' HELPERS '''

@@ -57,6 +57,9 @@ urlpatterns = patterns('',
     
     url(r'^print/$', 'tracker.views.printer', name='showlist'),
     
+    url(r'^batch_printer/$', 'tracker.views.batch_printer', name='showlist'),
+    url(r'^generate_debt/$', 'tracker.views.generate_debt', name='generateDebt'),
+    
     url(r'^user/(?P<username>\w+)$', 'tracker.views.user', name='user'),
     
     url(r'^note/(?P<noteid>\w+)$', 'tracker.views.getnote', name='note'),
@@ -68,5 +71,10 @@ urlpatterns = patterns('',
     url(r'^graph/$', 'tracker.views.trustnet', name='graph'),
     
     url(r'^user_info/(?P<username>\w+)$', 'tracker.views.user_info', name='user_info'),
+    
+    #django-social-auth
+    url(r'^error/$', 'tracker.views.error', name='error'),
+    url(r'^disconnect/$', 'tracker.views.disconnect', name='user'),
+    url(r'', include('social_auth.urls')),
     
 )
