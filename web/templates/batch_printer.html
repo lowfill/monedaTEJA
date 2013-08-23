@@ -1,0 +1,31 @@
+{% extends 'base.html' %} 
+
+{% block main %}
+
+<div id="left" class="span-15">
+
+	<h3 style='display: inline'>Batch Printer</h3>
+	<hr class="space">
+
+	<span id="promised">Creando deuda:</span> <br>
+
+	<hr class="space">
+	<p>Para generar deuda a varios usuarios necesitas crear un archivo con el siguiente formato:</p>
+	<pre>
+	#Deudor,Numero de Tejas,Expiración en dias
+	@deudor1,#1T,10
+	@deudor2,#1T,10
+	...
+	</pre>
+	<form action="/generate_debt/" method="POST" enctype="multipart/form-data">
+	{% csrf_token %}
+	Deudores: <h3 style="display: inline" id="printer">
+		<input name="recipients" style='display: inline' type="file"
+			maxlength="20" size="20" placeholder="deudor">
+	</h3>
+
+	<hr class="space">
+	<input type="submit" value="Enviar">
+	</form>
+</div>
+{% endblock %}

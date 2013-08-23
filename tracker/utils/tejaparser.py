@@ -521,7 +521,7 @@ class Parser(Harvester):
                 return True
             else:
                 self.logInfo("Saving new user %s" % username)
-                query = "INSERT INTO tracker_users (username) VALUES (%s)"
+                query = "INSERT INTO tracker_users (username,last_login,date_joined) VALUES (%s,NOW(),NOW())"
                 params = (username.lower())
                 self.queryDB(query, params)
                 

@@ -1,4 +1,6 @@
 from django.db import models
+from adaptor.model import CsvModel
+from django.db.models.fields import CharField, IntegerField
 
 class events(models.Model):
     id = models.AutoField(primary_key=True)
@@ -61,3 +63,10 @@ class users(models.Model):
     karma = models.IntegerField(null=True, blank=True)
     class Meta:
         db_table = u'tracker_users'
+        
+class DebtModel(CsvModel):
+    name = CharField()
+    ammount = IntegerField()
+    expiration = IntegerField()
+    class Meta:
+        delimiter = ","        
