@@ -1,6 +1,6 @@
 from django.db import models
 from adaptor.model import CsvModel
-from django.db.models.fields import CharField, IntegerField
+from adaptor.fields import CharField, IntegerField
 
 class events(models.Model):
     id = models.AutoField(primary_key=True)
@@ -66,7 +66,7 @@ class users(models.Model):
         
 class DebtModel(CsvModel):
     name = CharField()
-    ammount = IntegerField()
-    expiration = IntegerField()
+    ammount = IntegerField(null=True,default=1)
+    expiration = IntegerField(null=True,default=30)
     class Meta:
-        delimiter = ","        
+        delimiter = ","
