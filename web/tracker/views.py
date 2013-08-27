@@ -33,7 +33,7 @@ def disconnect(request):
     return HttpResponseRedirect('/tracker')
 
 def home(request):
-    return render_to_response('home.html')
+    return HttpResponseRedirect('/tracker')
 
 def tracker(request, tag_1 = None, tag_2 = None, tag_3 = None):
 
