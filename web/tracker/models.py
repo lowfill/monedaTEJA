@@ -61,6 +61,8 @@ class users(models.Model):
     id = models.AutoField(primary_key=True)
     username = models.CharField(max_length=90, blank=True)
     karma = models.IntegerField(null=True, blank=True)
+    lastlogin = models.DateTimeField()
+    is_active = models.BooleanField()
     class Meta:
         db_table = u'tracker_users'
         
