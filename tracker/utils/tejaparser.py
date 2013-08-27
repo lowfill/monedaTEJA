@@ -199,7 +199,7 @@ class Parser(Harvester):
                     self.setParsed(tweet['tweet_id'])
                     self.createNote(tweet)
                     
-                    E = Event(tweet['tweet_id'], tweet['tweet_id'], 0, tweet['created'], tweet['author'], tweet['recipient'])
+                    E = Event(tweet['tweet_id'], tweet['tweet_id'], 10, tweet['created'], tweet['author'], tweet['recipient'])
                     E.save()
         
                     self.sendTweet('@%s %s @%s %s http://www.punkmoney.org/note/%s' % (expression ,tweet['author'], tweet['recipient'], tweet['promise'], tweet['tweet_id']))
@@ -253,15 +253,15 @@ class Parser(Harvester):
                     if tweet['author'].lower() != note['issuer']:
                         raise Exception("Close attempt by non-issuer")
                         
-                    if note['status'] != 0 and note['status']!=4:
+                    if note['status'] != 10 and note['status']!=4:
                         raise Exception("Note already closed")
                     
                     if tweet['url'] is None or tweet['url']=='':
                         self.updateNote(note['id'], 'status', 4)
-                        code = 10 #request
+                        code = 4 #payment with error it is marked as offer
                     else:
                         self.updateNote(note['id'], 'status', 3)
-                        code = 11 #request clousure
+                        code = 3 #payment correct it is a transfer
                         
                     # Create event
                     E = Event(note['id'], tweet['tweet_id'], code, tweet['created'], tweet['author'], recipient)
@@ -325,7 +325,7 @@ class Parser(Harvester):
                     raise Exception("User is not the current note bearer")
                     
                 # Check note is open (i.e. not expired or redeemed)
-                if note['status'] != 0:
+                if note['status'] != 10:
                     if note['status'] == 1:
                         raise Exception("Note has already been redeemed")
                     if note['status'] == 2:
@@ -449,7 +449,7 @@ class Parser(Harvester):
             query = "SELECT id FROM tracker_notes WHERE id = '%s'" % tweet['tweet_id']        
             if self.getSingleValue(query) is None:            
                 query = "INSERT INTO tracker_notes(id, issuer, bearer, promise, created, expiry, status, transferable, type, conditional) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
-                params = (tweet['tweet_id'], tweet['author'].lower(), tweet['recipient'].lower(), tweet['promise'], tweet['created'], tweet['expiry'], 0, tweet['transferable'], 0, tweet['condition'])
+                params = (tweet['tweet_id'], tweet['author'].lower(), tweet['recipient'].lower(), tweet['promise'], tweet['created'], tweet['expiry'], 10, tweet['transferable'], 10, tweet['condition'])
                 self.queryDB(query, params)
             else:
                 self.logWarning('Note %s already exists' % tweet['tweet_id'])
@@ -549,11 +549,11 @@ class Parser(Harvester):
     def updateExpired(self):
         try:
             self.logInfo("Checking for expirations")
-            query = "SELECT id, bearer, issuer, type FROM tracker_notes WHERE expiry < now() AND status = 0"
+            query = "SELECT id, bearer, issuer, type FROM tracker_notes WHERE expiry < now() AND status = 10"
             for note in self.getRows(query):
             
                 self.logInfo('Note %s expired' % note[0])
-                self.updateNote(note[0], 'status', 2)
+                self.updateNote(note[0], 'status', 12)
                 
                 # promise
                 if note[3] == 0:

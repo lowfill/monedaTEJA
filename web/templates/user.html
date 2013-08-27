@@ -1,52 +1,77 @@
-{% extends 'base.html' %}
+{% extends 'base.html' %} {% block javascript %}
 
-
-{% block javascript %}
-
-	<script type="text/javascript">
-
-	$('document').ready( function(){
+<script type="text/javascript">
+	$('document').ready(function() {
 
 		loadRecent();
-        
+
 	})
-	
-	function loadRecent(){
-	
+
+	function loadRecent() {
+
 		url = '/ticker/max/10/user/{{ username }}';
 		loadTicker("#ticker", url);
-	
+
 	}
-	
-	function load(code){
-	
-	    url = '/ticker/max/10/user/{{ username }}/type/' + code;
+
+	function load(code) {
+
+		url = '/ticker/max/10/user/{{ username }}/type/' + code;
 		loadTicker("#ticker", url);
-	
+
 	}
+</script>
 
+{% endblock %} {% block main %}
 
-	</script>
-
-{% endblock %}
-
-
-{% block main %}
-
-<a target=blank href="http://www.twitter.com/{{ username }}">
-    <img style="padding:5px;" width="50" align="left" src="{{ user_icon }}">
+<div style="float: right; text-align: right; width: 45%;margin-right:25%;padding:0 1em 0 1em">
+	<h3 style="margin-top:0;padding-top:0">
+		Balance: {{balance}} <small>(requests - verified)</small>
+	</h3>
+	<div style="float:left">
+		<p>
+			<b>Requests:</b> {{requests}}<br> 
+			<b>Verified:</b> {{verified}}<br> 
+			<b>Received:</b> {{received}}<br>
+			<b>Received with problems:</b> {{withproblems}}<br>
+			<b>Expired:</b> {{expired}}<br>
+		</p>
+	</div>
+	<div>
+		<p>
+			<b>Requests received:</b> {{requests_received}}<br> 
+			<b>Validated:</b> {{validated}}<br>
+			<b>Sent:</b> {{sent}}<br> 
+			<b>Sent with problems:</b> {{sentwithproblems}}<br>
+			<b>Request expired:</b> {{expired_to}}<br>
+		</p>
+	</div>
+</div>
+<div style="float:left">
+<a target=blank href="http://www.twitter.com/{{ username }}"> <img
+	style="padding: 5px;" width="50" align="left" src="{{ user_icon }}">
 </a>
-<span id="expiration"><h3 style='display:inline'><a target="blank" href="http://www.twitter.com/{{ username }}">{{ username }}</a></h3></span><br>
-
+<span id="expiration"><h3 style='display: inline'>
+		<a target="blank" href="http://www.twitter.com/{{ username }}">{{username }}</a>
+	</h3></span>
+<br>
+</div>
 <hr class="Space">
 <hr class="Space">
 
-
-<a href="javascript:loadRecent()">[ All ]</a>&nbsp;
-<a href="javascript:load(0)"><span id="promised">[ Promises ]</span></a>&nbsp;
-<a href="javascript:load(1)"><span id="redemption">[ Thanks ]</span></a>&nbsp;
-<a href="javascript:load(10)"><span id="request">[ Payments ]</span></a>&nbsp;
-
+<a href="javascript:loadRecent()">[ All ]</a>
+&nbsp;
+<a href="javascript:load(10)"><span id="request">[ Requests ]</span></a>
+&nbsp;
+<a href="javascript:load(3)"><span id="transfer">[ Transfer ]</span></a>
+&nbsp;
+<a href="javascript:load(1)"><span id="redemption">[ Thanks ]</span></a>
+&nbsp;
+<a href="javascript:load(4)"><span id="offer">[ Offers ]</span></a>
+&nbsp;
+<a href="javascript:load(12)"><span id="expiration">[ Expired
+		]</span></a>
+&nbsp;
 <hr>
 
 

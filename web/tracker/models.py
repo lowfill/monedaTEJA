@@ -67,6 +67,8 @@ class users(models.Model):
 class DebtModel(CsvModel):
     name = CharField()
     ammount = IntegerField(null=True,default=1)
+    event = CharField()
     expiration = IntegerField(null=True,default=30)
     class Meta:
         delimiter = ","
+        silent_failure = False

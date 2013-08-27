@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from django.http import HttpResponse
 from django.shortcuts import render_to_response
 from django.utils import simplejson
@@ -7,7 +8,7 @@ from django.template import RequestContext
 import operator
 
 from tracker.models import *
-from local_settings import TWITTER_CONSUMER_KEY,TWITTER_CONSUMER_SECRET,TW_ACCESS_KEY,TW_ACCESS_SECRET
+from local_settings import TWITTER_CONSUMER_KEY,TWITTER_CONSUMER_SECRET,ISSUER_ACCOUNT
 import tweepy
 
 
@@ -237,8 +238,12 @@ def generate_debt_from_file(user,fileObject):
         print api
         csv = DebtModel.import_from_file(file=fileObject)
         for debt in csv:
-            print "%s %d %d " % (debt.name , debt.ammount , debt.expiration)
+            event = debt.event.replace(' ','').lower()
+            tweet = "@%s se enredó con #%dT por #%s. Expira en %d días. @%s " % (debt.name , debt.ammount, event , debt.expiration,ISSUER_ACCOUNT)
+            api.update_status(status=tweet)
+            
     except Exception, e:
+        print e
         #raise Exception("Error connecting to Twitter API: %s" % e)
         return False
         

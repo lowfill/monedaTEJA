@@ -5,66 +5,35 @@
 
 		<span>
 		
-		{% ifequal event.type 0 %}
-		<span id="promised">[ P ]</span> {{ event.timestamp|date:"M d G:i" }}<span>
-		<b><a href="/user/{{ event.from_user }}">{{ event.from_user }}</a> </b>promised</span> 
-		<b><a href="/user/{{ event.to_user }}">{{ event.to_user }}</a></b>
-		<span id="promise"><a href="/note/{{ event.note_id }}">{{ event.promise }}</a></span>. 
-		{% endifequal %}
-
         {% ifequal event.type 12 %}
 		<span id="Expiration">[ X ]</span> {{ event.timestamp|date:"M d G:i" }}<span><b> <a href="/user/{{ event.from_user }}">{{ event.from_user }}</a></b>'s request for <span id="promise"><a href="/note/{{ event.note_id }}">{{ event.promise }}</a></span></b> expired. 
-		{% endifequal %}
-
-        {% ifequal event.type 11 %}
-		<span id="Expiration">[ X ]</span> {{ event.timestamp|date:"M d G:i" }}<span><b> <a href="/user/{{ event.from_user }}">{{ event.from_user }}</a></b> closed a request for <span id="promise"><a href="/note/{{ event.note_id }}">{{ event.promise }}</a></span></b>. 
-		{% endifequal %}
+        {% endifequal %}
 
         {% ifequal event.type 10 %}
-		<span id="request">[ R ]</span> {{ event.timestamp|date:"M d G:i" }}<span><b> <a href="/user/{{ event.from_user }}">{{ event.from_user }}</a></b> requested <span id="promise"><a href="/note/{{ event.note_id }}">{{ event.promise }}</a></span></b> from <span><b> <a href="/user/{{ event.to_user }}">{{ event.to_user }}.</a></b>
+		<span id="request">[ R ]</span> {{ event.timestamp|date:"M d G:i" }}<span><b> <a href="/user/{{ event.to_user }}">{{ event.to_user }}</a></b> requested <span id="promise"><a href="/note/{{ event.note_id }}">{{ event.promise }}</a></span></b> from <span><b> <a href="/user/{{ event.from_user }}">{{ event.from_user }}.</a></b>
+        <a href="http://www.twitter.com/{{event.to_user}}/status/{{event.note_id}}" target="_blank">[&rarr;]</a>
 		{% endifequal %}
 
-        {% ifequal event.type 9 %}
-		<span id="Expiration">[ X ]</span> {{ event.timestamp|date:"M d G:i" }}<span><b> <a href="/user/{{ event.from_user }}">{{ event.from_user }}'s</a></b> need for<span id="promise"><a href="/note/{{ event.note_id }}">{{ event.promise }}</a></span></b> expired. 
-		{% endifequal %}
-
-        {% ifequal event.type 8 %}
-		<span id="Expiration">[ X ]</span> {{ event.timestamp|date:"M d G:i" }}<span><b> <a href="/user/{{ event.from_user }}">{{ event.from_user }}'s</a></b> offer of <span id="promise"><a href="/note/{{ event.note_id }}">{{ event.promise }}</a></span></b> expired. 
-		{% endifequal %}
-		
-        {% ifequal event.type 7 %}
-		<span id="Expiration">[ X ]</span> {{ event.timestamp|date:"M d G:i" }}<span><b> <a href="/user/{{ event.from_user }}">{{ event.from_user }}</a></b> closed need <span id="promise"><a href="/note/{{ event.note_id }}">{{ event.promise }}</a></span></b>. 
-		{% endifequal %}
-		
-        {% ifequal event.type 6 %}
-		<span id="Expiration">[ X ]</span> {{ event.timestamp|date:"M d G:i" }}<span><b> <a href="/user/{{ event.from_user }}">{{ event.from_user }}</a></b> closed offer <span id="promise"><a href="/note/{{ event.note_id }}">{{ event.promise }}</a></span></b>. 
-		{% endifequal %}
-
-        {% ifequal event.type 5 %}
-		<span id="need">[ N ]</span> {{ event.timestamp|date:"M d G:i" }}<span><b> <a href="/user/{{ event.from_user }}">{{ event.from_user }}</a></b> needs <span id="promise"><a href="/note/{{ event.note_id }}">{{ event.promise }}</a></span></b>. 
-		{% endifequal %}
-		
         {% ifequal event.type 4 %}
 		<span id="offer">[ O ]</span> {{ event.timestamp|date:"M d G:i" }}<span><b> <a href="/user/{{ event.from_user }}">{{ event.from_user }}</a></b> offers <span id="promise"><a href="/note/{{ event.note_id }}">{{ event.promise }}</a></span></b>. 
+		<a href="http://www.twitter.com/{{event.from_user}}/status/{{event.note_id}}" target="_blank">[&rarr;]</a>
 		{% endifequal %}
 		
         {% ifequal event.type 3 %}
 		<span id="Transfer">[ Tr ]</span> {{ event.timestamp|date:"M d G:i" }}<span><b> <a href="/user/{{ event.from_user }}">{{ event.from_user }}</a></b> transferred <span id="promise"><a href="/note/{{ event.note_id }}">{{ event.promise }}</a></span> to <b><a href="/user/{{ event.to_user }}">{{ event.to_user }}</a></b>. 
+		<a href="http://www.twitter.com/{{event.from_user}}/status/{{event.note_id}}" target="_blank">[&rarr;]</a>
 		{% endifequal %}
 		
 		{% ifequal event.type 1 %}
 		<span id="redemption">[ T ]</span> {{ event.timestamp|date:"M d G:i" }} <span> <b><a href="/user/{{ event.from_user }}">{{ event.from_user }}</a></b> thanked <b><a href="/user/{{ event.to_user }}">{{ event.to_user }}</a></b> for <span id="promise"><a href="/note/{{ event.note_id }}">{{ event.promise }}</a></span>.
+		<a href="http://www.twitter.com/{{event.from_user}}/status/{{event.note_id}}" target="_blank">[&rarr;]</a>
 		{% endifequal %}
 		
 		{% ifequal event.type 2 %}
 		<span id="Expiration">[ X ]</span> {{ event.timestamp|date:"M d G:i" }} <span> <b><a href="/user/{{ event.from_user }}">{{ event.from_user }}</a>'s</b> promise of <span id="promise"><a href="/note/{{ event.note_id }}">{{ event.promise }}</a></span> to <b><a href="/user/{{ event.to_user }}">{{ event.to_user }}</a></b> expired.
 		{% endifequal %}
 
-        
-        {% ifequal show_arrow 1 %}
-        <a href="/note/{{ event.note_id }}">[&rarr;]</a>
-		{% endifequal %}
-		
+        		
         <!-- Add tags -->
         {% for tag in event.tags %}
             {% ifnotequal tag None %}
