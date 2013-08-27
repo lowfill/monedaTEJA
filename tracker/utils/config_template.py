@@ -2,7 +2,7 @@
 
 """
 
-PunkMoney 0.2 :: Configuration File
+monedaTeja 0.1 :: Configuration File
 
 """
 
@@ -14,8 +14,9 @@ Please use a different hashtag for testing.
 
 '''
 
-HASHTAG = '#punkmoney'
-ALT_HASHTAG = '#pnmy'
+HASHTAG = '#monedateja'
+ALT_HASHTAG = '#1T'
+ISSUER_ACCOUNT = 'lowfill_devel'
 
 
 # TWITTER API CREDENTIALS
@@ -23,18 +24,18 @@ ALT_HASHTAG = '#pnmy'
 Register an app with read/write access at http://dev.twitter.com.
 '''
 
-TW_CONSUMER_KEY = ''
-TW_CONSUMER_SECRET = ''
+TW_CONSUMER_KEY = 'z9ipY0MY6OO2XeoubfMg'
+TW_CONSUMER_SECRET = '3E8AF38oXQSeIZEDRCWrkzQ32n58rcaYnexAVkLSA'
 
-TW_ACCESS_KEY = ''
-TW_ACCESS_SECRET = ''
+TW_ACCESS_KEY = '1291767895-uCC4HPJZzfcdQeAALKhvI7B63vOO8QHJaNcNgns'
+TW_ACCESS_SECRET = 'GFYCMTSgfLbIEXJTgLB26RWOy87Idxxl1ucwRvs'
 
 # LOG PATH
 '''
 Absolute path to a log file in /tracker/logs
 '''
 
-LOG_PATH = ''
+LOG_PATH = 'logs/tracker.log'
 
 
 # MYSQL DATABASE
@@ -43,14 +44,14 @@ MySQL database credentials. Socket locations can vary depending on the system.
 '''
 
 MYSQL_HOST = 'localhost'
-MYSQL_USER = ''
-MYSQL_DATABASE = ''
-MYSQL_PASSWORD = ''
+MYSQL_USER = 'lowfill'
+MYSQL_DATABASE = 'monedateja'
+MYSQL_PASSWORD = 'mko09ijn'
 MYSQL_SOCKET = '/tmp/mysql.sock'
 
 
 # SETTINGS
-''' 
+'''
 Set tweet to true to tweet syntax errors via the main Twitter account.
 Set debug to true to log debug messages
 TWIPM tweets a weekly summary of activity in the tracker.
