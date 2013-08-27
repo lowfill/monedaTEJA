@@ -102,7 +102,8 @@ def ticker(
     
     
     new_events = []
-    
+
+    print "%s %s" % (username,type)    
     # Filter by tags
     if len(filters) > 0:
     
@@ -168,8 +169,11 @@ def ticker(
         note = notes.objects.filter(id=event.note_id)[0]
         
         if int(note.status) != 0 and type is not None:
-            if int(type) == 4 or int(type) == 5:
+            #if int(type) == 4 or int(type) == 5:
+            if int(type) == 5:
                 continue
+        
+        print "%s -> %s %s" % (username,event.to_user,event.from_user)
         
         # Turn tags into hyperlinks in promise
         note_id = event.note_id
@@ -202,11 +206,7 @@ def ticker(
     
     final = sorted(result_list, key=itemgetter('timestamp'), reverse=True)
     
-    # arrow on or off
-    if noteid is not None:
-        show_arrow = False
-    else:
-        show_arrow = True
+    show_arrow = True
     
     variables = {
         'events':final,
@@ -243,6 +243,20 @@ def user(request, username):
         #user_icon = api.get_user(username).profile_image_url
             
     variables = {}
+
+    requests=events.objects.filter(to_user=username,type=10).count()
+    received=events.objects.filter(to_user=username,type=3).count()
+    verified=events.objects.filter(from_user=username,type=1).count()
+    withproblems=events.objects.filter(to_user=username,type=4).count()
+    expired = events.objects.filter(to_user=username,type=12).count()
+
+    requests_received=events.objects.filter(from_user=username,type=10).count()
+    sent=events.objects.filter(from_user=username,type=3).count()
+    validated =events.objects.filter(to_user=username,type=1).count()
+    sentwithproblems=events.objects.filter(from_user=username,type=4).count()
+    expired_to = events.objects.filter(from_user=username,type=12).count()
+
+    balance = (requests - verified) - (requests_received - validated) - expired + expired_to         
 
     notes_bearer = notes.objects.filter(bearer=username).filter(status=0)
     notes_issuer = notes.objects.filter(issuer=username).filter(status=0)
@@ -297,7 +311,19 @@ def user(request, username):
         'trusters':trusters_list,
         'top_trusters':top_trusters,
         'karma':karma,
-        'user_icon':user_icon
+        'user_icon':user_icon,
+        'requests':requests,
+        'received':received,
+        'verified':verified,
+        'withproblems':withproblems,
+        'expired':expired,
+        'requests_received':requests_received,
+        'sent':sent,
+        'validated':validated,
+        'sentwithproblems':sentwithproblems,
+        'expired_to':expired_to,
+        'balance':balance,         
+
     }
     
     # return all
@@ -372,17 +398,21 @@ def batch_printer(request):
     return render_to_response('batch_printer.html', variables,RequestContext(request))
     
 def generate_debt(request):
+    error = ''
     if request.method == 'POST':
-        file = request.FILES['recipients'] 
-        if file.content_type == 'text/csv':
-            generate_debt_from_file(request.user,file)
+        if request.FILES.has_key('recipients'):
+            file = request.FILES['recipients'] 
+            if file.content_type == 'text/csv':
+                generate_debt_from_file(request.user,file)
+            else:
+                error = 'Formato inadecuado'
         else:
-            error = 'Formato inadecuado'
-            
+                error = 'Por favor anexe un archivo'    
         
     variables = {
         'page':'batch_printer',
-        'issuer':ISSUER_ACCOUNT
+        'issuer':ISSUER_ACCOUNT,
+        'error' : error
     }
     
     return render_to_response('batch_printer.html', variables,RequestContext(request))
