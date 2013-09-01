@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-09-01 23:21+0200\n"
+"POT-Creation-Date: 2013-09-01 23:34+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Diego Andrés Ramírez Aragón <dramirezaragon@gmail.com>\n"
 "Language-Team: es <dramirezaragon@gmail.com>\n"
@@ -46,9 +46,18 @@ msgstr "Ayuda"
 msgid "Logout"
 msgstr "Salir"
 
+#: templates/base.html:95
+#, fuzzy
+msgid "por"
+msgstr "o"
+
 #: templates/base.html:96
 msgid "FAQ"
 msgstr "Preguntas frecuentes"
+
+#: templates/base.html:101
+msgid "Based on"
+msgstr "Basado en"
 
 #: templates/batch_printer.html:11 templates/printer.html:63
 msgid "Creating debt:"
@@ -256,7 +265,7 @@ msgstr "[GRACIAS]"
 #: templates/ticker.html:8 templates/ticker.html.py:32
 #: templates/tracker.html:121 templates/tracker.html.py:130
 msgid "[ X ]"
-msgstr "[ X ]"
+msgstr "[ E ]"
 
 #: templates/ticker.html:8
 msgid "'s request for"
@@ -269,7 +278,7 @@ msgstr "expiró."
 #: templates/ticker.html:12 templates/tracker.html:117
 #: templates/tracker.html.py:126
 msgid "[ R ]"
-msgstr "[ R ]"
+msgstr "[ P ]"
 
 #: templates/ticker.html:12
 msgid "requested"
@@ -304,7 +313,7 @@ msgstr "a"
 #: templates/ticker.html:27 templates/tracker.html:119
 #: templates/tracker.html.py:128
 msgid "[ T ]"
-msgstr "[ T ]"
+msgstr "[ A ]"
 
 #: templates/ticker.html:27
 msgid "thanked"
