@@ -1,19 +1,14 @@
 {% extends 'base.html' %}
+{% load i18n %}
 
 {% block javascript %}
 
 	<script type="text/javascript">
-	
 	$('document').ready( function(){
-	
 		id = $('a#noteid').attr('value')
-	
 		url = '/ticker/note/' + id;
-	
 		loadTicker("#ticker",url);
-	
 	})
-	
 	</script>
 	
 {% endblock %}
@@ -28,8 +23,7 @@
 	    {% ifequal note.status 0 %}
     	
     		<h3 style='display:inline'><span id="offer">{{ note.promise }}</span></h3>
-    		
-    		<p style='display:inline'>[OPEN]</p>
+    		<p style='display:inline'>{%trans "[OPEN]"%}</p>
         
         {% endifequal %}
 	    
@@ -38,7 +32,7 @@
 	    	
             <h3 style='display:inline'><span id="promise">{{ note.promise }}</span></h3>
         		
-            <p style='display:inline'>[CLOSED]</p>
+            <p style='display:inline'>{%trans "[CLOSED]"%}</p>
     		
         {% endifequal %}
         
@@ -46,37 +40,37 @@
 	    	
             <h3 style='display:inline'><span id="promise">{{ note.promise }}</span></h3>
         		
-            <p style='display:inline'>[EXPIRED]</p>
+            <p style='display:inline'>{%trans "[EXPIRED]"%}</p>
     		
         {% endifequal %}
         
         <hr class="space">        
 
-        Issuer: <b><a href="/user/{{ note.issuer }}">{{ note.issuer }}</a></b>
+        {%trans "Issuer:"%} <b><a href="/user/{{ note.issuer }}">{{ note.issuer }}</a></b>
     
 		<!-- TAGS -->
 
         <!-- CONDITION -->
 		
 		{% if url %}
-		  Link: <a href="{{ url }}"><b>{{ display_url }}</b></a>
+		  {%trans "Link:"%} <a href="{{ url }}"><b>{{ display_url }}</b></a>
 		{% endif %}
 		
-		<p>Created: <b>{{ note.created }}</b><br>
+		<p>{%trans "Created:"%} <b>{{ note.created }}</b><br>
 		
 		{% ifnotequal note.expiry None %}
-		Expiry: <b>{{ note.expiry }}</b>
+		{%trans "Expiry:"%} <b>{{ note.expiry }}</b>
 		{% endifnotequal %}
 		
 		</p>
 		
 		{% if note.conditional %}
-        <p>Condition: <b>{{ note.conditional }}</b></p>
+        <p>{%trans "Condition:"%} <b>{{ note.conditional }}</b></p>
 		{% endif %}
 
         <!-- TAGS -->
         {% if tags %}
-        Tags:
+        {%trans "Tags:"%}
     		{% for tag in tags %}
     		      &nbsp;<span id="tag"><a href="/t/{{tag}}">#{{ tag }}</a></span>
     		{% endfor %}
@@ -111,9 +105,9 @@
 		
 		{% ifequal note.status 0 %}
 
-        <a href="https://twitter.com/intent/tweet?in_reply_to={{ note.id }}&status=@{{note.issuer}}%20request%20%23pmny"><span id="redemption">[Request]</span></a> &nbsp;
+        <a href="https://twitter.com/intent/tweet?in_reply_to={{ note.id }}&status=@{{note.issuer}}%20request%20%23pmny"><span id="redemption">{%trans "[Request]"%}</span></a> &nbsp;
         	
-        <a href="https://twitter.com/intent/tweet?in_reply_to={{ note.id }}&status=@{{note.issuer}}%20close%20%23pmny"><span id="expiration">[Close]</span></a>
+        <a href="https://twitter.com/intent/tweet?in_reply_to={{ note.id }}&status=@{{note.issuer}}%20close%20%23pmny"><span id="expiration">{%trans "[Close]"%}</span></a>
         	
 		{% endifequal %}
 		
@@ -126,7 +120,7 @@
 	
 		<hr class="space">
 	
-		<h4>History</h4>
+		<h4>{%trans "History"%}</h4>
 		
 		<div id="ticker"></div>
 

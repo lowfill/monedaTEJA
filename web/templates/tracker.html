@@ -1,4 +1,7 @@
 {% extends 'base.html' %}
+
+{% load i18n %}
+
 {% load url from future %}
 
 {% block javascript %}
@@ -69,7 +72,7 @@
             
             {% if not tag_1 %}
             
-            <span id="type_name">(Updates once per minute)</span>
+            <span id="type_name">{%trans "(Updates once per minute)"%}</span>
             
             {% else %} {% if tag_1 %}
             
@@ -110,23 +113,21 @@
 		
 		   {% if not tag_slug %}
 		
-            <a href="javascript:changeTicker('/ticker/', 'activity')">[ All ]</a>
-            <a href="javascript:changeTicker('/ticker/type/10', 'requests')"><span id="request">[ R ]</span></a>
-            <a href="javascript:changeTicker('/ticker/type/3', 'transfer')"><span id="transfer">[ Tr ]</span></a>
-            <a href="javascript:changeTicker('/ticker/type/1', 'thanks')"><span id="redemption">[ T ]</span></a>
-			<a href="javascript:changeTicker('/ticker/type/4', 'offers')"><span id="offer">[ O ]</span></a>
-			<a href="javascript:changeTicker('/ticker/type/12', 'expirations')"><span id="expiration">[ X ]</span></a>
+            <a href="javascript:changeTicker('/ticker/', 'activity')">{%trans "[ All ]"%}</a>
+            <a href="javascript:changeTicker('/ticker/type/10', 'requests')"><span id="request">{%trans "[ R ]"%}</span></a>
+            <a href="javascript:changeTicker('/ticker/type/3', 'transfer')"><span id="transfer">{%trans "[ Tr ]"%}</span></a>
+            <a href="javascript:changeTicker('/ticker/type/1', 'thanks')"><span id="redemption">{%trans "[ T ]"%}</span></a>
+			<a href="javascript:changeTicker('/ticker/type/4', 'offers')"><span id="offer">{%trans "[ O ]"%}</span></a>
+			<a href="javascript:changeTicker('/ticker/type/12', 'expirations')"><span id="expiration">{%trans "[ X ]"%}</span></a>
 			
 			{% else %} {% if tag_slug %}
 
-            <a href="javascript:changeTicker('/ticker/tags/{{ tag_slug }}', 'activity')">[ All ]</a>
-            
-            <a href="javascript:changeTicker('/ticker/', 'activity')">[ All ]</a>
-            <a href="javascript:changeTicker('/ticker/type/10', 'requests')"><span id="request">[ R ]</span></a>
-            <a href="javascript:changeTicker('/ticker/type/3', 'transfer')"><span id="transfer">[ Tr ]</span></a>
-            <a href="javascript:changeTicker('/ticker/type/1', 'thanks')"><span id="redemption">[ T ]</span></a>
-			<a href="javascript:changeTicker('/ticker/type/4', 'offers')"><span id="offer">[ O ]</span></a>
-			<a href="javascript:changeTicker('/ticker/type/12', 'expirations')"><span id="expiration">[ X ]</span></a>
+            <a href="javascript:changeTicker('/ticker/tags/{{ tag_slug }}', 'activity')">{%trans "[ All ]"%}</a>
+            <a href="javascript:changeTicker('/ticker/type/10/tags/{{ tag_slug }}', 'requests')"><span id="request">{%trans "[ R ]"%}</span></a>
+            <a href="javascript:changeTicker('/ticker/type/3/tags/{{ tag_slug }}', 'transfer')"><span id="transfer">{%trans "[ Tr ]"%}</span></a>
+            <a href="javascript:changeTicker('/ticker/type/1/tags/{{ tag_slug }}', 'thanks')"><span id="redemption">{%trans "[ T ]"%}</span></a>
+			<a href="javascript:changeTicker('/ticker/type/4/tags/{{ tag_slug }}', 'offers')"><span id="offer">{%trans "[ O ]"%}</span></a>
+			<a href="javascript:changeTicker('/ticker/type/12/tags/{{ tag_slug }}', 'expirations')"><span id="expiration">{%trans "[ X ]"%}</span></a>
 			
 			{% endif %}			
 			{% endif %}
@@ -169,10 +170,4 @@
         {% endif %}
 
 		</div>
-		
-		
-		
-		
-		
-
 {% endblock %}

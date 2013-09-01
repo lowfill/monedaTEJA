@@ -1,20 +1,15 @@
+{% load i18n %}
+
 <script type="text/javascript">   
 
 function loadTicker(div, url){
-
 	$.get(url, function(data){
-
 		$(div).html(data);
-
 	});
-
 	timer = setTimeout(function() {loadTicker(url);}, 3000);
-
 }
-
     url = '/ticker/max/4/user/{{ username }}/type/1';
     loadTicker("#ticker", url);
-
 </script>
 
 
@@ -30,4 +25,4 @@ function loadTicker(div, url){
 
 <div id="ticker"></div>
 
-<p align="right"><span id="promise"><a href="/user/{{ username }}">See all [&rarr;]</a></span></p>
+<p align="right"><span id="promise"><a href="/user/{{ username }}">{%trans "See all [&rarr;]"%}</a></span></p>

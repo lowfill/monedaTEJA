@@ -1,15 +1,13 @@
 {% extends 'base.html' %}
 
+{% load i18n %}
+
 {% block javascript %}
 
 	<script type="text/javascript">
-	
 	$('document').ready( function(){
-	
 		id = $('a#noteid').attr('value')
-	
 		url = '/ticker/note/' + id;
-	
 		loadTicker("#ticker",url);
 	
 	})
@@ -24,24 +22,24 @@
 
 	<div id="left" class="span-9">
 	
-    		<h3 style='display:inline'><span id="redemption">{{ note.promise }}</span></h3>&nbsp;[THANKS]
+    		<h3 style='display:inline'><span id="redemption">{{ note.promise }}</span></h3>&nbsp;{%trans "[THANKS]"%}
     	
     	       <hr class="space">
     	
-    		<p>Issuer: <b><a href="/user/{{ note.issuer }}">{{ note.issuer }}</a></b> <br>
-    		Bearer: <b><a href="/user/{{ note.bearer }}">{{ note.bearer }}</a></b></p>
+    		<p>{%trans "Issuer:"%} <b><a href="/user/{{ note.issuer }}">{{ note.issuer }}</a></b> <br>
+    		{%trans "Bearer:"%}" <b><a href="/user/{{ note.bearer }}">{{ note.bearer }}</a></b></p>
 
-		<p>Created: <b>{{ note.created }}</b><br></p>
+		<p>{%trans "Created:"%} <b>{{ note.created }}</b><br></p>
 		
 		{% if url %}
 		<p>
-		  Link: <a href="{{ url }}"><b>{{ display_url }}</b></a><br>
+		  {%trans "Link:"%} <a href="{{ url }}"><b>{{ display_url }}</b></a><br>
         </p>
 		{% endif %}
 		
         <!-- TAGS -->
         {% if tags %}
-        Tags:
+        {%trans "Tags:"%}
     		{% for tag in tags %}
     		      &nbsp;<span id="tag"><a href="/t/{{tag}}">#{{ tag }}</a></span>
     		{% endfor %}

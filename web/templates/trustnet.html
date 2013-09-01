@@ -1,5 +1,5 @@
-<!DOCTYPE html>
 {% extends 'base.html' %}
+{% load i18n %}
 
     {% block javascript %}
 
@@ -43,12 +43,12 @@
         
     <h3>Network</h3>
 
-    <p><span id="promised">This map represents gratitude between #PunkMoney users.</span></p>
+    <p><span id="promised">{%trans "This map represents gratitude between #PunkMoney users."%}</span></p>
 
-    <li># <b>Mouse over</b> a user to see their name.</li><hr class="space">
-    <li># <b>Click</b> on a user to learn more about them.</li><hr class="space">
+    <li># <b>{%trans "Mouse over"%}</b> {%trans "a user to see their name."%}</li><hr class="space">
+    <li># <b>{%trans "Click"%}</b> {%trans "on a user to learn more about them."%}</li><hr class="space">
     
-    <p>To appear on the list you need to <span id ="redemption">thank</span> or <span id="redemption">be thanked</span> by someone.</p>
+    <p>{%trans "To appear on the list you need to"%} <span id ="redemption">{%trans "thank"%}</span> {%trans "or"%}" <span id="redemption">{%trans "be thanked"%}</span> {%trans "by someone"%}.</p>
     
     </div>
 

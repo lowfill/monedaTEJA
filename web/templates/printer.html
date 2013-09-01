@@ -1,4 +1,7 @@
-{% extends 'base.html' %} 
+{% extends 'base.html' %}
+
+{% load i18n %}
+ 
 {% block javascript %}
 
 <script type=text/javascript>
@@ -11,21 +14,18 @@
 		exp_unit = $('#exptype').val()
 
 		if (exp_val > 0) {
-			expiry = 'Expira en ' + exp_val + ' ' + exp_unit + '. ';
+			expiry = '{%trans "Expira en"%} ' + exp_val + ' ' + exp_unit + '. ';
 		} else {
 			expiry = ''
 		}
 
-		note = '@' + recipient + ' se enredó con #' + promise + ' por #'+event.toLowerCase().replace(' ','')+'. ' + expiry + ' @{{issuer}}'
-		note_encoded = escape('@' + recipient) + ' se enredó con '+escape('#' + promise) + ' por '+escape('#'+event.toLowerCase().replace(' ',''))+'. ' + expiry + escape(' @{{issuer}}')
+		note = '@' + recipient + ' {%trans "se enredó con"%} #' + promise + ' {%trans "por "}#'+event.toLowerCase().replace(' ','')+'. ' + expiry + ' @{{issuer}}'
+		note_encoded = escape('@' + recipient) + ' {%trans "se enredó con"} '+escape('#' + promise) + ' {%trans "por"} '+escape('#'+event.toLowerCase().replace(' ',''))+'. ' + expiry + escape(' @{{issuer}}')
 
 		note_formatted = '<h3 id=\"printed\">' + note + '</h3>'
 
 		$('div.output').html(note_formatted);
 
-		//note_encoded = escape(note);
-		console.log(note)
-		console.log(note_encoded)
 
 		url = 'https://twitter.com/share?url=&text=' + note_encoded;
 
@@ -57,10 +57,10 @@
 
 <div id="left" class="span-15">
 
-	<h3 style='display: inline'>Printer</h3>
+	<h3 style='display: inline'>{%trans "Printer"%}</h3>
 	<hr class="space">
 
-	<span id="promised">Creando deuda:</span> <br>
+	<span id="promised">{%trans "Creando deuda:"%}</span> <br>
 
 	<hr class="space">
 
@@ -70,7 +70,7 @@
 	</h3>
 
 	<h3 id="printer" style="display: inline">
-		se enredó con 
+		{%trans "se enredó con"%} 
 		<select id="promise">
 			<option value="1T">#1T</option>
 			<option value="2T">#2T</option>
@@ -80,7 +80,7 @@
 	</h3>
 
 	<h3 id="printer" style="display: inline">
-		por 
+		{%trans "por"%} 
 		<input id="event" type="text" maxlength="55" size="20"
 			placeholder="Nombre del evento">.
 	</h3>
@@ -88,19 +88,19 @@
 	<hr class="space">
 
 	<p>
-		<i>Options</i>
+		<i>{%trans "Options"%}</i>
 	</p>
 
 	<h3 id="printer" style="display: inline">
-		Expires in <input id="expiry" type="text" size=2 maxlength=3
+		{%trans "Expires in"%} <input id="expiry" type="text" size=2 maxlength=3
 			placeholder="10" value="30"> 
 			<select id="exptype" >
 
-			<option id="minutos">minutes</option>
-			<option id="horas">hours</option>
-			<option id="días" selected>días</option>
-			<option id="meses">meses</option>
-			<option id="años">años</option>
+			<option id="{%trans "minutos"%}">{%trans "minutes"%}</option>
+			<option id="{%trans "horas"%}">{%trans "hours"%}</option>
+			<option id="{%trans "días"%}" selected>{%trans "días"%}</option>
+			<option id="{%trans "meses"%}">{%trans "meses"%}</option>
+			<option id="{%trans "años"%}">{%trans "años"%}</option>
 
 		</select>
 
@@ -116,7 +116,7 @@
 	<hr class="space">
 	<hr class="space">
 
-	<span id="promised">Your @monedaTEJA:</span>
+	<span id="promised">{%trans "Your @monedaTEJA:"%}</span>
 
 	<hr class="space">
 

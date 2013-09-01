@@ -1,63 +1,46 @@
-<!DOCTYPE html>
 {% extends 'base.html' %}
+{% load i18n %}
 
-    {% block javascript %}
-
-    <script type="text/javascript" src="/static/d3/d3.v2.js"></script>
-    
-    <style type="text/css">
-        
-    circle.node {
-      stroke: #fff;
-      stroke-width: 1.5px;
-    }
-    
-    line.link {
-      stroke: #999;
-      stroke-opacity: .6;
-    }
-    
-    div#chart{
-        float:left:
-        position:relative;
-    }
-    
-    
-    div#user {
-        float:left;
-        position:relative;
-    }
-
-    </style>
-    
-    {% endblock %}
+{% block javascript %}
+<script type="text/javascript" src="/static/d3/d3.v2.js"></script>
+<style type="text/css">
+circle.node {
+  stroke: #fff;
+  stroke-width: 1.5px;
+}
+line.link {
+  stroke: #999;
+  stroke-opacity: .6;
+}
+div#chart{
+    float:left:
+    position:relative;
+}
+div#user {
+    float:left;
+    position:relative;
+}
+</style>
+{% endblock %}
   
-  {% block main %}
-  
-  
+{% block main %}
     <div id="chart" class="span-11"></div>
     <div id="user" class="span-5">
     
         <hr class="space">
 
-    <p><span id="expiration">This map represents trust relationships between #PunkMoney users.</span></p>
+    <p><span id="expiration">{%trans "This map represents trust relationships between #PunkMoney users."%}</span></p>
 
-    <li># <b>Mouse over</b> a user to see their name.</li><hr class="space">
-    <li># <b>Click</b> on a user to learn more about them.</li><hr class="space">
+    <li># <b>{%trans "Mouse over"%}</b>{%trans " a user to see their name."%}</li><hr class="space">
+    <li># <b>{%trans "Click"%}</b>{%trans " on a user to learn more about them."%}</li><hr class="space">
 
-    <p> <a href="/help"><span id="promise">Find out more.</span></a></p>
+    <p> <a href="/help"><span id="promise">{%trans "Find out more."%}</span></a></p>
     
     </div>
-
-    
-
     <script type="text/javascript">
-
     var width = 400,
         height = 400;
-    
     var color = d3.scale.category20();
-    
     var force = d3.layout.force()
         .charge(-120)
         .linkDistance(30)
@@ -97,8 +80,6 @@
         
       }); 
 
-
-    
       node.append("title")
           .text(function(d) { return d.name; });
     
@@ -113,20 +94,10 @@
       });
     });
     
-    
     function user_info(username){
-        
         $.get("/user_info/" + username, function(data){
-
 			$("#user").html(data);
-
 		});
-    
-    
     }
-
     </script>
-    
-    
- 
  {% endblock %}

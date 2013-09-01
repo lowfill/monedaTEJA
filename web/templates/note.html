@@ -1,21 +1,15 @@
 {% extends 'base.html' %}
+{% load i18n %}
 
 {% block javascript %}
 
 	<script type="text/javascript">
-	
 	$('document').ready( function(){
-	
 		id = $('a#noteid').attr('value')
-	
 		url = '/ticker/note/' + id;
-	
 		loadTicker("#ticker",url);
-	
 	})
-	
 	</script>
-	
 {% endblock %}
 
 {% block main %}
@@ -25,62 +19,47 @@
 	<div id="left" class="span-9">
 	
     		{% ifequal note.status 0 %}
-    	
     		<h3 style='display:inline'><span id="promised">{{ note.promise }}</span></h3>
-    		
-    		<p style='display:inline'>[OPEN]</p>
-    		
+    		<p style='display:inline'>{%trans "[OPEN]"%}</p>
     		{% if not note.transferable %}
-    		
-            [NON-TRANSFERABLE]
-    		
+            {%trans "[NON-TRANSFERABLE]"%}
     		{% endif %}
-    		
     		{% endifequal %}
     		
     		{% ifequal note.status 1 %}
-    	
     		<h3 style='display:inline'><span id="redemption">{{ note.promise }}</span></h3>
-    		
-    		<p style='display:inline'>[REDEEMED]</p>
-    		
+    		<p style='display:inline'>{%trans "[REDEEMED]"%}</p>
     		{% endifequal %}
-    		
     		{% ifequal note.status 2 %}
-    	
     		<h3 style='display:inline'><span id="expiration">{{ note.promise }}</span></h3>
-    		
-    		<p style='display:inline'>[EXPIRED]</p>
-    		
+    		<p style='display:inline'>{%trans "[EXPIRED]"%}</p>
     		{% endifequal %}
     	
     		<hr class="space">
     	
-    		<p>Issuer: <b><a href="/user/{{ note.issuer }}">{{ note.issuer }}</a></b> <br>
-    		Bearer: <b><a href="/user/{{ note.bearer }}">{{ note.bearer }}</a></b></p>
+    		<p>{%trans "Issuer:"%} <b><a href="/user/{{ note.issuer }}">{{ note.issuer }}</a></b> <br>
+    		{%trans "Bearer:"%} <b><a href="/user/{{ note.bearer }}">{{ note.bearer }}</a></b></p>
     		
 		<!-- CONDITION -->
 		
 		{% if note.conditional %}
-		
-		  Condition: <b>{{ note.conditional }}</b>
-		
+		  {%trans "Condition:"%} <b>{{ note.conditional }}</b>
 		{% endif %}
 		
 		{% if url %}
-		  Link: <a href="{{ url }}"><b>{{ display_url }}</b></a><br>
+		  {%trans "Link:"%} <a href="{{ url }}"><b>{{ display_url }}</b></a><br>
 		{% endif %}
     		
-		<p>Created: <b>{{ note.created }}</b><br>
+		<p>{%trans "Created:"%} <b>{{ note.created }}</b><br>
         
         {% ifnotequal note.expiry None %}
-		Expiry: <b>{{ note.expiry }}</b>
+		{%trans "Expiry:"%} <b>{{ note.expiry }}</b>
 		{% endifnotequal %}
 		</p>
 		
         <!-- TAGS -->
         {% if tags %}
-        Tags:
+        {%trans "Tags:"%}
     		{% for tag in tags %}
     		      &nbsp;<span id="tag"><a href="/t/{{tag}}">#{{ tag }}</a></span>
     		{% endfor %}
@@ -93,32 +72,27 @@
 	<div id="right" class="span-7 prepend-1 last">
 	
 	    {% if img_url %}
-	    
 	       {% if url %}
 		   <a href="{{ url }}" target="_blank"><img src="{{ img_url }}" height="100" align="centre"></a>
 		   {% else %}
 		   <a href="{{ img_url }}" target="_blank"><img src="{{ img_url }}" height="100" align="centre"></a>
 		   {% endif %}
-		  
 		  <hr class="space">
-		  
 		{% endif %}
 	
 		<h3><i>"{{ content }}"</i></h3>
 		
 		<b><a href="/user/{{ note.issuer }}">{{ note.issuer }}</a></b>
-		
 		<p><a id="noteid" value="{{ note.id }}" href="http://www.twitter.com/{{note.issuer}}/status/{{note.id}}">[{{ note.id }}]</a></p>
-		
 		<p>
 		
 		{% ifequal note.status 0 %}
 		
-		<a href="https://twitter.com/intent/tweet?in_reply_to={{ note.id }}&status=@{{note.issuer}}%20thanks%20%23pmny"><span id="redemption">[Redeemed]</span></a> &nbsp;
+		<a href="https://twitter.com/intent/tweet?in_reply_to={{ note.id }}&status=@{{note.issuer}}%20thanks%20%23pmny"><span id="redemption">{%trans "[Redeemed]"%}</span></a> &nbsp;
 		
 		{% if note.transferable %}
 		
-        <a href="https://twitter.com/intent/tweet?in_reply_to={{ note.id }}&status=@{{note.issuer}}%20transfer%20@USERNAME%20%23pmny"><span id="transfer">[Transfer]</span></a>
+        <a href="https://twitter.com/intent/tweet?in_reply_to={{ note.id }}&status=@{{note.issuer}}%20transfer%20@USERNAME%20%23pmny"><span id="transfer">{%trans "[Transfer]"%}</span></a>
 		
 		{% endif %}  
 		
@@ -129,14 +103,8 @@
 	</div>
 	
 	<div class="span-15">
-	
 		<hr class="space">
-	
-		<h4>History</h4>
-		
+		<h4>{%trans "History"%}</h4>
 		<div id="ticker"></div>
-
-	
 	</div>
-
 {% endblock %}
