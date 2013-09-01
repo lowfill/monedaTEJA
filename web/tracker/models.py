@@ -71,6 +71,7 @@ class DebtModel(CsvModel):
     name = CharField()
     ammount = IntegerField(null=True,default=1)
     event = CharField()
+    how = CharField()
     expiration = IntegerField(null=True,default=30)
     class Meta:
         delimiter = ","
