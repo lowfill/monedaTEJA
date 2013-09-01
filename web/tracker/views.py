@@ -5,6 +5,7 @@ from django.template import RequestContext
 from django.shortcuts import render_to_response, redirect
 from django.contrib.messages.api import get_messages
 from django.db.models import Q
+from django.utils.translation import ugettext as _
 
 
 from tracker.models import *
@@ -405,9 +406,9 @@ def generate_debt(request):
             if file.content_type == 'text/csv':
                 generate_debt_from_file(request.user,file)
             else:
-                error = 'Formato inadecuado'
+                error = _('Formato inadecuado')
         else:
-                error = 'Por favor anexe un archivo'    
+                error = _('Por favor anexe un archivo')    
         
     variables = {
         'page':'batch_printer',
