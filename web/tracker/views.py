@@ -104,7 +104,6 @@ def ticker(
     
     new_events = []
 
-    print "%s %s" % (username,type)    
     # Filter by tags
     if len(filters) > 0:
     
@@ -173,8 +172,6 @@ def ticker(
             #if int(type) == 4 or int(type) == 5:
             if int(type) == 5:
                 continue
-        
-        print "%s -> %s %s" % (username,event.to_user,event.from_user)
         
         # Turn tags into hyperlinks in promise
         note_id = event.note_id
@@ -406,9 +403,9 @@ def generate_debt(request):
             if file.content_type == 'text/csv':
                 generate_debt_from_file(request.user,file)
             else:
-                error = _('Formato inadecuado')
+                error = _("The attached file doesn't have the right format. Please review it and try again.")
         else:
-                error = _('Por favor anexe un archivo')    
+                error = _('Please attach a file.')    
         
     variables = {
         'page':'batch_printer',

@@ -1,0 +1,438 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-09-01 23:09+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: templates/base.html:42
+msgid "Login"
+msgstr ""
+
+#: templates/base.html:48 templates/base.html.py:50
+msgid "Tracker"
+msgstr ""
+
+#: templates/base.html:56 templates/base.html.py:58 templates/printer.html:60
+msgid "Printer"
+msgstr ""
+
+#: templates/base.html:66 templates/base.html.py:69
+#: templates/batch_printer.html:8
+msgid "Batch Printer"
+msgstr ""
+
+#: templates/base.html:74 templates/base.html.py:76 templates/trustnet.html:44
+msgid "Network"
+msgstr ""
+
+#: templates/base.html:79
+msgid "Help"
+msgstr ""
+
+#: templates/base.html:81
+msgid "Logout"
+msgstr ""
+
+#: templates/base.html:96
+msgid "FAQ"
+msgstr ""
+
+#: templates/batch_printer.html:11 templates/printer.html:63
+msgid "Creating debt:"
+msgstr ""
+
+#: templates/batch_printer.html:14
+msgid ""
+"To create debt to many users at the same time you should create an attach a "
+"CSV file with following format:"
+msgstr ""
+
+#: templates/batch_printer.html:16
+msgid ""
+"@bearer (without @),TEJA's number,#hashtag (without #),How,Expiration (in "
+"days)"
+msgstr ""
+
+#: templates/batch_printer.html:17
+msgid "bearer1,1,Event1,with a blog post,10"
+msgstr ""
+
+#: templates/batch_printer.html:18
+msgid "bearer2,1,Event1,with a meeting with,10"
+msgstr ""
+
+#: templates/batch_printer.html:21
+msgid "Keep in mind that Twitter just allows 140 characters."
+msgstr ""
+
+#: templates/batch_printer.html:24 templates/batch_printer.html.py:26
+msgid "Bearers:"
+msgstr ""
+
+#: templates/batch_printer.html:30
+msgid "Send"
+msgstr ""
+
+#: templates/force.html:32
+msgid "This map represents trust relationships between #PunkMoney users."
+msgstr ""
+
+#: templates/force.html:34 templates/trustnet.html:48
+msgid "Mouse over"
+msgstr ""
+
+#: templates/force.html:34
+msgid " a user to see their name."
+msgstr ""
+
+#: templates/force.html:35 templates/trustnet.html:49
+msgid "Click"
+msgstr ""
+
+#: templates/force.html:35
+msgid " on a user to learn more about them."
+msgstr ""
+
+#: templates/force.html:37
+msgid "Find out more."
+msgstr ""
+
+#: templates/need.html:25 templates/note.html:23 templates/offer.html:26
+#: templates/request.html:29
+msgid "[OPEN]"
+msgstr ""
+
+#: templates/need.html:30 templates/offer.html:35 templates/request.html:41
+msgid "[CLOSED]"
+msgstr ""
+
+#: templates/need.html:36 templates/note.html:35 templates/offer.html:43
+#: templates/request.html:52
+msgid "[EXPIRED]"
+msgstr ""
+
+#: templates/need.html:42 templates/note.html:53 templates/offer.html:59
+#: templates/request.html:66 templates/thanks.html:32
+msgid "Created:"
+msgstr ""
+
+#: templates/need.html:44 templates/note.html:56 templates/offer.html:62
+#: templates/request.html:68
+msgid "Expiry:"
+msgstr ""
+
+#: templates/need.html:49 templates/note.html:50 templates/offer.html:56
+#: templates/request.html:63 templates/thanks.html:36
+msgid "Link:"
+msgstr ""
+
+#: templates/need.html:54 templates/note.html:62 templates/offer.html:73
+#: templates/request.html:74 templates/thanks.html:42
+msgid "Tags:"
+msgstr ""
+
+#: templates/need.html:85 templates/request.html:107
+msgid "[Promise]"
+msgstr ""
+
+#: templates/need.html:87 templates/offer.html:110 templates/request.html:109
+msgid "[Close]"
+msgstr ""
+
+#: templates/need.html:96 templates/note.html:107 templates/offer.html:123
+#: templates/request.html:121
+msgid "History"
+msgstr ""
+
+#: templates/note.html:25
+msgid "[NON-TRANSFERABLE]"
+msgstr ""
+
+#: templates/note.html:31
+msgid "[REDEEMED]"
+msgstr ""
+
+#: templates/note.html:40 templates/offer.html:49 templates/request.html:59
+#: templates/thanks.html:29
+msgid "Issuer:"
+msgstr ""
+
+#: templates/note.html:41 templates/request.html:60 templates/thanks.html:30
+msgid "Bearer:"
+msgstr ""
+
+#: templates/note.html:46 templates/offer.html:68
+msgid "Condition:"
+msgstr ""
+
+#: templates/note.html:91
+msgid "[Redeemed]"
+msgstr ""
+
+#: templates/note.html:95
+msgid "[Transfer]"
+msgstr ""
+
+#: templates/offer.html:108
+msgid "[Request]"
+msgstr ""
+
+#: templates/printer.html:17 templates/printer.html.py:95
+msgid "Expires in"
+msgstr ""
+
+#: templates/printer.html:22 templates/printer.html.py:23
+#: templates/printer.html:73
+msgid "committed with"
+msgstr ""
+
+#: templates/printer.html:22 templates/printer.html.py:23
+#: templates/printer.html:83
+msgid "by"
+msgstr ""
+
+#: templates/printer.html:69
+msgid "Bearer"
+msgstr ""
+
+#: templates/printer.html:85
+msgid "Event hashtag"
+msgstr ""
+
+#: templates/printer.html:91
+msgid "Options"
+msgstr ""
+
+#: templates/printer.html:99
+msgid "minutes"
+msgstr ""
+
+#: templates/printer.html:100
+msgid "hours"
+msgstr ""
+
+#: templates/printer.html:101
+msgid "days"
+msgstr ""
+
+#: templates/printer.html:102
+msgid "months"
+msgstr ""
+
+#: templates/printer.html:103
+msgid "years"
+msgstr ""
+
+#: templates/printer.html:119
+msgid "Your @monedaTEJA:"
+msgstr ""
+
+#: templates/request.html:27 templates/request.html.py:39
+#: templates/request.html:50
+msgid "[REQUEST]"
+msgstr ""
+
+#: templates/thanks.html:25
+msgid "[THANKS]"
+msgstr ""
+
+#: templates/ticker.html:8 templates/ticker.html.py:32
+#: templates/tracker.html:121 templates/tracker.html.py:130
+msgid "[ X ]"
+msgstr ""
+
+#: templates/ticker.html:8
+msgid "'s request for"
+msgstr ""
+
+#: templates/ticker.html:8 templates/ticker.html.py:32
+msgid "expired."
+msgstr ""
+
+#: templates/ticker.html:12 templates/tracker.html:117
+#: templates/tracker.html.py:126
+msgid "[ R ]"
+msgstr ""
+
+#: templates/ticker.html:12
+msgid "requested"
+msgstr ""
+
+#: templates/ticker.html:12
+msgid "from"
+msgstr ""
+
+#: templates/ticker.html:17 templates/tracker.html:120
+#: templates/tracker.html.py:129
+msgid "[ O ]"
+msgstr ""
+
+#: templates/ticker.html:17
+msgid "offers"
+msgstr ""
+
+#: templates/ticker.html:22 templates/tracker.html:118
+#: templates/tracker.html.py:127
+msgid "[ Tr ]"
+msgstr ""
+
+#: templates/ticker.html:22
+msgid "transferred"
+msgstr ""
+
+#: templates/ticker.html:22 templates/ticker.html.py:32
+msgid "to"
+msgstr ""
+
+#: templates/ticker.html:27 templates/tracker.html:119
+#: templates/tracker.html.py:128
+msgid "[ T ]"
+msgstr ""
+
+#: templates/ticker.html:27
+msgid "thanked"
+msgstr ""
+
+#: templates/ticker.html:27
+msgid "for"
+msgstr ""
+
+#: templates/ticker.html:32
+msgid "promise of"
+msgstr ""
+
+#: templates/tracker.html:75
+msgid "(Updates once per minute)"
+msgstr ""
+
+#: templates/tracker.html:116 templates/tracker.html.py:125
+#: templates/user.html:59
+msgid "[ All ]"
+msgstr ""
+
+#: templates/trustnet.html:46
+msgid "This map represents gratitude between @monedaTEJA users."
+msgstr ""
+
+#: templates/trustnet.html:48
+msgid "a user to see their name."
+msgstr ""
+
+#: templates/trustnet.html:49
+msgid "on a user to learn more about them."
+msgstr ""
+
+#: templates/trustnet.html:51
+msgid "To appear on the list you need to"
+msgstr ""
+
+#: templates/trustnet.html:51
+msgid "thank"
+msgstr ""
+
+#: templates/trustnet.html:51
+msgid "or"
+msgstr ""
+
+#: templates/trustnet.html:51
+msgid "be thanked"
+msgstr ""
+
+#: templates/trustnet.html:51
+msgid "by someone"
+msgstr ""
+
+#: templates/user.html:26
+msgid "Balance:"
+msgstr ""
+
+#: templates/user.html:26
+msgid "(requests - verified)"
+msgstr ""
+
+#: templates/user.html:30
+msgid "Requests:"
+msgstr ""
+
+#: templates/user.html:31
+msgid "Verified:"
+msgstr ""
+
+#: templates/user.html:32
+msgid "Received:"
+msgstr ""
+
+#: templates/user.html:33
+msgid "Received with problems:"
+msgstr ""
+
+#: templates/user.html:34
+msgid "Expired:"
+msgstr ""
+
+#: templates/user.html:39
+msgid "Requests received:"
+msgstr ""
+
+#: templates/user.html:40
+msgid "Validated:"
+msgstr ""
+
+#: templates/user.html:41
+msgid "Sent:"
+msgstr ""
+
+#: templates/user.html:42
+msgid "Sent with problems:"
+msgstr ""
+
+#: templates/user.html:43
+msgid "Request expired:"
+msgstr ""
+
+#: templates/user.html:61
+msgid "[ Requests ]"
+msgstr ""
+
+#: templates/user.html:63
+msgid "[ Transfer ]"
+msgstr ""
+
+#: templates/user.html:65
+msgid "[ Thanks ]"
+msgstr ""
+
+#: templates/user.html:67
+msgid "[ Offers ]"
+msgstr ""
+
+#: templates/user.html:69
+msgid "[ Expired ]"
+msgstr ""
+
+#: templates/user_info.html:28
+msgid "See all [&rarr;]"
+msgstr ""
+
+#: tracker/views.py:406
+msgid ""
+"The attached file doesn't have the right format. Please review it and try "
+"again."
+msgstr ""
+
+#: tracker/views.py:408
+msgid "Please attach a file."
+msgstr ""

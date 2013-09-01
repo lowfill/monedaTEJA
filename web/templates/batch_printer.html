@@ -8,26 +8,26 @@
 	<h3 style='display: inline'>{%trans "Batch Printer" %}</h3>
 	<hr class="space">
 
-	<span id="promised">{%trans "Creando deuda:" %}</span> <br>
+	<span id="promised">{%trans "Creating debt:" %}</span> <br>
 
 	<hr class="space">
-	<p>{%trans "Para generar deuda a varios usuarios necesitas crear un archivo con el siguiente formato:" %}</p>
+	<p>{%trans "To create debt to many users at the same time you should create an attach a CSV file with following format:" %}</p>
 	<pre>
-	{%trans "@deudor (sin el @),Numero de Tejas,#hashtag (sin el #),Como,Expiración en dias" %}
-	{%trans "deudor1,1,Evento1,con un post en su blog,10"%}
-	{%trans "deudor2,1,Evento1,con un post en su blog,10"%}
+	{%trans "@bearer (without @),TEJA's number,#hashtag (without #),How,Expiration (in days)" %}
+	{%trans "bearer1,1,Event1,with a blog post,10"%}
+	{%trans "bearer2,1,Event1,with a meeting with,10"%}
 	... 
 	</pre>
-	<p>{%trans "Ten en cuenta que Twitter tiene la limitación de 140 caracteres." %}</p>
+	<p>{%trans "Keep in mind that Twitter just allows 140 characters." %}</p>
 	<form action="/generate_debt/" method="POST" enctype="multipart/form-data">
 	{% csrf_token %}
-	{%trans "Deudores:"%} <h3 style="display: inline" id="printer">
+	{%trans "Bearers:"%} <h3 style="display: inline" id="printer">
 		<input name="recipients" style='display: inline' type="file"
-			maxlength="20" size="20" placeholder="deudor">
+			maxlength="20" size="20" placeholder="{%trans "Bearers:"%}">
 	</h3>
 
 	<hr class="space">
-	<input type="submit" value="{%trans "Enviar"%}">
+	<input type="submit" value="{%trans "Send"%}">
 	</form>
 </div>
 {% endblock %}

@@ -14,13 +14,13 @@
 		exp_unit = $('#exptype').val()
 
 		if (exp_val > 0) {
-			expiry = '{%trans "Expira en"%} ' + exp_val + ' ' + exp_unit + '. ';
+			expiry = '{%trans "Expires in"%} ' + exp_val + ' ' + exp_unit + '. ';
 		} else {
 			expiry = ''
 		}
 
-		note = '@' + recipient + ' {%trans "se enredó con"%} #' + promise + ' {%trans "por "}#'+event.toLowerCase().replace(' ','')+'. ' + expiry + ' @{{issuer}}'
-		note_encoded = escape('@' + recipient) + ' {%trans "se enredó con"} '+escape('#' + promise) + ' {%trans "por"} '+escape('#'+event.toLowerCase().replace(' ',''))+'. ' + expiry + escape(' @{{issuer}}')
+		note = '@' + recipient + ' {%trans "committed with"%} #' + promise + ' {%trans "by"%} #'+event.toLowerCase().replace(' ','')+'. ' + expiry + ' @{{issuer}}'
+		note_encoded = escape('@' + recipient) + ' {%trans "committed with"%} '+escape('#' + promise) + ' {%trans "by"%} '+escape('#'+event.toLowerCase().replace(' ',''))+'. ' + expiry + escape(' @{{issuer}}')
 
 		note_formatted = '<h3 id=\"printed\">' + note + '</h3>'
 
@@ -60,17 +60,17 @@
 	<h3 style='display: inline'>{%trans "Printer"%}</h3>
 	<hr class="space">
 
-	<span id="promised">{%trans "Creando deuda:"%}</span> <br>
+	<span id="promised">{%trans "Creating debt:"%}</span> <br>
 
 	<hr class="space">
 
 	<h3 style="display: inline" id="printer">
 		@<input id="recipient" style='display: inline' type="text"
-			maxlength="20" size="20" placeholder="deudor">
+			maxlength="20" size="20" placeholder="{%trans "Bearer" %}">
 	</h3>
 
 	<h3 id="printer" style="display: inline">
-		{%trans "se enredó con"%} 
+		{%trans "committed with"%} 
 		<select id="promise">
 			<option value="1T">#1T</option>
 			<option value="2T">#2T</option>
@@ -80,9 +80,9 @@
 	</h3>
 
 	<h3 id="printer" style="display: inline">
-		{%trans "por"%} 
+		{%trans "by"%} #
 		<input id="event" type="text" maxlength="55" size="20"
-			placeholder="Nombre del evento">.
+			placeholder="{%trans "Event hashtag" %}">.
 	</h3>
 
 	<hr class="space">
@@ -96,11 +96,11 @@
 			placeholder="10" value="30"> 
 			<select id="exptype" >
 
-			<option id="{%trans "minutos"%}">{%trans "minutes"%}</option>
-			<option id="{%trans "horas"%}">{%trans "hours"%}</option>
-			<option id="{%trans "días"%}" selected>{%trans "días"%}</option>
-			<option id="{%trans "meses"%}">{%trans "meses"%}</option>
-			<option id="{%trans "años"%}">{%trans "años"%}</option>
+			<option id="{%trans "minutes"%}">{%trans "minutes"%}</option>
+			<option id="{%trans "hours"%}">{%trans "hours"%}</option>
+			<option id="{%trans "days"%}" selected>{%trans "days"%}</option>
+			<option id="{%trans "months"%}">{%trans "months"%}</option>
+			<option id="{%trans "years"%}">{%trans "years"%}</option>
 
 		</select>
 

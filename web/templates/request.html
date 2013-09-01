@@ -63,15 +63,15 @@
 		  {%trans "Link:"%}" <a href="{{ url }}"><b>{{ display_url }}</b></a><br>
 		{% endif %}
 
-		<p>{%trans "Created:"%}" <b>{{ note.created }}</b><br>
+		<p>{%trans "Created:"%} <b>{{ note.created }}</b><br>
         {% ifnotequal note.expiry None %}
-		  {%trans "Expiry:"%}" <b>{{ note.expiry }}</b>
+		  {%trans "Expiry:"%} <b>{{ note.expiry }}</b>
 		{% endifnotequal %}
 		</p>
 		
         <!-- TAGS -->
         {% if tags %}
-        {%trans "Tags:"%}"
+        {%trans "Tags:"%}
     		{% for tag in tags %}
     		      &nbsp;<span id="tag"><a href="/t/{{tag}}">#{{ tag }}</a></span>
     		{% endfor %}
@@ -117,6 +117,9 @@
 	</div>
 	
 	<div class="span-15">
+		<hr class="space">
+		<h4>{%trans "History"%}</h4>
+		<div id="ticker"></div>
 	</div>
 
 {% endblock %}
