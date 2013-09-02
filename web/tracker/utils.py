@@ -10,8 +10,9 @@ from social_auth.models import UserSocialAuth
 import operator
 
 from tracker.models import *
-from local_settings import TWITTER_CONSUMER_KEY,TWITTER_CONSUMER_SECRET,ISSUER_ACCOUNT
+from local_settings import TWITTER_CONSUMER_KEY,TWITTER_CONSUMER_SECRET,ISSUER_ACCOUNT,TW_ACCESS_KEY, TW_ACCESS_SECRET
 import tweepy
+import dateutil
 
 
 '''
@@ -221,12 +222,10 @@ def relatedTags(base_tags = None):
     # Return tags    
     return tags_final
     
-def connectTwitter(user):
+def connectTwitter():
         try:
-            oauth_info = user.social_auth.filter(provider='twitter')[0]
-            tokens = oauth_info.tokens
             auth = tweepy.OAuthHandler(TWITTER_CONSUMER_KEY, TWITTER_CONSUMER_SECRET)
-            auth.set_access_token(tokens['oauth_token'], tokens['oauth_token_secret'])
+            auth.set_access_token(TW_ACCESS_KEY, TW_ACCESS_SECRET)
             api = tweepy.API(auth)
         except Exception, e:
             raise Exception("Error connecting to Twitter API: %s" % e)
@@ -249,15 +248,15 @@ def generate_debt_from_file(user,fileObject):
         #raise Exception("Error connecting to Twitter API: %s" % e)
         return False
         
-def saveUser(request):
-    username = request.user.username
+def saveUser(username):
+    username = username.lower()
     try:
         user = users.objects.get(username=username)
     except:
-        user = users.objects.create(username=username)
+        user = users.objects.create_user_by_username(username=username)
         
-    api = connectTwitter(UserSocialAuth.resolve_user_or_id(request.user.id))
-    tuser = api.get_user(request.user.username)
+    api = connectTwitter()
+    tuser = api.get_user(username)
     user.icon_url = tuser.profile_image_url
     user.name = tuser.name
     user.about = tuser.description

@@ -1,6 +1,8 @@
 from django.db import models
 from adaptor.model import CsvModel
 from adaptor.fields import CharField, IntegerField
+import datetime
+
 
 class events(models.Model):
     id = models.AutoField(primary_key=True)
@@ -57,6 +59,14 @@ class tweets(models.Model):
     class Meta:
         db_table = u'tracker_tweets'
 
+class usersManager(models.Manager):
+    def create_user_by_username(self,username):
+        try:
+            user =self.create(username=username,date_joined=datetime.datetime.now())
+        except Exception,e:
+            print e
+        return user
+    
 class users(models.Model):
     id = models.AutoField(primary_key=True)
     username = models.CharField(max_length=90, blank=True)
@@ -67,6 +77,7 @@ class users(models.Model):
     last_login = models.DateTimeField()
     date_joined = models.DateTimeField()
     is_active = models.BooleanField()
+    objects = usersManager()
     class Meta:
         db_table = u'tracker_users'
         

@@ -36,7 +36,7 @@ def disconnect(request):
 
 def finish_login(request):
     if request.user:
-        saveUser(request)
+        saveUser(request.user.username)
         
     return HttpResponseRedirect('/tracker')
 
@@ -298,9 +298,9 @@ def user(request, username):
     
     # karma
     karma = getKarma(username)
-    
-    user = users.objects.get(username=username)
-    
+
+    user = saveUser(username=username) 
+        
     # combine events
     variables = {
         'username':username,
