@@ -5,6 +5,8 @@ from django.utils import simplejson
 from django.db.models import Q
 from django.template import RequestContext
 
+from social_auth.models import UserSocialAuth
+
 import operator
 
 from tracker.models import *
@@ -247,3 +249,18 @@ def generate_debt_from_file(user,fileObject):
         #raise Exception("Error connecting to Twitter API: %s" % e)
         return False
         
+def saveUser(request):
+    username = request.user.username
+    try:
+        user = users.objects.get(username=username)
+    except:
+        user = users.objects.create(username=username)
+        
+    api = connectTwitter(UserSocialAuth.resolve_user_or_id(request.user.id))
+    tuser = api.get_user(request.user.username)
+    user.icon_url = tuser.profile_image_url
+    user.name = tuser.name
+    user.about = tuser.description
+    user.save()
+
+    return user

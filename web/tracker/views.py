@@ -1,5 +1,6 @@
 from django.http import HttpResponse,HttpResponseRedirect
 from django.contrib.auth import logout as auth_logout
+from django.contrib.auth import get_user
 from django.contrib.auth.decorators import login_required
 from django.template import RequestContext
 from django.shortcuts import render_to_response, redirect
@@ -31,6 +32,12 @@ def error(request):
 def disconnect(request):
     """Logs out user"""
     auth_logout(request)
+    return HttpResponseRedirect('/tracker')
+
+def finish_login(request):
+    if request.user:
+        saveUser(request)
+        
     return HttpResponseRedirect('/tracker')
 
 def home(request):
@@ -233,14 +240,7 @@ def faq(request):
     return render_to_response('faq.html', {},RequestContext(request))    
 
 def user(request, username):
-        
-    user_icon = 'https://twimg0-a.akamaihd.net/sticky/default_profile_images/default_profile_5_normal.png'
-    #if request.user:
-        #connectTwitter(UserSocialAuth.resolve_user_or_id(user.id))
-        #api = connectTwitter(request)
-        #user_icon = api.get_user(username).profile_image_url
-            
-    variables = {}
+    
 
     requests=events.objects.filter(to_user=username,type=10).count()
     received=events.objects.filter(to_user=username,type=3).count()
@@ -299,6 +299,8 @@ def user(request, username):
     # karma
     karma = getKarma(username)
     
+    user = users.objects.get(username=username)
+    
     # combine events
     variables = {
         'username':username,
@@ -309,7 +311,8 @@ def user(request, username):
         'trusters':trusters_list,
         'top_trusters':top_trusters,
         'karma':karma,
-        'user_icon':user_icon,
+        'user_icon':user.icon_url,
+        'about':user.about,
         'requests':requests,
         'received':received,
         'verified':verified,

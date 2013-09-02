@@ -74,6 +74,7 @@ urlpatterns = patterns('',
     
     #django-social-auth
     url(r'^error/$', 'tracker.views.error', name='error'),
+    url(r'^finish_login/$', 'tracker.views.finish_login', name='error'),
     url(r'^disconnect/$', 'tracker.views.disconnect', name='user'),
     url(r'', include('social_auth.urls')),
     

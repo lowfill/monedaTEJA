@@ -60,6 +60,9 @@ class tweets(models.Model):
 class users(models.Model):
     id = models.AutoField(primary_key=True)
     username = models.CharField(max_length=90, blank=True)
+    name = models.CharField(max_length=200, blank=True)
+    about = models.CharField(max_length=600, blank=True)
+    icon_url = models.CharField(max_length=420, blank=True)
     karma = models.IntegerField(null=True, blank=True)
     last_login = models.DateTimeField()
     date_joined = models.DateTimeField()

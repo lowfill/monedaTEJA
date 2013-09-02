@@ -32,6 +32,7 @@ class Parser(Harvester):
                             'me debe',
                             'debe',
                             'se compromete con',
+                            u'se comprometió con',
                             u'se enredó con'],
                       'thanks':['@(\w+) gracias|gracias! (por)?(.*)']}
     def __init__(self):
@@ -521,8 +522,14 @@ class Parser(Harvester):
                 return True
             else:
                 self.logInfo("Saving new user %s" % username)
-                query = "INSERT INTO tracker_users (username,last_login,date_joined) VALUES (%s,NOW(),NOW())"
-                params = (username.lower())
+                api = self.connectTwitter()
+                tuser = api.get_user(username.lower())
+                icon_url = tuser.profile_image_url
+                name = tuser.name
+                about = tuser.description
+
+                query = "INSERT INTO tracker_users (username,icon_url,name,about,last_login,date_joined) VALUES (%s,%s,%s,%s,NOW(),NOW())"
+                params = (username.lower(),icon_url,name,about)
                 self.queryDB(query, params)
                 
                 # Send intro tweet

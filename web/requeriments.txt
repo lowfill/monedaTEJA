@@ -1,0 +1,7 @@
+django>=1.5.2
+tweepy>=2.1
+python-dateutil>=1.5
+mysql-python>=1.2.3
+South>=0.8.2
+django-adaptors>=0.2.5
+django-social-auth>=0.7.25
