@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-09-01 23:34+0200\n"
+"POT-Creation-Date: 2013-09-02 12:00+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Diego Andrés Ramírez Aragón <dramirezaragon@gmail.com>\n"
 "Language-Team: es <dramirezaragon@gmail.com>\n"
@@ -25,7 +25,7 @@ msgstr "Ingresar"
 msgid "Tracker"
 msgstr "Seguimiento"
 
-#: templates/base.html:56 templates/base.html.py:58 templates/printer.html:60
+#: templates/base.html:56 templates/base.html.py:58 templates/printer.html:62
 msgid "Printer"
 msgstr "Generar deuda"
 
@@ -59,7 +59,7 @@ msgstr "Preguntas frecuentes"
 msgid "Based on"
 msgstr "Basado en"
 
-#: templates/batch_printer.html:11 templates/printer.html:63
+#: templates/batch_printer.html:11 templates/printer.html:65
 msgid "Creating debt:"
 msgstr "Generando deuda:"
 
@@ -203,53 +203,62 @@ msgstr "[Transferido]"
 msgid "[Request]"
 msgstr "[Requerimiento]"
 
-#: templates/printer.html:17 templates/printer.html.py:95
+#: templates/printer.html:18 templates/printer.html.py:103
 msgid "Expires in"
 msgstr "Expira en"
 
-#: templates/printer.html:22 templates/printer.html.py:23
-#: templates/printer.html:73
+#: templates/printer.html:23 templates/printer.html.py:24
+#: templates/printer.html:75
 msgid "committed with"
 msgstr "se comprometió con"
 
-#: templates/printer.html:22 templates/printer.html.py:23
-#: templates/printer.html:83
-msgid "by"
-msgstr "por"
+#: templates/printer.html:23 templates/printer.html.py:24
+#: templates/printer.html:85
+msgid "in"
+msgstr "en"
 
-#: templates/printer.html:69
+#: templates/printer.html:23 templates/printer.html.py:24
+#: templates/printer.html:91
+msgid "with"
+msgstr "con"
+
+#: templates/printer.html:71
 msgid "Bearer"
 msgstr "Portador"
 
-#: templates/printer.html:85
+#: templates/printer.html:87
 msgid "Event hashtag"
 msgstr "Hashtag del evento"
 
-#: templates/printer.html:91
+#: templates/printer.html:93
+msgid "Compromise action"
+msgstr "acción de compromiso. eg. un blog post"
+
+#: templates/printer.html:99
 msgid "Options"
 msgstr "Opciones"
 
-#: templates/printer.html:99
+#: templates/printer.html:107
 msgid "minutes"
 msgstr "minutos"
 
-#: templates/printer.html:100
+#: templates/printer.html:108
 msgid "hours"
 msgstr "horas"
 
-#: templates/printer.html:101
+#: templates/printer.html:109
 msgid "days"
 msgstr "días"
 
-#: templates/printer.html:102
+#: templates/printer.html:110
 msgid "months"
 msgstr "meses"
 
-#: templates/printer.html:103
+#: templates/printer.html:111
 msgid "years"
 msgstr "años"
 
-#: templates/printer.html:119
+#: templates/printer.html:127
 msgid "Your @monedaTEJA:"
 msgstr "Tu @montedaTEJA:"
 
@@ -451,3 +460,6 @@ msgstr ""
 #: tracker/views.py:408
 msgid "Please attach a file."
 msgstr "Por favor anexe un archivo."
+
+#~ msgid "by"
+#~ msgstr "por"

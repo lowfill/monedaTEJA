@@ -104,6 +104,9 @@ h3#printer {
 	line-height: 2em;
 }
 
+.printer-messages{
+	float:right;
+}
 
 /* LISTS */
 

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-09-01 23:34+0200\n"
+"POT-Creation-Date: 2013-09-02 12:00+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -25,7 +25,7 @@ msgstr ""
 msgid "Tracker"
 msgstr ""
 
-#: templates/base.html:56 templates/base.html.py:58 templates/printer.html:60
+#: templates/base.html:56 templates/base.html.py:58 templates/printer.html:62
 msgid "Printer"
 msgstr ""
 
@@ -58,7 +58,7 @@ msgstr ""
 msgid "Based on"
 msgstr ""
 
-#: templates/batch_printer.html:11 templates/printer.html:63
+#: templates/batch_printer.html:11 templates/printer.html:65
 msgid "Creating debt:"
 msgstr ""
 
@@ -198,53 +198,62 @@ msgstr ""
 msgid "[Request]"
 msgstr ""
 
-#: templates/printer.html:17 templates/printer.html.py:95
+#: templates/printer.html:18 templates/printer.html.py:103
 msgid "Expires in"
 msgstr ""
 
-#: templates/printer.html:22 templates/printer.html.py:23
-#: templates/printer.html:73
+#: templates/printer.html:23 templates/printer.html.py:24
+#: templates/printer.html:75
 msgid "committed with"
 msgstr ""
 
-#: templates/printer.html:22 templates/printer.html.py:23
-#: templates/printer.html:83
-msgid "by"
+#: templates/printer.html:23 templates/printer.html.py:24
+#: templates/printer.html:85
+msgid "in"
 msgstr ""
 
-#: templates/printer.html:69
+#: templates/printer.html:23 templates/printer.html.py:24
+#: templates/printer.html:91
+msgid "with"
+msgstr ""
+
+#: templates/printer.html:71
 msgid "Bearer"
 msgstr ""
 
-#: templates/printer.html:85
+#: templates/printer.html:87
 msgid "Event hashtag"
 msgstr ""
 
-#: templates/printer.html:91
-msgid "Options"
+#: templates/printer.html:93
+msgid "Compromise action"
 msgstr ""
 
 #: templates/printer.html:99
+msgid "Options"
+msgstr ""
+
+#: templates/printer.html:107
 msgid "minutes"
 msgstr ""
 
-#: templates/printer.html:100
+#: templates/printer.html:108
 msgid "hours"
 msgstr ""
 
-#: templates/printer.html:101
+#: templates/printer.html:109
 msgid "days"
 msgstr ""
 
-#: templates/printer.html:102
+#: templates/printer.html:110
 msgid "months"
 msgstr ""
 
-#: templates/printer.html:103
+#: templates/printer.html:111
 msgid "years"
 msgstr ""
 
-#: templates/printer.html:119
+#: templates/printer.html:127
 msgid "Your @monedaTEJA:"
 msgstr ""
 

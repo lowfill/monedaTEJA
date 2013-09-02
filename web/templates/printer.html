@@ -9,6 +9,7 @@
 
 		promise = $('#promise').val()
 		event = $('#event').val()
+		event_action = $('#event_action').val()
 		recipient = $('#recipient').val()
 		exp_val = $('#expiry').val()
 		exp_unit = $('#exptype').val()
@@ -19,13 +20,27 @@
 			expiry = ''
 		}
 
-		note = '@' + recipient + ' {%trans "committed with"%} #' + promise + ' {%trans "by"%} #'+event.toLowerCase().replace(' ','')+'. ' + expiry + ' @{{issuer}}'
-		note_encoded = escape('@' + recipient) + ' {%trans "committed with"%} '+escape('#' + promise) + ' {%trans "by"%} '+escape('#'+event.toLowerCase().replace(' ',''))+'. ' + expiry + escape(' @{{issuer}}')
+		note = '@' + recipient + ' {%trans "committed with"%} #' + promise + ' {%trans "in"%} #'+event.replace(' ','')+ ' {%trans "with"%} ' + event_action +'. ' + expiry + ' @{{issuer}}'
+		note_encoded = escape('@' + recipient) + ' {%trans "committed with"%} '+escape('#' + promise) + ' {%trans "in"%} '+escape('#'+event.replace(' ',''))+ ' {%trans "with"%} '+ event_action +'. ' + expiry + escape(' @{{issuer}}')
 
 		note_formatted = '<h3 id=\"printed\">' + note + '</h3>'
 
 		$('div.output').html(note_formatted);
 
+		char_left = 140 - note.length;
+		$('#messages').text(char_left);
+		if(char_left < 0){
+			$('#messages').removeClass('notice');
+			$('#messages').addClass('error');
+		}
+		else if(char_left < 10){
+			$('#messages').removeClass('error');
+			$('#messages').addClass('notice');
+		}
+		else{	
+			$('#messages').removeClass('error');
+		}
+		
 
 		url = 'https://twitter.com/share?url=&text=' + note_encoded;
 
@@ -37,13 +52,12 @@
 
 	$(document).ready(function() {
 
-		$('#promise').keyup(print);
+		$('#promise').change(print);
 		$('#event').keyup(print);
+		$('#event_action').keyup(print);
 		$('#recipient').keyup(print);
 		$('#expiry').keyup(print);
 		$('#exptype').change(print);
-		$('#transferable').change(print);
-
 		$('#tweetbutton').hide();
 
 	})
@@ -80,9 +94,15 @@
 	</h3>
 
 	<h3 id="printer" style="display: inline">
-		{%trans "by"%} #
-		<input id="event" type="text" maxlength="55" size="20"
-			placeholder="{%trans "Event hashtag" %}">.
+		{%trans "in"%} #
+		<input id="event" type="text" maxlength="20" size="20"
+			placeholder="{%trans "Event hashtag" %}">
+	</h3>
+
+	<h3 id="printer" style="display: inline">
+		{%trans "with" %} 
+		<input id="event_action" type="text" maxlength="55" size="50"
+			placeholder="{%trans "Compromise action" %}">.
 	</h3>
 
 	<hr class="space">
@@ -121,9 +141,9 @@
 	<hr class="space">
 
 	<div class="output"></div>
+	<div id="messages" class="printer-messages"></div>
 
 	<hr class="space">
-
 	<div id="tweetbutton">
 		<a class="tweet" href="https://twitter.com/share?url=''&amp;text="
 			target="_blank"><img src="/static/tweet.png" width=60></a>
