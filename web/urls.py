@@ -38,44 +38,32 @@ urlpatterns = patterns('',
     url(r'^ticker/type/(?P<type>\d+)/tags/(?P<tag_1>\w+)/$', 'tracker.views.ticker', name='ticker'),
     url(r'^ticker/type/(?P<type>\d+)/tags/(?P<tag_1>\w+)/(?P<tag_2>\w+)/$', 'tracker.views.ticker', name='ticker'),
     url(r'^ticker/type/(?P<type>\d+)/tags/(?P<tag_1>\w+)/(?P<tag_2>\w+)/(?P<tag_3>\w+)/$', 'tracker.views.ticker', name='ticker'),
-    
-    # Press
-    
-    url(r'^press/$', 'tracker.views.press', name='press'),
-    
-    # Press
-    
-    url(r'^faq/$', 'tracker.views.faq', name='faq'),
-    
+
     # search
-    
     url(r'^search/(?P<term>.*)$', 'tracker.views.search', name='search'),
     
+    # Static pages
+    # Press
+    url(r'^about/$', 'tracker.views.about', name='about'),
+    url(r'^faq/$', 'tracker.views.faq', name='faq'),
+    url(r'^help/$', 'tracker.views.help', name='help'),
+
     # other patterns
     
     url(r'^network/$', 'tracker.views.shownet', name='network'),
-    
     url(r'^print/$', 'tracker.views.printer', name='showlist'),
-    
     url(r'^batch_printer/$', 'tracker.views.batch_printer', name='showlist'),
     url(r'^generate_debt/$', 'tracker.views.generate_debt', name='generateDebt'),
-    
     url(r'^user/(?P<username>\w+)$', 'tracker.views.user', name='user'),
-    
     url(r'^note/(?P<noteid>\w+)$', 'tracker.views.getnote', name='note'),
     
-    url(r'^help/$', 'tracker.views.help', name='help'),
-    
     # trust list
-
     url(r'^graph/$', 'tracker.views.trustnet', name='graph'),
-    
     url(r'^user_info/(?P<username>\w+)$', 'tracker.views.user_info', name='user_info'),
     
     #django-social-auth
     url(r'^error/$', 'tracker.views.error', name='error'),
     url(r'^finish_login/$', 'tracker.views.finish_login', name='error'),
     url(r'^disconnect/$', 'tracker.views.disconnect', name='user'),
-    url(r'', include('social_auth.urls')),
-    
+    url(r'', include('social_auth.urls')),    
 )

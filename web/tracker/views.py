@@ -231,9 +231,9 @@ def shownet(request):
     
     return render_to_response('trustnet.html', variables,RequestContext(request))   
     
-def press(request):
+def about(request):
     
-    return render_to_response('press.html', {},RequestContext(request))  
+    return render_to_response('about.html', {},RequestContext(request))  
     
 def faq(request):
     
@@ -443,3 +443,37 @@ def search(request, term=None):
     return HttpResponse(url)
 
 
+# Returns user_info for trustnet sidebar   
+def user_info(request, username):
+
+    # Find number of people who trust this user
+    trusted_by = trustlist.objects.filter(trusted=username)    
+    trusted_num = len(trusted_by)
+
+    # Add trusters to list
+    trusted_list = []
+    for t in trusted_by:
+        trusted_list.append(t.user)
+
+    # Find number of people who this user trusts
+    trusts = trustlist.objects.filter(user=username)    
+    trusts_num = len(trusts)
+    
+    # Add people user trusts to list
+    trusts_list = []
+    for t in trusts:
+        trusts_list.append(t.trusted)
+    
+    karma = getKarma(username)
+    
+    user = saveUser(username);
+    
+    # Return variables
+    variables = {
+        'karma':karma,
+        'username':username,
+        'user_icon':user.icon_url
+    }
+    
+    return render_to_response('user_info.html', variables,RequestContext(request))
+    

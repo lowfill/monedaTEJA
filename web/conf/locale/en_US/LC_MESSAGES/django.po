@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-09-02 12:00+0200\n"
+"POT-Creation-Date: 2013-09-05 15:36+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,48 +17,56 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+#: templates/base.html:28
+msgid "Tag(s) or username"
+msgstr ""
+
 #: templates/base.html:42
 msgid "Login"
 msgstr ""
 
-#: templates/base.html:48 templates/base.html.py:50
+#: templates/base.html:46
+msgid "About"
+msgstr ""
+
+#: templates/base.html:51 templates/base.html.py:53
 msgid "Tracker"
 msgstr ""
 
-#: templates/base.html:56 templates/base.html.py:58 templates/printer.html:62
+#: templates/base.html:59 templates/base.html.py:61 templates/printer.html:74
 msgid "Printer"
 msgstr ""
 
-#: templates/base.html:66 templates/base.html.py:69
+#: templates/base.html:69 templates/base.html.py:72
 #: templates/batch_printer.html:8
 msgid "Batch Printer"
 msgstr ""
 
-#: templates/base.html:74 templates/base.html.py:76 templates/trustnet.html:44
+#: templates/base.html:77 templates/base.html.py:79 templates/trustnet.html:44
 msgid "Network"
 msgstr ""
 
-#: templates/base.html:79
+#: templates/base.html:82
 msgid "Help"
 msgstr ""
 
-#: templates/base.html:81
+#: templates/base.html:84
 msgid "Logout"
 msgstr ""
 
-#: templates/base.html:95
+#: templates/base.html:98
 msgid "por"
 msgstr ""
 
-#: templates/base.html:96
+#: templates/base.html:99
 msgid "FAQ"
 msgstr ""
 
-#: templates/base.html:101
+#: templates/base.html:104
 msgid "Based on"
 msgstr ""
 
-#: templates/batch_printer.html:11 templates/printer.html:65
+#: templates/batch_printer.html:11 templates/printer.html:77
 msgid "Creating debt:"
 msgstr ""
 
@@ -198,62 +206,62 @@ msgstr ""
 msgid "[Request]"
 msgstr ""
 
-#: templates/printer.html:18 templates/printer.html.py:103
+#: templates/printer.html:18 templates/printer.html.py:121
 msgid "Expires in"
 msgstr ""
 
 #: templates/printer.html:23 templates/printer.html.py:24
-#: templates/printer.html:75
+#: templates/printer.html:87
 msgid "committed with"
 msgstr ""
 
 #: templates/printer.html:23 templates/printer.html.py:24
-#: templates/printer.html:85
+#: templates/printer.html:103
 msgid "in"
 msgstr ""
 
 #: templates/printer.html:23 templates/printer.html.py:24
-#: templates/printer.html:91
+#: templates/printer.html:109
 msgid "with"
 msgstr ""
 
-#: templates/printer.html:71
+#: templates/printer.html:83
 msgid "Bearer"
 msgstr ""
 
-#: templates/printer.html:87
+#: templates/printer.html:105
 msgid "Event hashtag"
 msgstr ""
 
-#: templates/printer.html:93
+#: templates/printer.html:111
 msgid "Compromise action"
 msgstr ""
 
-#: templates/printer.html:99
+#: templates/printer.html:117
 msgid "Options"
 msgstr ""
 
-#: templates/printer.html:107
+#: templates/printer.html:125
 msgid "minutes"
 msgstr ""
 
-#: templates/printer.html:108
+#: templates/printer.html:126
 msgid "hours"
 msgstr ""
 
-#: templates/printer.html:109
+#: templates/printer.html:127
 msgid "days"
 msgstr ""
 
-#: templates/printer.html:110
+#: templates/printer.html:128
 msgid "months"
 msgstr ""
 
-#: templates/printer.html:111
+#: templates/printer.html:129
 msgid "years"
 msgstr ""
 
-#: templates/printer.html:127
+#: templates/printer.html:145
 msgid "Your @monedaTEJA:"
 msgstr ""
 
@@ -336,7 +344,7 @@ msgid "(Updates once per minute)"
 msgstr ""
 
 #: templates/tracker.html:116 templates/tracker.html.py:125
-#: templates/user.html:59
+#: templates/user.html:62
 msgid "[ All ]"
 msgstr ""
 
@@ -372,71 +380,71 @@ msgstr ""
 msgid "by someone"
 msgstr ""
 
-#: templates/user.html:26
+#: templates/user.html:38
 msgid "Balance:"
 msgstr ""
 
-#: templates/user.html:26
+#: templates/user.html:38
 msgid "(requests - verified)"
 msgstr ""
 
-#: templates/user.html:30
+#: templates/user.html:42
 msgid "Requests:"
 msgstr ""
 
-#: templates/user.html:31
+#: templates/user.html:43
 msgid "Verified:"
 msgstr ""
 
-#: templates/user.html:32
+#: templates/user.html:44
 msgid "Received:"
 msgstr ""
 
-#: templates/user.html:33
+#: templates/user.html:45
 msgid "Received with problems:"
 msgstr ""
 
-#: templates/user.html:34
+#: templates/user.html:46
 msgid "Expired:"
 msgstr ""
 
-#: templates/user.html:39
+#: templates/user.html:51
 msgid "Requests received:"
 msgstr ""
 
-#: templates/user.html:40
+#: templates/user.html:52
 msgid "Validated:"
 msgstr ""
 
-#: templates/user.html:41
+#: templates/user.html:53
 msgid "Sent:"
 msgstr ""
 
-#: templates/user.html:42
+#: templates/user.html:54
 msgid "Sent with problems:"
 msgstr ""
 
-#: templates/user.html:43
+#: templates/user.html:55
 msgid "Request expired:"
 msgstr ""
 
-#: templates/user.html:61
+#: templates/user.html:64
 msgid "[ Requests ]"
 msgstr ""
 
-#: templates/user.html:63
+#: templates/user.html:66
 msgid "[ Transfer ]"
 msgstr ""
 
-#: templates/user.html:65
+#: templates/user.html:68
 msgid "[ Thanks ]"
 msgstr ""
 
-#: templates/user.html:67
+#: templates/user.html:70
 msgid "[ Offers ]"
 msgstr ""
 
-#: templates/user.html:69
+#: templates/user.html:72
 msgid "[ Expired ]"
 msgstr ""
 
@@ -444,12 +452,12 @@ msgstr ""
 msgid "See all [&rarr;]"
 msgstr ""
 
-#: tracker/views.py:406
+#: tracker/views.py:409
 msgid ""
 "The attached file doesn't have the right format. Please review it and try "
 "again."
 msgstr ""
 
-#: tracker/views.py:408
+#: tracker/views.py:411
 msgid "Please attach a file."
 msgstr ""

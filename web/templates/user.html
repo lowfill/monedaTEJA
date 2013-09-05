@@ -21,30 +21,8 @@
 {% endblock %} 
 {% block main %}
 
-<div style="float: right; text-align: right; width: 45%;margin-right:10%;padding:0 1em 0 1em">
-	<h3 style="margin-top:0;padding-top:0">
-		{%trans "Balance:"%} {{balance}} <small>{%trans "(requests - verified)"%}</small>
-	</h3>
-	<div style="float:left">
-		<p>
-			<b>{%trans "Requests:"%}</b> {{requests}}<br> 
-			<b>{%trans "Verified:"%}</b> {{verified}}<br> 
-			<b>{%trans "Received:"%}</b> {{received}}<br>
-			<b>{%trans "Received with problems:"%}</b> {{withproblems}}<br>
-			<b>{%trans "Expired:"%}</b> {{expired}}<br>
-		</p>
-	</div>
-	<div>
-		<p>
-			<b>{%trans "Requests received:"%}</b> {{requests_received}}<br> 
-			<b>{%trans "Validated:"%}</b> {{validated}}<br>
-			<b>{%trans "Sent:"%}</b> {{sent}}<br> 
-			<b>{%trans "Sent with problems:"%}</b> {{sentwithproblems}}<br>
-			<b>{%trans "Request expired:"%}</b> {{expired_to}}<br>
-		</p>
-	</div>
-</div>
-<div style="float:left;max-width:40%">
+
+<div class="span-9">
 <a target=blank href="http://www.twitter.com/{{ username }}"> <img
 	style="padding: 5px;" width="50" align="left" src="{{ user_icon }}">
 </a>
@@ -53,7 +31,30 @@
 	</h3>
 	</span>
 <br>
-<p>{{about}}</p>
+<p class="prepend-2">{{about}}</p>
+</div>
+<div class="span-9 prepend-1 append-1 last">
+	<h3 style="margin-top:0;padding-top:0">
+		{%trans "Balance:"%} {{balance}} <small>{%trans "(requests - verified)"%}</small>
+	</h3>
+	<div class="span-4">
+		<p>
+			<b>{%trans "Requests:"%}</b> {{requests}}<br> 
+			<b>{%trans "Verified:"%}</b> {{verified}}<br> 
+			<b>{%trans "Received:"%}</b> {{received}}<br>
+			<b>{%trans "Received with problems:"%}</b> {{withproblems}}<br>
+			<b>{%trans "Expired:"%}</b> {{expired}}<br>
+		</p>
+	</div>
+	<div class="span-4 last">
+		<p>
+			<b>{%trans "Requests received:"%}</b> {{requests_received}}<br> 
+			<b>{%trans "Validated:"%}</b> {{validated}}<br>
+			<b>{%trans "Sent:"%}</b> {{sent}}<br> 
+			<b>{%trans "Sent with problems:"%}</b> {{sentwithproblems}}<br>
+			<b>{%trans "Request expired:"%}</b> {{expired_to}}<br>
+		</p>
+	</div>
 </div>
 <hr class="Space">
 <hr class="Space">

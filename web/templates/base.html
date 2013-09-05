@@ -16,7 +16,7 @@
 <body>
 	<div class="container">
 		<!-- HEADER -->
-		<div id="header" class="span-22 prepend-1">
+		<div id="header" class="span-24">
 			<div id="left" class="span-10">
 				<a href="/"><img src="/static/img/monedatejalogo.png" width="250"></a>
 			</div>
@@ -25,7 +25,7 @@
 				<br> <br>
 				<div id="search">
 					<img src="/static/search.png" id="search_icon"> 
-					<input type="search" id="searchbox" placeholder="Tag(s) or username" size="25" onchange="javascript:search()">
+					<input type="search" id="searchbox" placeholder="{%trans "Tag(s) or username"%}" size="25" onchange="javascript:search()">
 				</div>
 			</div>
 			<hr>
@@ -33,7 +33,7 @@
 
 		<!-- NAVIGATION -->
 
-		<div id="nav" class="span-1 prepend-1">
+		<div id="nav" class="span-4">
 			<ul>
 				<hr class="space">
 				{% if user.is_authenticated %}
@@ -41,6 +41,9 @@
 				{% else %}
 					<li><a href="{% url "socialauth_begin" "twitter" %}">{%trans "Login" %}</a></li>
 				{% endif %}
+				
+				<hr class="space">
+					<li><a href="/about">{%trans "About" %}</a></li>
 
 				<hr class="space">
 
@@ -83,7 +86,7 @@
 			</ul>
 		</div>
 		<!-- MAIN -->
-		<div id="main" class="span-19 prepend-2 last">
+		<div id="main" class="span-20 last">
 			<hr class="space">
 			{% block main %} {% endblock %}
 		</div>

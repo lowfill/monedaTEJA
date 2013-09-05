@@ -1,9 +1,7 @@
 # -*- coding: utf-8 -*-
 from django.http import HttpResponse
-from django.shortcuts import render_to_response
 from django.utils import simplejson
 from django.db.models import Q
-from django.template import RequestContext
 
 from social_auth.models import UserSocialAuth
 
@@ -12,7 +10,6 @@ import operator
 from tracker.models import *
 from local_settings import TWITTER_CONSUMER_KEY,TWITTER_CONSUMER_SECRET,ISSUER_ACCOUNT,TW_ACCESS_KEY, TW_ACCESS_SECRET
 import tweepy
-import dateutil
 
 
 '''
@@ -94,37 +91,6 @@ def trustnet(request):
     return HttpResponse(data, mimetype='application/javascript')
 
 
-# Returns user_info for trustnet sidebar   
-def user_info(request, username):
-
-    # Find number of people who trust this user
-    trusted_by = trustlist.objects.filter(trusted=username)    
-    trusted_num = len(trusted_by)
-
-    # Add trusters to list
-    trusted_list = []
-    for t in trusted_by:
-        trusted_list.append(t.user)
-
-    # Find number of people who this user trusts
-    trusts = trustlist.objects.filter(user=username)    
-    trusts_num = len(trusts)
-    
-    # Add people user trusts to list
-    trusts_list = []
-    for t in trusts:
-        trusts_list.append(t.trusted)
-    
-    karma = getKarma(username)
-    
-    # Return variables
-    variables = {
-        'karma':karma,
-        'username':username,
-    }
-    
-    return render_to_response('user_info.html', variables,RequestContext(request))
-    
     
 ''' HELPERS '''
 
@@ -254,12 +220,13 @@ def saveUser(username):
         user = users.objects.get(username=username)
     except:
         user = users.objects.create_user_by_username(username=username)
-        
-    api = connectTwitter()
-    tuser = api.get_user(username)
-    user.icon_url = tuser.profile_image_url
-    user.name = tuser.name
-    user.about = tuser.description
-    user.save()
+    
+    if user.icon_url == "":    
+        api = connectTwitter()
+        tuser = api.get_user(username)
+        user.icon_url = tuser.profile_image_url
+        user.name = tuser.name
+        user.about = tuser.description
+        user.save()
 
     return user

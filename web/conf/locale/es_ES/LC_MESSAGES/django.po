@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-09-02 12:00+0200\n"
+"POT-Creation-Date: 2013-09-05 15:36+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Diego Andrés Ramírez Aragón <dramirezaragon@gmail.com>\n"
 "Language-Team: es <dramirezaragon@gmail.com>\n"
@@ -17,49 +17,57 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+#: templates/base.html:28
+msgid "Tag(s) or username"
+msgstr "Tag(s) o nombre de usuario"
+
 #: templates/base.html:42
 msgid "Login"
 msgstr "Ingresar"
 
-#: templates/base.html:48 templates/base.html.py:50
+#: templates/base.html:46
+msgid "About"
+msgstr "¿Qué es @monedaTEJA?"
+
+#: templates/base.html:51 templates/base.html.py:53
 msgid "Tracker"
 msgstr "Seguimiento"
 
-#: templates/base.html:56 templates/base.html.py:58 templates/printer.html:62
+#: templates/base.html:59 templates/base.html.py:61 templates/printer.html:74
 msgid "Printer"
 msgstr "Generar deuda"
 
-#: templates/base.html:66 templates/base.html.py:69
+#: templates/base.html:69 templates/base.html.py:72
 #: templates/batch_printer.html:8
 msgid "Batch Printer"
 msgstr "Generar deuda en lotes"
 
-#: templates/base.html:74 templates/base.html.py:76 templates/trustnet.html:44
+#: templates/base.html:77 templates/base.html.py:79 templates/trustnet.html:44
 msgid "Network"
 msgstr "Red"
 
-#: templates/base.html:79
+#: templates/base.html:82
 msgid "Help"
 msgstr "Ayuda"
 
-#: templates/base.html:81
+#: templates/base.html:84
 msgid "Logout"
 msgstr "Salir"
 
-#: templates/base.html:95
+#: templates/base.html:98
 #, fuzzy
 msgid "por"
 msgstr "o"
 
-#: templates/base.html:96
+#: templates/base.html:99
 msgid "FAQ"
 msgstr "Preguntas frecuentes"
 
-#: templates/base.html:101
+#: templates/base.html:104
 msgid "Based on"
 msgstr "Basado en"
 
-#: templates/batch_printer.html:11 templates/printer.html:65
+#: templates/batch_printer.html:11 templates/printer.html:77
 msgid "Creating debt:"
 msgstr "Generando deuda:"
 
@@ -203,62 +211,62 @@ msgstr "[Transferido]"
 msgid "[Request]"
 msgstr "[Requerimiento]"
 
-#: templates/printer.html:18 templates/printer.html.py:103
+#: templates/printer.html:18 templates/printer.html.py:121
 msgid "Expires in"
 msgstr "Expira en"
 
 #: templates/printer.html:23 templates/printer.html.py:24
-#: templates/printer.html:75
+#: templates/printer.html:87
 msgid "committed with"
 msgstr "se comprometió con"
 
 #: templates/printer.html:23 templates/printer.html.py:24
-#: templates/printer.html:85
+#: templates/printer.html:103
 msgid "in"
 msgstr "en"
 
 #: templates/printer.html:23 templates/printer.html.py:24
-#: templates/printer.html:91
+#: templates/printer.html:109
 msgid "with"
 msgstr "con"
 
-#: templates/printer.html:71
+#: templates/printer.html:83
 msgid "Bearer"
 msgstr "Portador"
 
-#: templates/printer.html:87
+#: templates/printer.html:105
 msgid "Event hashtag"
 msgstr "Hashtag del evento"
 
-#: templates/printer.html:93
+#: templates/printer.html:111
 msgid "Compromise action"
 msgstr "acción de compromiso. eg. un blog post"
 
-#: templates/printer.html:99
+#: templates/printer.html:117
 msgid "Options"
 msgstr "Opciones"
 
-#: templates/printer.html:107
+#: templates/printer.html:125
 msgid "minutes"
 msgstr "minutos"
 
-#: templates/printer.html:108
+#: templates/printer.html:126
 msgid "hours"
 msgstr "horas"
 
-#: templates/printer.html:109
+#: templates/printer.html:127
 msgid "days"
 msgstr "días"
 
-#: templates/printer.html:110
+#: templates/printer.html:128
 msgid "months"
 msgstr "meses"
 
-#: templates/printer.html:111
+#: templates/printer.html:129
 msgid "years"
 msgstr "años"
 
-#: templates/printer.html:127
+#: templates/printer.html:145
 msgid "Your @monedaTEJA:"
 msgstr "Tu @montedaTEJA:"
 
@@ -341,7 +349,7 @@ msgid "(Updates once per minute)"
 msgstr "(Actualizaciones una vez por minuto)"
 
 #: templates/tracker.html:116 templates/tracker.html.py:125
-#: templates/user.html:59
+#: templates/user.html:62
 msgid "[ All ]"
 msgstr "[ Todos ]"
 
@@ -377,71 +385,71 @@ msgstr "haber sido agradecido"
 msgid "by someone"
 msgstr "por otro usuario de @monedaTEJA"
 
-#: templates/user.html:26
+#: templates/user.html:38
 msgid "Balance:"
 msgstr "Balance:"
 
-#: templates/user.html:26
+#: templates/user.html:38
 msgid "(requests - verified)"
 msgstr "(peticiones recibidas - verificadas)"
 
-#: templates/user.html:30
+#: templates/user.html:42
 msgid "Requests:"
 msgstr "Peticiones:"
 
-#: templates/user.html:31
+#: templates/user.html:43
 msgid "Verified:"
 msgstr "Verificadas"
 
-#: templates/user.html:32
+#: templates/user.html:44
 msgid "Received:"
 msgstr "Recibidas:"
 
-#: templates/user.html:33
+#: templates/user.html:45
 msgid "Received with problems:"
 msgstr "Recibidas con problemas:"
 
-#: templates/user.html:34
+#: templates/user.html:46
 msgid "Expired:"
 msgstr "Expiradas:"
 
-#: templates/user.html:39
+#: templates/user.html:51
 msgid "Requests received:"
 msgstr "Peticiones recibidas:"
 
-#: templates/user.html:40
+#: templates/user.html:52
 msgid "Validated:"
 msgstr "Validadas:"
 
-#: templates/user.html:41
+#: templates/user.html:53
 msgid "Sent:"
 msgstr "Enviadas:"
 
-#: templates/user.html:42
+#: templates/user.html:54
 msgid "Sent with problems:"
 msgstr "Enviadas con problemas:"
 
-#: templates/user.html:43
+#: templates/user.html:55
 msgid "Request expired:"
 msgstr "Peticiones expiradas:"
 
-#: templates/user.html:61
+#: templates/user.html:64
 msgid "[ Requests ]"
 msgstr "[ Peticiones ]"
 
-#: templates/user.html:63
+#: templates/user.html:66
 msgid "[ Transfer ]"
 msgstr "[ Transferencias ]"
 
-#: templates/user.html:65
+#: templates/user.html:68
 msgid "[ Thanks ]"
 msgstr "[ Agradecimientos ]"
 
-#: templates/user.html:67
+#: templates/user.html:70
 msgid "[ Offers ]"
 msgstr "[ Ofrecimientos ]"
 
-#: templates/user.html:69
+#: templates/user.html:72
 msgid "[ Expired ]"
 msgstr "[ Expiradas ]"
 
@@ -449,7 +457,7 @@ msgstr "[ Expiradas ]"
 msgid "See all [&rarr;]"
 msgstr "Ver todas [&rarr;]"
 
-#: tracker/views.py:406
+#: tracker/views.py:409
 msgid ""
 "The attached file doesn't have the right format. Please review it and try "
 "again."
@@ -457,7 +465,7 @@ msgstr ""
 "El archivo seleccionado no tiene el formato correcto. Por favor revíselo y "
 "trate nuevamente."
 
-#: tracker/views.py:408
+#: tracker/views.py:411
 msgid "Please attach a file."
 msgstr "Por favor anexe un archivo."
 
