@@ -1,14 +1,15 @@
-'''
+#monedaTEJA#
 
-monedaTEJA 0.1 based on monedateja 0.25 
+monedaTEJA 0.1 based on punkmoney 0.25
+
 by Diego Andrés Ramírez Aragón (@lowfill)
 by Eli Gothill (@webisteme)
 
-www.monedateja.net
+http://www.monedateja.net
 
-'''
 
 ABOUT
+-----
 
 @monedaTEJA is a set of natural language protocols which enable a gift economy on Twitter. monedateja 0.1 is the second iteration of the @monedaTEJA tracker for finding, interpreting and recording @monedaTEJA statements.
 
@@ -16,34 +17,37 @@ To find out more about @monedaTEJA, visit http://www.monedateja.net
 
 
 LICENSE
+-------
 
 This software is released under the MIT Open Source License (MIT). Please see LICENSE.txt.
 
 
 DEPENDENCIES
+------------
 
-Python 2.7+
-Django 1.5.2+
-MySQL Server 5.5+
-Unix environment (with cron)
+- Python 2.7+
+- Django 1.5.2+
+- MySQL Server 5.5+
+- Unix environment (with cron)
 
 Web dependencies:
 
-Blueprint CSS (included)
-d3 Javascript Library (included)
+- Blueprint CSS (included)
+- d3 Javascript Library (included)
 
 Python dependencies:
 
-Tweepy >= 2.1 (https://github.com/tweepy/tweepy)
-Dateutils >= 1.5 (http://labix.org/python-dateutil)
-MySQL for Python >= 1.2.3 (http://sourceforge.net/projects/mysql-python/)
-South >= 0.8.2 (http://south.aeracode.org/)
-django-adaptors >= 0.2.5 (https://github.com/anthony-tresontani/django-adaptors)
-django-social-auth >= 0.7.25(https://github.com/omab/django-social-auth)
+- Tweepy >= 2.1 (https://github.com/tweepy/tweepy)
+- Dateutils >= 1.5 (http://labix.org/python-dateutil)
+- MySQL for Python >= 1.2.3 (http://sourceforge.net/projects/mysql-python/)
+- South >= 0.8.2 (http://south.aeracode.org/)
+- django-adaptors >= 0.2.5 (https://github.com/anthony-tresontani/django-adaptors)
+- django-social-auth >= 0.7.25(https://github.com/omab/django-social-auth)
 
 INSTALLATION
+------------
 
-monedateja has two parts: a tracker for finding, interpreting and storing @monedaTEJA statements and gestures from the Twitter API, and a web interface for displaying them. Both parts need to be configured separately, in this order:
+monedaTEJA has two parts: a tracker for finding, interpreting and storing @monedaTEJA statements and gestures from the Twitter API, and a web interface for displaying them. Both parts need to be configured separately, in this order:
 
 Web interface (Django):
 
@@ -71,6 +75,7 @@ Check the logs and/or database to ensure the cron tasks are running properly
 
 
 NOTES
+-----
 
 The @monedaTEJA wiki is located at http://wiki.monedateja.org and contains the development roadmap and details on the project.
 
@@ -78,6 +83,7 @@ For testing purposes, please use your own hasthag rather than @monedaTEJA or #pm
 
 
 SUPPORT
+-------
 
 Contact dramirezaragon[@]gmail[.]com or @lowfill for help, feedback or bug reports.
 
