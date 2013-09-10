@@ -9,22 +9,22 @@
         {% endifequal %}
 
         {% ifequal event.type 10 %}
-		<span id="request">{%trans "[ R ]"%}</span> {{ event.timestamp|date:"M d G:i" }}<span><b> <a href="/user/{{ event.to_user }}">{{ event.to_user }}</a></b> {%trans "requested"%} <span id="promise"><a href="/note/{{ event.note_id }}">{{ event.promise }}</a></span></b> {%trans "from"%} <span><b> <a href="/user/{{ event.from_user }}">{{ event.from_user }}.</a></b>
+		<span id="request">{%trans "[ Cm ]"%}</span> {{ event.timestamp|date:"M d G:i" }}<span><b> <a href="/user/{{ event.to_user }}">{{ event.to_user }}</a></b> {%trans "requested"%} <span id="promise"><a href="/note/{{ event.note_id }}">{{ event.promise }}</a></span></b> {%trans "from"%} <span><b> <a href="/user/{{ event.from_user }}">{{ event.from_user }}.</a></b>
         <a href="http://www.twitter.com/{{event.to_user}}/status/{{event.note_id}}" target="_blank">[&rarr;]</a>
 		{% endifequal %}
 
         {% ifequal event.type 4 %}
-		<span id="offer">{%trans "[ O ]"%}</span> {{ event.timestamp|date:"M d G:i" }}<span><b> <a href="/user/{{ event.from_user }}">{{ event.from_user }}</a></b> {%trans "offers"%} <span id="promise"><a href="/note/{{ event.note_id }}">{{ event.promise }}</a></span></b>. 
+		<span id="offer">{%trans "[ E ]"%}</span> {{ event.timestamp|date:"M d G:i" }}<span><b> <a href="/user/{{ event.from_user }}">{{ event.from_user }}</a></b> {%trans "offers"%} <span id="promise"><a href="/note/{{ event.note_id }}">{{ event.promise }}</a></span></b>. 
 		<a href="http://www.twitter.com/{{event.from_user}}/status/{{event.note_id}}" target="_blank">[&rarr;]</a>
 		{% endifequal %}
 		
         {% ifequal event.type 3 %}
-		<span id="Transfer">{%trans "[ Tr ]"%}</span> {{ event.timestamp|date:"M d G:i" }}<span><b> <a href="/user/{{ event.from_user }}">{{ event.from_user }}</a></b> {%trans "transferred"%} <span id="promise"><a href="/note/{{ event.note_id }}">{{ event.promise }}</a></span> {%trans "to"%} <b><a href="/user/{{ event.to_user }}">{{ event.to_user }}</a></b>. 
+		<span id="Transfer">{%trans "[ C ]"%}</span> {{ event.timestamp|date:"M d G:i" }}<span><b> <a href="/user/{{ event.from_user }}">{{ event.from_user }}</a></b> {%trans "transferred"%} <span id="promise"><a href="/note/{{ event.note_id }}">{{ event.promise }}</a></span> {%trans "to"%} <b><a href="/user/{{ event.to_user }}">{{ event.to_user }}</a></b>. 
 		<a href="http://www.twitter.com/{{event.from_user}}/status/{{event.note_id}}" target="_blank">[&rarr;]</a>
 		{% endifequal %}
 		
 		{% ifequal event.type 1 %}
-		<span id="redemption">{%trans "[ T ]"%}</span> {{ event.timestamp|date:"M d G:i" }} <span> <b><a href="/user/{{ event.from_user }}">{{ event.from_user }}</a></b> {%trans "thanked"%} <b><a href="/user/{{ event.to_user }}">{{ event.to_user }}</a></b> {%trans "for"%} <span id="promise"><a href="/note/{{ event.note_id }}">{{ event.promise }}</a></span>.
+		<span id="redemption">{%trans "[ C ]"%}</span> {{ event.timestamp|date:"M d G:i" }} <span> <b><a href="/user/{{ event.from_user }}">{{ event.from_user }}</a></b> {%trans "thanked"%} <b><a href="/user/{{ event.to_user }}">{{ event.to_user }}</a></b> {%trans "for"%} <span id="promise"><a href="/note/{{ event.note_id }}">{{ event.promise }}</a></span>.
 		<a href="http://www.twitter.com/{{event.from_user}}/status/{{event.note_id}}" target="_blank">[&rarr;]</a>
 		{% endifequal %}
 		

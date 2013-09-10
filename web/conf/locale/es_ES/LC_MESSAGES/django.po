@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-09-05 15:36+0200\n"
+"POT-Creation-Date: 2013-09-10 16:46+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Diego Andrés Ramírez Aragón <dramirezaragon@gmail.com>\n"
 "Language-Team: es <dramirezaragon@gmail.com>\n"
@@ -55,7 +55,6 @@ msgid "Logout"
 msgstr "Salir"
 
 #: templates/base.html:98
-#, fuzzy
 msgid "por"
 msgstr "o"
 
@@ -282,11 +281,11 @@ msgstr "[GRACIAS]"
 #: templates/ticker.html:8 templates/ticker.html.py:32
 #: templates/tracker.html:121 templates/tracker.html.py:130
 msgid "[ X ]"
-msgstr "[ E ]"
+msgstr "[ X ]"
 
 #: templates/ticker.html:8
 msgid "'s request for"
-msgstr "la petición de "
+msgstr " la petición de "
 
 #: templates/ticker.html:8 templates/ticker.html.py:32
 msgid "expired."
@@ -294,8 +293,8 @@ msgstr "expiró."
 
 #: templates/ticker.html:12 templates/tracker.html:117
 #: templates/tracker.html.py:126
-msgid "[ R ]"
-msgstr "[ P ]"
+msgid "[ Cm ]"
+msgstr "[ Cp ]"
 
 #: templates/ticker.html:12
 msgid "requested"
@@ -307,17 +306,17 @@ msgstr "a"
 
 #: templates/ticker.html:17 templates/tracker.html:120
 #: templates/tracker.html.py:129
-msgid "[ O ]"
-msgstr "[ O ]"
+msgid "[ E ]"
+msgstr "[ E ]"
 
 #: templates/ticker.html:17
 msgid "offers"
 msgstr "ofreció"
 
-#: templates/ticker.html:22 templates/tracker.html:118
-#: templates/tracker.html.py:127
-msgid "[ Tr ]"
-msgstr "[ Tr ]"
+#: templates/ticker.html:22 templates/ticker.html.py:27
+#: templates/tracker.html:118 templates/tracker.html.py:127
+msgid "[ C ]"
+msgstr "[ C ]"
 
 #: templates/ticker.html:22
 msgid "transferred"
@@ -326,11 +325,6 @@ msgstr "transfirió"
 #: templates/ticker.html:22 templates/ticker.html.py:32
 msgid "to"
 msgstr "a"
-
-#: templates/ticker.html:27 templates/tracker.html:119
-#: templates/tracker.html.py:128
-msgid "[ T ]"
-msgstr "[ A ]"
 
 #: templates/ticker.html:27
 msgid "thanked"
@@ -349,9 +343,13 @@ msgid "(Updates once per minute)"
 msgstr "(Actualizaciones una vez por minuto)"
 
 #: templates/tracker.html:116 templates/tracker.html.py:125
-#: templates/user.html:62
+#: templates/user.html:61
 msgid "[ All ]"
 msgstr "[ Todos ]"
+
+#: templates/tracker.html:119 templates/tracker.html.py:128
+msgid "[ V ]"
+msgstr "[ V ]"
 
 #: templates/trustnet.html:46
 msgid "This map represents gratitude between @monedaTEJA users."
@@ -386,70 +384,54 @@ msgid "by someone"
 msgstr "por otro usuario de @monedaTEJA"
 
 #: templates/user.html:38
-msgid "Balance:"
-msgstr "Balance:"
+msgid "Committed with me"
+msgstr "Comprometidos conmigo"
 
-#: templates/user.html:38
-msgid "(requests - verified)"
-msgstr "(peticiones recibidas - verificadas)"
+#: templates/user.html:40
+msgid "Issued"
+msgstr "Emitidas"
 
-#: templates/user.html:42
-msgid "Requests:"
-msgstr "Peticiones:"
+#: templates/user.html:41 templates/user.html.py:51
+msgid "Completed"
+msgstr "Completadas"
 
-#: templates/user.html:43
-msgid "Verified:"
+#: templates/user.html:42 templates/user.html.py:52
+msgid "Verified"
 msgstr "Verificadas"
 
-#: templates/user.html:44
-msgid "Received:"
-msgstr "Recibidas:"
+#: templates/user.html:43 templates/user.html.py:53
+msgid "With errors"
+msgstr "Con errores"
 
-#: templates/user.html:45
-msgid "Received with problems:"
-msgstr "Recibidas con problemas:"
+#: templates/user.html:44 templates/user.html.py:54
+msgid "Expired"
+msgstr "Expiradas"
 
-#: templates/user.html:46
-msgid "Expired:"
-msgstr "Expiradas:"
+#: templates/user.html:48
+msgid "I committed myself"
+msgstr "Me he comprometido"
 
-#: templates/user.html:51
-msgid "Requests received:"
-msgstr "Peticiones recibidas:"
+#: templates/user.html:50
+msgid "Pending"
+msgstr "Pendientes"
 
-#: templates/user.html:52
-msgid "Validated:"
-msgstr "Validadas:"
+#: templates/user.html:63
+msgid "[ Commitments ]"
+msgstr "[ Compromisos ]"
 
-#: templates/user.html:53
-msgid "Sent:"
-msgstr "Enviadas:"
+#: templates/user.html:65
+msgid "[ Completed ]"
+msgstr "[ Completadas ]"
 
-#: templates/user.html:54
-msgid "Sent with problems:"
-msgstr "Enviadas con problemas:"
+#: templates/user.html:67
+msgid "[ Verified ]"
+msgstr "[ Verificadas ]"
 
-#: templates/user.html:55
-msgid "Request expired:"
-msgstr "Peticiones expiradas:"
+#: templates/user.html:69
+msgid "[ With errors ]"
+msgstr "[ Con errores ]"
 
-#: templates/user.html:64
-msgid "[ Requests ]"
-msgstr "[ Peticiones ]"
-
-#: templates/user.html:66
-msgid "[ Transfer ]"
-msgstr "[ Transferencias ]"
-
-#: templates/user.html:68
-msgid "[ Thanks ]"
-msgstr "[ Agradecimientos ]"
-
-#: templates/user.html:70
-msgid "[ Offers ]"
-msgstr "[ Ofrecimientos ]"
-
-#: templates/user.html:72
+#: templates/user.html:71
 msgid "[ Expired ]"
 msgstr "[ Expiradas ]"
 
@@ -468,6 +450,3 @@ msgstr ""
 #: tracker/views.py:411
 msgid "Please attach a file."
 msgstr "Por favor anexe un archivo."
-
-#~ msgid "by"
-#~ msgstr "por"

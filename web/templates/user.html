@@ -34,25 +34,24 @@
 <p class="prepend-2">{{about}}</p>
 </div>
 <div class="span-9 prepend-1 append-1 last">
-	<h3 style="margin-top:0;padding-top:0">
-		{%trans "Balance:"%} {{balance}} <small>{%trans "(requests - verified)"%}</small>
-	</h3>
 	<div class="span-4">
+		<h3>{%trans "Committed with me"%}</h3>
 		<p>
-			<b>{%trans "Requests:"%}</b> {{requests}}<br> 
-			<b>{%trans "Verified:"%}</b> {{verified}}<br> 
-			<b>{%trans "Received:"%}</b> {{received}}<br>
-			<b>{%trans "Received with problems:"%}</b> {{withproblems}}<br>
-			<b>{%trans "Expired:"%}</b> {{expired}}<br>
+			<b>{%trans "Issued"%}:</b> {{requests}}<br> 
+			<b>{%trans "Completed"%}:</b> {{verified}}<br> 
+			<b>{%trans "Verified"%}:</b> {{received}}<br>
+			<b>{%trans "With errors"%}:</b> {{withproblems}}<br>
+			<b>{%trans "Expired"%}:</b> {{expired}}<br>
 		</p>
 	</div>
 	<div class="span-4 last">
+		<h3>{%trans "I committed myself"%}</h3>
 		<p>
-			<b>{%trans "Requests received:"%}</b> {{requests_received}}<br> 
-			<b>{%trans "Validated:"%}</b> {{validated}}<br>
-			<b>{%trans "Sent:"%}</b> {{sent}}<br> 
-			<b>{%trans "Sent with problems:"%}</b> {{sentwithproblems}}<br>
-			<b>{%trans "Request expired:"%}</b> {{expired_to}}<br>
+			<b>{%trans "Pending"%}:</b> {{requests_received}}<br> 
+			<b>{%trans "Completed"%}:</b> {{validated}}<br>
+			<b>{%trans "Verified"%}:</b> {{sent}}<br> 
+			<b>{%trans "With errors"%}:</b> {{sentwithproblems}}<br>
+			<b>{%trans "Expired"%}:</b> {{expired_to}}<br>
 		</p>
 	</div>
 </div>
@@ -61,59 +60,18 @@
 
 <a href="javascript:loadRecent()">{%trans "[ All ]"%}</a>
 &nbsp;
-<a href="javascript:load(10)"><span id="request">{%trans "[ Requests ]"%}</span></a>
+<a href="javascript:load(10)"><span id="request">{%trans "[ Commitments ]"%}</span></a>
 &nbsp;
-<a href="javascript:load(3)"><span id="transfer">{%trans "[ Transfer ]"%}</span></a>
+<a href="javascript:load(3)"><span id="transfer">{%trans "[ Completed ]"%}</span></a>
 &nbsp;
-<a href="javascript:load(1)"><span id="redemption">{%trans "[ Thanks ]"%}</span></a>
+<a href="javascript:load(1)"><span id="redemption">{%trans "[ Verified ]"%}</span></a>
 &nbsp;
-<a href="javascript:load(4)"><span id="offer">{%trans "[ Offers ]"%}</span></a>
+<a href="javascript:load(4)"><span id="offer">{%trans "[ With errors ]"%}</span></a>
 &nbsp;
 <a href="javascript:load(12)"><span id="expiration">{%trans "[ Expired ]"%}</span></a>
 &nbsp;
 <hr>
 
-
 <div id="ticker"></div>
-
-<!--
-
-{% if notes_issued %}
-
-<span><h4>Notes issued</h4></span>
-
-    {% for note in notes_issued %}
-    
-    	<p>
-    
-    	<span id="promised">[ P ]</span> {{ note.created|date:"M d G:i" }} promised <b><a href="/user/{{ note.bearer }}">{{ note.bearer }}</a></b>  <a href="/note/{{ note.id }}"> <span id="promise">{{ note.promise }}</span> [&rarr;]</a>
-    	
-    	</p>
-    	
-    	
-    {% endfor %}
-
-{% endif %}
-
-<hr class="Space">
-
-{% if notes_held %}
-
-<span><h4>Notes held</h4></span>
-
-{% for note in notes_held %}
-
-	<p>
-
-	<span id="promised">[ P ]</span> {{ note.created|date:"M d G:i" }} <b> <a href="/user/{{ note.issuer }}">{{ note.issuer }}</a></b> promised <span id="promise">{{ note.promise }}</span><a href="/note/{{ note.id }}"> [&rarr;]</a>
-
-	</p>
-
-{% endfor %}
-
-{% endif %}
-
--->
-
 
 {% endblock %}
