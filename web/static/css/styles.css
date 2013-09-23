@@ -99,6 +99,11 @@ a.tag2 {
     border-bottom: 1px dotted gray;
 }
 
+a.teja, a.teja:hover{
+	color: #FF6600;
+	font-weight: bold;
+}
+
 h3#printer {
 	color:grey;
 	line-height: 2em;
@@ -122,4 +127,28 @@ p.footer {
 	color:gray;
 	text-align:right;
 	font-size: 12px;
+}
+/* CUSTOM STYLES */
+.teja{
+	color: #FF6600;
+	font-weight: bold;
+}
+
+.teja_explanation table{
+	border: 1px solid;
+}
+.teja_explanation th{
+	text-align:center;
+}
+.teja_explanation ul{
+	list-style: disc;
+}
+.teja_explanation ul li{
+	list-style: disc;
+}
+.teja_explanation ol{
+	list-style: decimal;
+}
+.teja_explanation ol li{
+	list-style: decimal;
 }
