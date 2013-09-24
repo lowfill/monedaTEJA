@@ -16,7 +16,7 @@ Please use a different hashtag for testing.
 
 HASHTAG = '#monedateja'
 ALT_HASHTAG = '#1T'
-ISSUER_ACCOUNT = 'lowfill_devel'
+ISSUER_ACCOUNT = 'issuer_account'
 
 
 # TWITTER API CREDENTIALS
@@ -24,11 +24,11 @@ ISSUER_ACCOUNT = 'lowfill_devel'
 Register an app with read/write access at http://dev.twitter.com.
 '''
 
-TW_CONSUMER_KEY = 'z9ipY0MY6OO2XeoubfMg'
-TW_CONSUMER_SECRET = '3E8AF38oXQSeIZEDRCWrkzQ32n58rcaYnexAVkLSA'
+TW_CONSUMER_KEY = ''
+TW_CONSUMER_SECRET = ''
 
-TW_ACCESS_KEY = '1291767895-uCC4HPJZzfcdQeAALKhvI7B63vOO8QHJaNcNgns'
-TW_ACCESS_SECRET = 'GFYCMTSgfLbIEXJTgLB26RWOy87Idxxl1ucwRvs'
+TW_ACCESS_KEY = ''
+TW_ACCESS_SECRET = ''
 
 # LOG PATH
 '''
@@ -44,9 +44,9 @@ MySQL database credentials. Socket locations can vary depending on the system.
 '''
 
 MYSQL_HOST = 'localhost'
-MYSQL_USER = 'lowfill'
-MYSQL_DATABASE = 'monedateja'
-MYSQL_PASSWORD = 'mko09ijn'
+MYSQL_USER = ''
+MYSQL_DATABASE = ''
+MYSQL_PASSWORD = ''
 MYSQL_SOCKET = '/tmp/mysql.sock'
 
 

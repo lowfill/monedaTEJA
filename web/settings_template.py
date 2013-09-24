@@ -23,9 +23,9 @@ MANAGERS = ADMINS
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'monedateja',                      # Or path to database file if using sqlite3.
-        'USER': 'lowfill',                      # Not used with sqlite3.
-        'PASSWORD': 'mko09ijn',                  # Not used with sqlite3.
+        'NAME': '',                      # Or path to database file if using sqlite3.
+        'USER': '',                      # Not used with sqlite3.
+        'PASSWORD': '',                  # Not used with sqlite3.
         'HOST': 'localhost',                      # Set to empty string for localhost. Not used with sqlite3.
         'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
     }
@@ -42,7 +42,7 @@ TIME_ZONE = 'Europe/London'
 
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'es-es'
 
 SITE_ID = 1
 
@@ -106,8 +106,9 @@ TEMPLATE_LOADERS = (
 )
 
 MIDDLEWARE_CLASSES = (
-    'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+#    'django.middleware.locale.LocaleMiddleware',
+    'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
@@ -125,6 +126,9 @@ TEMPLATE_DIRS = (
     join(ROOT_PATH, 'templates'),
 )
 
+LOCALE_PATHS = (
+   join(ROOT_PATH, 'conf/locale'),
+)
 INSTALLED_APPS = (
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -134,7 +138,8 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'tracker',
     'django.contrib.sites',
-    'social_auth'
+    'social_auth',
+    'south',
     # Uncomment the next line to enable the admin:
     # 'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
@@ -196,8 +201,8 @@ SOCIAL_AUTH_PIPELINE = (
         'social_auth.backends.pipeline.social.associate_user',
         'social_auth.backends.pipeline.social.load_extra_data',
         'social_auth.backends.pipeline.user.update_user_details'
-    
-        
+
+
 )
 
 try:
