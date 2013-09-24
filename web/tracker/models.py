@@ -35,13 +35,13 @@ class trustlist(models.Model):
     trusted = models.CharField(max_length=90, blank=True)
     class Meta:
         db_table = u'tracker_trust_list'
-        
+
 class tags(models.Model):
     id = models.AutoField(primary_key=True)
     tag = models.CharField(max_length=30)
     class Meta:
         db_table = u'tracker_tags'
-        
+
 class tweets(models.Model):
     id = models.AutoField(primary_key=True)
     timestamp = models.DateTimeField(null=True, blank=True)
@@ -62,11 +62,11 @@ class tweets(models.Model):
 class usersManager(models.Manager):
     def create_user_by_username(self,username):
         try:
-            user =self.create(username=username,date_joined=datetime.datetime.now())
+            user =self.create(username=username,date_joined=datetime.datetime.now(),last_login=datetime.datetime.now())
         except Exception,e:
             print e
         return user
-    
+
 class users(models.Model):
     id = models.AutoField(primary_key=True)
     username = models.CharField(max_length=90, blank=True)
@@ -80,7 +80,7 @@ class users(models.Model):
     objects = usersManager()
     class Meta:
         db_table = u'tracker_users'
-        
+
 class DebtModel(CsvModel):
     name = CharField()
     ammount = IntegerField(null=True,default=1)
