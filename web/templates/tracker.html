@@ -42,9 +42,8 @@
 		$.get(url, function(data){
 
 			$("#ticker").html(data);
-			
 			if (type != 'activity'){
-                 title = '> ' + type;
+                 title = '> ' + gettext(type);
             } else {
                 title = '';
             }
@@ -67,7 +66,6 @@
         <div class="span-14">
     
             <h4>
-            
             <b><a href="/tracker">@monedaTEJA</a></b>
             
             {% if not tag_1 %}

@@ -1,5 +1,9 @@
 from django.conf.urls.defaults import patterns, include, url
 
+js_info_dict = {
+    'packages': ('tracker','conf'),
+}
+
 # Uncomment the next two lines to enable the admin:
 # from django.contrib import admin
 # admin.autodiscover()
@@ -65,5 +69,7 @@ urlpatterns = patterns('',
     url(r'^error/$', 'tracker.views.error', name='error'),
     url(r'^finish_login/$', 'tracker.views.finish_login', name='error'),
     url(r'^disconnect/$', 'tracker.views.disconnect', name='user'),
-    url(r'', include('social_auth.urls')),    
+    url(r'', include('social_auth.urls')),
+    (r'^jsi18n/$', 'django.views.i18n.javascript_catalog', js_info_dict),
+    #(r'^jsi18n/(?P<packages>\S+?)/$', 'django.views.i18n.javascript_catalog'),    
 )

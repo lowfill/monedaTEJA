@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-09-10 16:46+0200\n"
+"POT-Creation-Date: 2013-10-02 13:24+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Diego Andrés Ramírez Aragón <dramirezaragon@gmail.com>\n"
 "Language-Team: es <dramirezaragon@gmail.com>\n"
@@ -17,52 +17,52 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: templates/base.html:28
+#: templates/base.html:29
 msgid "Tag(s) or username"
 msgstr "Tag(s) o nombre de usuario"
 
-#: templates/base.html:42
+#: templates/base.html:43
 msgid "Login"
 msgstr "Ingresar"
 
-#: templates/base.html:46
+#: templates/base.html:47
 msgid "About"
 msgstr "¿Qué es @monedaTEJA?"
 
-#: templates/base.html:51 templates/base.html.py:53
+#: templates/base.html:52 templates/base.html.py:54
 msgid "Tracker"
 msgstr "Seguimiento"
 
-#: templates/base.html:59 templates/base.html.py:61 templates/printer.html:74
+#: templates/base.html:60 templates/base.html.py:62 templates/printer.html:74
 msgid "Printer"
-msgstr "Generar deuda"
+msgstr "Generar compromiso"
 
-#: templates/base.html:69 templates/base.html.py:72
+#: templates/base.html:70 templates/base.html.py:73
 #: templates/batch_printer.html:8
 msgid "Batch Printer"
-msgstr "Generar deuda en lotes"
+msgstr "Generar compromiso en lotes"
 
-#: templates/base.html:77 templates/base.html.py:79 templates/trustnet.html:44
+#: templates/base.html:78 templates/base.html.py:80 templates/trustnet.html:44
 msgid "Network"
 msgstr "Red"
 
-#: templates/base.html:82
+#: templates/base.html:83
 msgid "Help"
 msgstr "Ayuda"
 
-#: templates/base.html:84
+#: templates/base.html:85
 msgid "Logout"
 msgstr "Salir"
 
-#: templates/base.html:98
+#: templates/base.html:99
 msgid "por"
 msgstr "o"
 
-#: templates/base.html:99
+#: templates/base.html:100
 msgid "FAQ"
 msgstr "Preguntas frecuentes"
 
-#: templates/base.html:104
+#: templates/base.html:105
 msgid "Based on"
 msgstr "Basado en"
 
@@ -279,7 +279,7 @@ msgid "[THANKS]"
 msgstr "[GRACIAS]"
 
 #: templates/ticker.html:8 templates/ticker.html.py:32
-#: templates/tracker.html:121 templates/tracker.html.py:130
+#: templates/tracker.html:119 templates/tracker.html.py:128
 msgid "[ X ]"
 msgstr "[ X ]"
 
@@ -291,8 +291,8 @@ msgstr " la petición de "
 msgid "expired."
 msgstr "expiró."
 
-#: templates/ticker.html:12 templates/tracker.html:117
-#: templates/tracker.html.py:126
+#: templates/ticker.html:12 templates/tracker.html:115
+#: templates/tracker.html.py:124
 msgid "[ Cm ]"
 msgstr "[ Cp ]"
 
@@ -304,8 +304,8 @@ msgstr "pidió"
 msgid "from"
 msgstr "a"
 
-#: templates/ticker.html:17 templates/tracker.html:120
-#: templates/tracker.html.py:129
+#: templates/ticker.html:17 templates/tracker.html:118
+#: templates/tracker.html.py:127
 msgid "[ E ]"
 msgstr "[ E ]"
 
@@ -313,8 +313,8 @@ msgstr "[ E ]"
 msgid "offers"
 msgstr "ofreció"
 
-#: templates/ticker.html:22 templates/ticker.html.py:27
-#: templates/tracker.html:118 templates/tracker.html.py:127
+#: templates/ticker.html:22 templates/tracker.html:116
+#: templates/tracker.html.py:125
 msgid "[ C ]"
 msgstr "[ C ]"
 
@@ -325,6 +325,11 @@ msgstr "transfirió"
 #: templates/ticker.html:22 templates/ticker.html.py:32
 msgid "to"
 msgstr "a"
+
+#: templates/ticker.html:27 templates/tracker.html:117
+#: templates/tracker.html.py:126
+msgid "[ V ]"
+msgstr "[ V ]"
 
 #: templates/ticker.html:27
 msgid "thanked"
@@ -338,18 +343,14 @@ msgstr "por"
 msgid "promise of"
 msgstr "promesa de"
 
-#: templates/tracker.html:75
+#: templates/tracker.html:73
 msgid "(Updates once per minute)"
 msgstr "(Actualizaciones una vez por minuto)"
 
-#: templates/tracker.html:116 templates/tracker.html.py:125
+#: templates/tracker.html:114 templates/tracker.html.py:123
 #: templates/user.html:61
 msgid "[ All ]"
 msgstr "[ Todos ]"
-
-#: templates/tracker.html:119 templates/tracker.html.py:128
-msgid "[ V ]"
-msgstr "[ V ]"
 
 #: templates/trustnet.html:46
 msgid "This map represents gratitude between @monedaTEJA users."
