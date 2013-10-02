@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-10-02 13:24+0200\n"
+"POT-Creation-Date: 2013-10-02 13:43+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Diego Andrés Ramírez Aragón <dramirezaragon@gmail.com>\n"
 "Language-Team: es <dramirezaragon@gmail.com>\n"
@@ -98,11 +98,21 @@ msgstr "portador2,1,Evento1, con una reunión con,10"
 msgid "Keep in mind that Twitter just allows 140 characters."
 msgstr "Tenga presente que twitter sólo permite 140 caracteres."
 
-#: templates/batch_printer.html:24 templates/batch_printer.html.py:26
+#: templates/batch_printer.html:23
+msgid ""
+"If you want to use @monedaTEJA for your event, you can use the following "
+"Google form as template:"
+msgstr "Si quires usar @monedaTEJA para tu evento, puedes usar la siguiente plantilla de Google Forms:"
+
+#: templates/batch_printer.html:24
+msgid "Form template"
+msgstr "Plantilla de Formulario"
+
+#: templates/batch_printer.html:28 templates/batch_printer.html.py:30
 msgid "Bearers:"
 msgstr "Portador:"
 
-#: templates/batch_printer.html:30
+#: templates/batch_printer.html:34
 msgid "Send"
 msgstr "Enviar"
 

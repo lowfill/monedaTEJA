@@ -19,6 +19,10 @@
 	... 
 	</pre>
 	<p>{%trans "Keep in mind that Twitter just allows 140 characters." %}</p>
+	<p>
+		{%trans "If you want to use @monedaTEJA for your event, you can use the following Google form as template:"%}
+		<a href="https://docs.google.com/forms/d/1kaUP9n9LCTHG7GR6dTpKZ78oziDSIyKKcWeRcw1pFKU/edit?usp=sharing" target="_blank">{%trans "Form template"%}</a>
+	</p>
 	<form action="/generate_debt/" method="POST" enctype="multipart/form-data">
 	{% csrf_token %}
 	{%trans "Bearers:"%} <h3 style="display: inline" id="printer">
