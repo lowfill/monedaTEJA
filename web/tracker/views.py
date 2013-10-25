@@ -233,7 +233,7 @@ def shownet(request):
     
 def about(request):
     
-    return render_to_response('about.html', {},RequestContext(request))  
+    return render_to_response('about.html', {'page':'about'},RequestContext(request))  
     
 def faq(request):
     
@@ -391,12 +391,6 @@ def printer(request):
     }
     return render_to_response('printer.html', variables,RequestContext(request))
 
-def batch_printer(request):
-    variables = {
-        'page':'batch_printer',
-        'issuer':ISSUER_ACCOUNT
-    }
-    return render_to_response('batch_printer.html', variables,RequestContext(request))
     
 def generate_debt(request):
     error = ''

@@ -15,7 +15,30 @@
 </head>
 
 <body>
+	
 	<div class="container">
+		<div id="header_menu" class="span-22 prepend-1">
+			<p class="footer">
+				{% ifequal page 'about' %}
+					<b><a href="/about">{%trans "About" %}</a></b>
+				{% else %}
+					<a href="/about">{%trans "About" %}</a>
+				{% endifequal %}	 
+				|
+				{% ifequal page 'help' %}
+					<b><a href="/help">{%trans "How it works?" %}</a></b>
+				{% else %}
+					<a href="/help">{%trans "How it works?" %}</a>
+				{% endifequal %}
+				 |
+				{% ifequal page 'ticker' %}
+					<b><a href="/tracker">{%trans "Transactions" %}</a></b> 
+				{% else %}
+					<a href="/tracker">{%trans "Transactions" %}</a> 
+				{% endifequal %}
+			</p>
+		</div>
+		
 		<!-- HEADER -->
 		<div id="header" class="span-24">
 			<div id="left" class="span-10">
@@ -44,17 +67,6 @@
 				{% endif %}
 				
 				<hr class="space">
-					<li><a href="/about">{%trans "About" %}</a></li>
-
-				<hr class="space">
-
-				{% ifequal page 'ticker' %}
-					<li><b><a href="/tracker">{%trans "Tracker" %}</a></b></li> 
-				{% else %}
-					<li><a href="/tracker">{%trans "Tracker" %}</a></li> 
-				{% endifequal %}
-
-				<hr class="space">
 
 				{% ifequal page 'printer' %}
 					<li><b><a href="/print">{%trans "Printer" %}</a></b></li> 
@@ -64,25 +76,8 @@
 
 				<hr class="space">
 
-				{% if user.is_authenticated %} 
-					{% ifequal page 'batch_printer' %}
-
-					<li><b><a href="/batch_printer">{%trans "Batch Printer" %}</a></b></li> 
-					{% else%}
-
-						<li><a href="/batch_printer">{%trans "Batch Printer" %}</a></li> 
-					{% endifequal %}
-					<hr class="space">
-				{%endif%} 
-				{% ifequal page 'network' %}
-					<li><b><a href="/network">{%trans "Network" %}</a></b></li> 
-				{% else %}
-					<li><a href="/network">{%trans "Network" %}</a></li> 
-				{% endifequal %}
-				<hr class="space">
-				<li><a href="/help">{%trans "Help" %}</a></li> 
 				{% if user.is_authenticated %}
-					<li><b><a href="/disconnect">{%trans "Logout" %}</a></b></li> 
+					<li><a href="/disconnect">{%trans "Logout" %}</a></li> 
 				{% endif %}
 			</ul>
 		</div>
@@ -97,6 +92,7 @@
 			<hr>
 			<p class="footer">
 				@monedaTEJA {%trans "por"%} <a href="http://www.monedateja.net">monedaTEJA</a> |
+				<a href="/network">{%trans "Trust Network" %}</a> | 
 				<a href="/faq">{%trans "FAQ" %}</a> |
 				<!-- <a href="/press">Press</a> | -->
 				<a href="https://www.facebook.com/monedateja">Facebook</a> | 

@@ -24,3 +24,22 @@ $(function() {
 		$(this).parent().parent().submit();
 	});
 });
+
+$(function(){
+	$('.tab-container li').click(function(){
+		item = $(this).attr('id');
+		$('.tab-container li').removeClass('tab-selected');
+		$(this).addClass('tab-selected');
+		
+		if(item == 'printer'){
+			$('.tab-batch-printer').hide();
+			$('.tab-printer').show();
+			$('.printer-output').show();
+		}
+		else{
+			$('.tab-printer').hide();
+			$('.printer-output').hide();
+			$('.tab-batch-printer').show();
+		}
+	});
+});

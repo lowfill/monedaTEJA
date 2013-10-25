@@ -19,8 +19,12 @@
 		} else {
 			expiry = ''
 		}
+		
+		if(event_action !=''){
+			event_action = ' {%trans "with"%} ' + event_action; 
+		}
 
-		note = '@' + recipient + ' {%trans "committed with"%} #' + promise + ' {%trans "in"%} #'+event.replace(' ','')+ ' {%trans "with"%} ' + event_action +'. ' + expiry + ' @{{issuer}}'
+		note = '@' + recipient + ' {%trans "committed with"%} #' + promise + ' {%trans "in"%} #'+event.replace(' ','')+ event_action +'. ' + expiry + ' @{{issuer}}'
 		note_encoded = escape('@' + recipient) + ' {%trans "committed with"%} '+escape('#' + promise) + ' {%trans "in"%} '+escape('#'+event.replace(' ',''))+ ' {%trans "with"%} '+ event_action +'. ' + expiry + escape(' @{{issuer}}')
 
 		note_formatted = '<h3 id=\"printed\">' + note + '</h3>'
@@ -69,75 +73,112 @@
 
 {% block main %}
 
-<div id="left" class="span-15">
+<div id="left" class="span-16">
 
-	<h3 style='display: inline'>{%trans "Printer"%}</h3>
+	<ul class="tab-container">
+		<li id='printer' class='tab-selected'><h3 style='display: inline'>{%trans "Printer"%}</h3></li>
+		<li id='batch-printer'><h3 style='display: inline'>{%trans "Batch Printer" %}</h3></li>
+	</ul>
+	
 	<hr class="space">
 
-	<span id="promised">{%trans "Creating debt:"%}</span> <br>
+	<div class="tab-printer">
+		<span id="promised">{%trans "Creating debt:"%}</span> <br>
 
-	<hr class="space">
-
-	<h3 style="display: inline" id="printer">
-		@<input id="recipient" style='display: inline' type="text"
-			maxlength="20" size="20" placeholder="{%trans "Bearer" %}">
-	</h3>
-
-	<h3 id="printer" style="display: inline">
-		{%trans "committed with"%} 
-		<select id="promise">
-			<option value="1T">#1T</option>
-			<option value="2T">#2T</option>
-			<option value="3T">#3T</option>
-			<option value="4T">#4T</option>
-			<option value="5T">#5T</option>
-			<option value="6T">#6T</option>
-			<option value="7T">#7T</option>
-			<option value="8T">#8T</option>
-			<option value="9T">#9T</option>
-			<option value="10T">#10T</option>
-		</select>
-	</h3>
-
-	<h3 id="printer" style="display: inline">
-		{%trans "in"%} #
-		<input id="event" type="text" maxlength="20" size="20"
-			placeholder="{%trans "Event hashtag" %}">
-	</h3>
-
-	<h3 id="printer" style="display: inline">
-		{%trans "with" %} 
-		<input id="event_action" type="text" maxlength="55" size="50"
-			placeholder="{%trans "Compromise action" %}">.
-	</h3>
-
-	<hr class="space">
-
-	<p>
-		<i>{%trans "Options"%}</i>
-	</p>
-
-	<h3 id="printer" style="display: inline">
-		{%trans "Expires in"%} <input id="expiry" type="text" size=2 maxlength=3
-			placeholder="10" value="30"> 
-			<select id="exptype" >
-
-			<option id="{%trans "minutes"%}">{%trans "minutes"%}</option>
-			<option id="{%trans "hours"%}">{%trans "hours"%}</option>
-			<option id="{%trans "days"%}" selected>{%trans "days"%}</option>
-			<option id="{%trans "months"%}">{%trans "months"%}</option>
-			<option id="{%trans "years"%}">{%trans "years"%}</option>
-
-		</select>
-
-	</h3>
-
-
+		<hr class="space">
+	
+		<h3 style="display: inline" id="printer">
+			@<input id="recipient" style='display: inline' type="text"
+				maxlength="20" size="20" placeholder="{%trans "Bearer" %}">
+		</h3>
+	
+		<h3 id="printer" style="display: inline">
+			{%trans "committed with"%} 
+			<select id="promise">
+				<option value="1T">#1T</option>
+				<option value="2T">#2T</option>
+				<option value="3T">#3T</option>
+				<option value="4T">#4T</option>
+				<option value="5T">#5T</option>
+				<option value="6T">#6T</option>
+				<option value="7T">#7T</option>
+				<option value="8T">#8T</option>
+				<option value="9T">#9T</option>
+				<option value="10T">#10T</option>
+			</select>
+		</h3>
+	
+		<h3 id="printer" style="display: inline">
+			{%trans "in"%} #
+			<input id="event" type="text" maxlength="20" size="20"
+				placeholder="{%trans "Event hashtag" %}">
+		</h3>
+	
+		<br>
+		<h3 id="printer" style="display: inline">
+			{%trans "with" %} 
+			<input id="event_action" type="text" maxlength="55" size="50"
+				placeholder="{%trans "(optional) Compromise action" %}">.
+		</h3>
+	
+		<hr class="space">
+	
+		<p>
+			<i>{%trans "Options"%}</i>
+		</p>
+	
+		<h3 id="printer" style="display: inline">
+			{%trans "Expires in"%} <input id="expiry" type="text" size=2 maxlength=3
+				placeholder="10" value="30"> {%trans "days"%}.
+				<input id="exptype" type="hidden" value="{%trans "days"%}">
+				<!--  
+				<select id="exptype" >
+	
+				<option id="{%trans "minutes"%}">{%trans "minutes"%}</option>
+				<option id="{%trans "hours"%}">{%trans "hours"%}</option>
+				<option id="{%trans "days"%}" selected>{%trans "days"%}</option>
+				<option id="{%trans "months"%}">{%trans "months"%}</option>
+				<option id="{%trans "years"%}">{%trans "years"%}</option>
+	
+			</select>
+	
+				 -->
+		</h3>
+		
+	</div>
+	<div class="tab-batch-printer">
+		<span id="promised">{%trans "Creating debt:" %}</span> <br>
+	
+		<hr class="space">
+		<p>{%trans "To create debt to many users at the same time you should create an attach a CSV file with following format:" %}</p>
+		<pre>
+		{%trans "@bearer (without @),TEJA's number,#hashtag (without #),How,Expiration (in days)" %}
+		{%trans "bearer1,1,Event1,with a blog post,10"%}
+		{%trans "bearer2,1,Event1,with a meeting with,10"%}
+		... 
+		</pre>
+		<p>{%trans "Keep in mind that Twitter just allows 140 characters." %}</p>
+		<p>
+			{%trans "If you want to use @monedaTEJA for your event, you can use the following Google form as template:"%}
+			<a href="https://docs.google.com/forms/d/1kaUP9n9LCTHG7GR6dTpKZ78oziDSIyKKcWeRcw1pFKU/edit?usp=sharing" target="_blank">{%trans "Form template"%}</a>
+		</p>
+		<form action="/generate_debt/" method="POST" enctype="multipart/form-data">
+		{% csrf_token %}
+		{%trans "Bearers:"%} <h3 style="display: inline" id="printer">
+			<input name="recipients" style='display: inline' type="file"
+				maxlength="20" size="20" placeholder="{%trans "Bearers:"%}">
+		</h3>
+	
+		<hr class="space">
+		<input type="submit" value="{%trans "Send"%}">
+		</form>
+	
+	</div>
 </div>
 
 
 
-<div id="right" class="span-15">
+<div id="right" class="printer-output span-15">
 
 	<hr class="space">
 	<hr class="space">

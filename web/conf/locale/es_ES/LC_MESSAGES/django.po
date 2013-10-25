@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-10-02 13:43+0200\n"
+"POT-Creation-Date: 2013-10-25 11:55+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Diego Andrés Ramírez Aragón <dramirezaragon@gmail.com>\n"
 "Language-Team: es <dramirezaragon@gmail.com>\n"
@@ -17,56 +17,56 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: templates/base.html:29
-msgid "Tag(s) or username"
-msgstr "Tag(s) o nombre de usuario"
-
-#: templates/base.html:43
-msgid "Login"
-msgstr "Ingresar"
-
-#: templates/base.html:47
+#: templates/base.html:23 templates/base.html.py:25
 msgid "About"
 msgstr "¿Qué es @monedaTEJA?"
 
-#: templates/base.html:52 templates/base.html.py:54
-msgid "Tracker"
-msgstr "Seguimiento"
+#: templates/base.html:29 templates/base.html.py:31
+msgid "How it works?"
+msgstr "¿Cómo usarlo?"
 
-#: templates/base.html:60 templates/base.html.py:62 templates/printer.html:74
+#: templates/base.html:35 templates/base.html.py:37
+msgid "Transactions"
+msgstr "Transacciones"
+
+#: templates/base.html:52
+msgid "Tag(s) or username"
+msgstr "Tag(s) o nombre de usuario"
+
+#: templates/base.html:66
+msgid "Login"
+msgstr "Ingresar"
+
+#: templates/base.html:72 templates/base.html.py:74 templates/printer.html:78
 msgid "Printer"
 msgstr "Generar compromiso"
 
-#: templates/base.html:70 templates/base.html.py:73
+#: templates/base.html:82 templates/base.html.py:85
 #: templates/batch_printer.html:8
 msgid "Batch Printer"
 msgstr "Generar compromiso en lotes"
 
-#: templates/base.html:78 templates/base.html.py:80 templates/trustnet.html:44
-msgid "Network"
-msgstr "Red"
-
-#: templates/base.html:83
-msgid "Help"
-msgstr "Ayuda"
-
-#: templates/base.html:85
+#: templates/base.html:90
 msgid "Logout"
 msgstr "Salir"
 
-#: templates/base.html:99
+#: templates/base.html:104
 msgid "por"
 msgstr "o"
 
-#: templates/base.html:100
+#: templates/base.html:105
+msgid "Trust Network"
+msgstr "Red de confianza"
+
+#: templates/base.html:106
 msgid "FAQ"
 msgstr "Preguntas frecuentes"
 
-#: templates/base.html:105
+#: templates/base.html:111
 msgid "Based on"
 msgstr "Basado en"
 
-#: templates/batch_printer.html:11 templates/printer.html:77
+#: templates/batch_printer.html:11 templates/printer.html:81
 msgid "Creating debt:"
 msgstr "Generando deuda:"
 
@@ -102,7 +102,9 @@ msgstr "Tenga presente que twitter sólo permite 140 caracteres."
 msgid ""
 "If you want to use @monedaTEJA for your event, you can use the following "
 "Google form as template:"
-msgstr "Si quires usar @monedaTEJA para tu evento, puedes usar la siguiente plantilla de Google Forms:"
+msgstr ""
+"Si quires usar @monedaTEJA para tu evento, puedes usar la siguiente "
+"plantilla de Google Forms:"
 
 #: templates/batch_printer.html:24
 msgid "Form template"
@@ -220,62 +222,64 @@ msgstr "[Transferido]"
 msgid "[Request]"
 msgstr "[Requerimiento]"
 
-#: templates/printer.html:18 templates/printer.html.py:121
+#: templates/printer.html:18 templates/printer.html.py:126
 msgid "Expires in"
 msgstr "Expira en"
 
-#: templates/printer.html:23 templates/printer.html.py:24
-#: templates/printer.html:87
-msgid "committed with"
-msgstr "se comprometió con"
-
-#: templates/printer.html:23 templates/printer.html.py:24
-#: templates/printer.html:103
-msgid "in"
-msgstr "en"
-
-#: templates/printer.html:23 templates/printer.html.py:24
-#: templates/printer.html:109
+#: templates/printer.html:24 templates/printer.html.py:28
+#: templates/printer.html:114
 msgid "with"
 msgstr "con"
 
-#: templates/printer.html:83
+#: templates/printer.html:27 templates/printer.html.py:28
+#: templates/printer.html:91
+msgid "committed with"
+msgstr "se comprometió con"
+
+#: templates/printer.html:27 templates/printer.html.py:28
+#: templates/printer.html:107
+msgid "in"
+msgstr "en"
+
+#: templates/printer.html:87
 msgid "Bearer"
 msgstr "Portador"
 
-#: templates/printer.html:105
+#: templates/printer.html:109
 msgid "Event hashtag"
 msgstr "Hashtag del evento"
 
-#: templates/printer.html:111
-msgid "Compromise action"
+#: templates/printer.html:116
+#, fuzzy
+msgid "(optional) Compromise action"
 msgstr "acción de compromiso. eg. un blog post"
 
-#: templates/printer.html:117
+#: templates/printer.html:122
 msgid "Options"
 msgstr "Opciones"
 
-#: templates/printer.html:125
-msgid "minutes"
-msgstr "minutos"
-
-#: templates/printer.html:126
-msgid "hours"
-msgstr "horas"
-
-#: templates/printer.html:127
+#: templates/printer.html:127 templates/printer.html.py:128
+#: templates/printer.html:134
 msgid "days"
 msgstr "días"
 
-#: templates/printer.html:128
+#: templates/printer.html:132
+msgid "minutes"
+msgstr "minutos"
+
+#: templates/printer.html:133
+msgid "hours"
+msgstr "horas"
+
+#: templates/printer.html:135
 msgid "months"
 msgstr "meses"
 
-#: templates/printer.html:129
+#: templates/printer.html:136
 msgid "years"
 msgstr "años"
 
-#: templates/printer.html:145
+#: templates/printer.html:153
 msgid "Your @monedaTEJA:"
 msgstr "Tu @montedaTEJA:"
 
@@ -290,6 +294,7 @@ msgstr "[GRACIAS]"
 
 #: templates/ticker.html:8 templates/ticker.html.py:32
 #: templates/tracker.html:119 templates/tracker.html.py:128
+#: templates/user.html:71
 msgid "[ X ]"
 msgstr "[ X ]"
 
@@ -302,7 +307,7 @@ msgid "expired."
 msgstr "expiró."
 
 #: templates/ticker.html:12 templates/tracker.html:115
-#: templates/tracker.html.py:124
+#: templates/tracker.html.py:124 templates/user.html:63
 msgid "[ Cm ]"
 msgstr "[ Cp ]"
 
@@ -315,7 +320,7 @@ msgid "from"
 msgstr "a"
 
 #: templates/ticker.html:17 templates/tracker.html:118
-#: templates/tracker.html.py:127
+#: templates/tracker.html.py:127 templates/user.html:69
 msgid "[ E ]"
 msgstr "[ E ]"
 
@@ -330,14 +335,14 @@ msgstr "[ C ]"
 
 #: templates/ticker.html:22
 msgid "transferred"
-msgstr "transfirió"
+msgstr "cumplió"
 
 #: templates/ticker.html:22 templates/ticker.html.py:32
 msgid "to"
 msgstr "a"
 
 #: templates/ticker.html:27 templates/tracker.html:117
-#: templates/tracker.html.py:126
+#: templates/tracker.html.py:126 templates/user.html:67
 msgid "[ V ]"
 msgstr "[ V ]"
 
@@ -361,6 +366,11 @@ msgstr "(Actualizaciones una vez por minuto)"
 #: templates/user.html:61
 msgid "[ All ]"
 msgstr "[ Todos ]"
+
+#: templates/trustnet.html:44
+#, fuzzy
+msgid "Network"
+msgstr "Red de confianza"
 
 #: templates/trustnet.html:46
 msgid "This map represents gratitude between @monedaTEJA users."
@@ -402,19 +412,19 @@ msgstr "Comprometidos conmigo"
 msgid "Issued"
 msgstr "Emitidas"
 
-#: templates/user.html:41 templates/user.html.py:51
-msgid "Completed"
-msgstr "Completadas"
+#: templates/user.html:41 templates/user.html.py:51 templates/user.html:65
+msgid "To be checked"
+msgstr "Por verificar"
 
-#: templates/user.html:42 templates/user.html.py:52
+#: templates/user.html:42 templates/user.html.py:52 templates/user.html:67
 msgid "Verified"
 msgstr "Verificadas"
 
-#: templates/user.html:43 templates/user.html.py:53
+#: templates/user.html:43 templates/user.html.py:53 templates/user.html:69
 msgid "With errors"
 msgstr "Con errores"
 
-#: templates/user.html:44 templates/user.html.py:54
+#: templates/user.html:44 templates/user.html.py:54 templates/user.html:71
 msgid "Expired"
 msgstr "Expiradas"
 
@@ -424,27 +434,16 @@ msgstr "Me he comprometido"
 
 #: templates/user.html:50
 msgid "Pending"
-msgstr "Pendientes"
+msgstr "Por cumplir"
 
 #: templates/user.html:63
-msgid "[ Commitments ]"
+#, fuzzy
+msgid "Commitments"
 msgstr "[ Compromisos ]"
 
 #: templates/user.html:65
-msgid "[ Completed ]"
-msgstr "[ Completadas ]"
-
-#: templates/user.html:67
-msgid "[ Verified ]"
-msgstr "[ Verificadas ]"
-
-#: templates/user.html:69
-msgid "[ With errors ]"
-msgstr "[ Con errores ]"
-
-#: templates/user.html:71
-msgid "[ Expired ]"
-msgstr "[ Expiradas ]"
+msgid "[ Tv ]"
+msgstr "[ Pv ]"
 
 #: templates/user_info.html:28
 msgid "See all [&rarr;]"
@@ -461,3 +460,24 @@ msgstr ""
 #: tracker/views.py:411
 msgid "Please attach a file."
 msgstr "Por favor anexe un archivo."
+
+#~ msgid "[ Completed ]"
+#~ msgstr "[ Completadas ]"
+
+#~ msgid "[ Verified ]"
+#~ msgstr "[ Verificadas ]"
+
+#~ msgid "[ With errors ]"
+#~ msgstr "[ Con errores ]"
+
+#~ msgid "[ Expired ]"
+#~ msgstr "[ Expiradas ]"
+
+#~ msgid "Completed"
+#~ msgstr "Completadas"
+
+#~ msgid "Tracker"
+#~ msgstr "Seguimiento"
+
+#~ msgid "Help"
+#~ msgstr "Ayuda"

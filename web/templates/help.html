@@ -14,7 +14,7 @@
 	
 	<p>Tu puedes generar @monedaTEJA haciendo un tweet. Por ejemplo:</p>
 	
-	<div id="tweet">@someone se comprometió con #1T en #Evento con una reunión con otro participante. Expira en 30 días. @monedaTEJA</span></div>
+	<div id="tweet">@receptor_del_compromiso se comprometió con #1T en #Evento con una reunión con otro participante. Expira en 30 días. @monedaTEJA</span></div>
 	
 	<hr class="space">
 	
@@ -22,36 +22,40 @@
 	
 	
 	<p>
-	La manera más sencilla de crear @monedaTEJA es usando el link <b><a href="/print">Generar deuda</a></b>. Esto garantizará que la moneda ha sido generada en el formato correcto y podrá ser rastreada. Si prefieres hacerlo manualmente, las reglas son bastante sencillas:
+	La manera más sencilla de crear @monedaTEJA es usando el link <b><a href="/print">Generar compromiso</a></b>. Esto garantizará que la moneda ha sido generada en el formato correcto y podrá ser rastreada. Si prefieres hacerlo manualmente desde tu twitter, las reglas son bastante sencillas:
 	<ul>
-		<li>Tu tweet debe comenzar con el nombre de usuario de Twitter del receptor (e.g. <span style="display:inline" id="promise">@someone</span>)</li>
+		<li>Tu tweet debe comenzar con el nombre de usuario de Twitter del receptor (e.g. <span style="display:inline" id="promise">@receptor_del_compromiso</span>)</li>
 		<li>Tiene que contener la frase<span style="display:inline" id="promise">''se comprometió con'</span></li>
-		<li>Tiene que contener el número de tejas que se espera generar: <span style="display:inline" id="promise"> #1T</span></li>
-		<li>Tiene que contener el hashtag del evento asociado: <span style="display:inline" id="promise"> #Evento</span></li>
-		<li>Tiene que contener la acción con la que se hará el pago: <span style="display:inline" id="promise"> con una reunión con otro participante</span></li>
-		<li>Debe contener una referencia a <span style="display:inline" id="promise"> @monedaTEJA</span></li>
+      <li>Tiene que contener el número de tejas que se espera generar: <span style="display:inline" id="promise">(e.g. #1T, que equivale a 1 @monedaTEJA)</span></li>
+      <li>Tiene que contener el hashtag del evento o iniciativa asociada: <span style="display:inline" id="promise">(e.g. #Nombre_evento) </span></li>
+		<li>Tiene que contener la acción con la que se hará el pago: <span style="display:inline" id="promise">(e.g. con una reunión con otro participante)</span></li>
 		<li>Debes agregar una expiración, por defecto una @monedaTEJA tiene 30 días de validez.<br>
-		El formato para esto es 'Expira en  in <span id="promise" style="display:inline">[número]</span> <span id="promise" style="display:inline">[minutos/horas/días/meses/años]</span>'
+		El formato para esto es 'Expira en  in <span id="promise" style="display:inline">[número]</span> <span id="promise" style="display:inline">[días]</span>' <span id="promise" style="display:inline">(e.g. Expira en 30 días)</span>
 		</li>
+		<li>Debe contener una referencia a <span style="display:inline" id="promise"> @monedaTEJA</span></li>
 	</ul>
 	
 	<p>Si no aparece en la página de seguimiento es probable que tengas un error de sintaxis.</p>
 	
 	<h3>Pagos</h3>
 	
-	<p>Si recibiste una deuda en @monedaTEJA y quieres reportar el cumplimiento de tu compromiso. Responde  a la nota original o escribe un tweet con el siguiente formato:</p>
+	<p>
+	La manera más sencilla de pagar @monedaTEJA es usando el link <b><a href="/pay">Pagar compromiso</a></b>. Esto garantizará que la moneda ha sido generada en el formato correcto y podrá ser rastreada. Si prefieres hacerlo manualmente desde tu twitter, las reglas son bastante sencillas:
+</p>
+<p>
+Responde  a la nota original o escribe un tweet con el siguiente formato:</p>
 	
-	<div id="tweet">@receptor  acá esta el link al post http://example.org  #1T #Evento @monedaTEJA</div>
+	<div id="tweet">@emisor_del_compromiso acá esta el link al post http://example.org  #1T #Evento @monedaTEJA</div>
 	
 	<p>Las reglas son las siguientes:</p>
 	
 	<ul>
 	
 	<li>Tu tweet debe ser un reply a la nota original</li>
-	<li>Debe contener el nombre de usuario del receptor <span id="promise" style="display:inline">(e.g. @receptor)</span></li>
-	<li>Debe contener un enlace al recurso relacionado con el pago: Enlace a una página web, enlace a una foto del encuentro, etc. <span id="promise" style="display:inline">acá esta el link al post http://example.org</span></li>
-	<li>Debe contener el hashtag número de TEJAs que estas pagando <span id="promise" style="display:inline">#1T</span></li>
-	<li>Debe contener el hashtag del evento al que hace referencia  <span id="promise" style="display:inline">#Evento</span></li>
+	<li>Opcionalmente puede contener el nombre de usuario del emisor del compromiso <span id="promise" style="display:inline">(e.g. @emisor_del_compromiso)</span></li>
+	<li>Debe contener un enlace al recurso relacionado con el pago: Enlace a una página web, enlace a una foto del encuentro, etc. <span id="promise" style="display:inline">(p.e. acá esta el link al post http://example.org)</span></li>
+	<li>Debe contener el hashtag número de TEJAs que estas pagando <span id="promise" style="display:inline">(e.g. #1T, que equivale a 1 @monedaTEJA)</span></li>
+	<li>Debe contener el hashtag del evento o iniciativa asociada: <span style="display:inline" id="promise">(e.g. #Nombre_evento) </span></li>
 	<li>Debe contener una referencia a <span id="promise" style="display:inline">@monedaTEJA</span></li>
 	</ul>
 	

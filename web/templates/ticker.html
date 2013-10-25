@@ -19,7 +19,7 @@
 		{% endifequal %}
 		
         {% ifequal event.type 3 %}
-		<span id="Transfer">{%trans "[ C ]"%}</span> {{ event.timestamp|date:"M d G:i" }}<span><b> <a href="/user/{{ event.from_user }}">{{ event.from_user }}</a></b> {%trans "transferred"%} <span id="promise"><a href="/note/{{ event.note_id }}">{{ event.promise }}</a></span> {%trans "to"%} <b><a href="/user/{{ event.to_user }}">{{ event.to_user }}</a></b>. 
+		<span id="Transfer">{%trans "[ Tv ]"%}</span> {{ event.timestamp|date:"M d G:i" }}<span><b> <a href="/user/{{ event.from_user }}">{{ event.from_user }}</a></b> {%trans "transferred"%} <span id="promise"><a href="/note/{{ event.note_id }}">{{ event.promise }}</a></span> {%trans "to"%} <b><a href="/user/{{ event.to_user }}">{{ event.to_user }}</a></b>. 
 		<a href="http://www.twitter.com/{{event.from_user}}/status/{{event.note_id}}" target="_blank">[&rarr;]</a>
 		{% endifequal %}
 		

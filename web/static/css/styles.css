@@ -21,6 +21,10 @@ div#news {
     top:30px;
 }
 
+div#header_menu p{
+	margin-bottom: 0;
+}
+
 div#footer {
     position:relative;
     top:40px;
@@ -151,4 +155,22 @@ p.footer {
 }
 .teja_explanation ol li{
 	list-style: decimal;
+}
+
+.tab-container{
+}
+
+.tab-container li{
+	cursor: pointer;
+	float: left;
+	display: block;
+	border-right: 1px solid #ddd;
+	border-bottom: 1px solid #ddd;
+	padding: 1em;
+}
+.tab-batch-printer{
+	display:none;
+}
+.tab-selected{
+	background-color: #ddd;
 }

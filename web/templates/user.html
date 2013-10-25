@@ -38,7 +38,7 @@
 		<h3>{%trans "Committed with me"%}</h3>
 		<p>
 			<b>{%trans "Issued"%}:</b> {{requests}}<br> 
-			<b>{%trans "Completed"%}:</b> {{verified}}<br> 
+			<b>{%trans "To be checked"%}:</b> {{verified}}<br> 
 			<b>{%trans "Verified"%}:</b> {{received}}<br>
 			<b>{%trans "With errors"%}:</b> {{withproblems}}<br>
 			<b>{%trans "Expired"%}:</b> {{expired}}<br>
@@ -48,7 +48,7 @@
 		<h3>{%trans "I committed myself"%}</h3>
 		<p>
 			<b>{%trans "Pending"%}:</b> {{requests_received}}<br> 
-			<b>{%trans "Completed"%}:</b> {{validated}}<br>
+			<b>{%trans "To be checked"%}:</b> {{validated}}<br>
 			<b>{%trans "Verified"%}:</b> {{sent}}<br> 
 			<b>{%trans "With errors"%}:</b> {{sentwithproblems}}<br>
 			<b>{%trans "Expired"%}:</b> {{expired_to}}<br>
@@ -60,15 +60,15 @@
 
 <a href="javascript:loadRecent()">{%trans "[ All ]"%}</a>
 &nbsp;
-<a href="javascript:load(10)"><span id="request">{%trans "[ Commitments ]"%}</span></a>
+<a href="javascript:load(10)"><span id="request">{%trans "[ Cm ]"%} {%trans "Commitments"%}</span></a>
 &nbsp;
-<a href="javascript:load(3)"><span id="transfer">{%trans "[ Completed ]"%}</span></a>
+<a href="javascript:load(3)"><span id="transfer">{%trans "[ Tv ]"%} {%trans "To be checked"%}</span></a>
 &nbsp;
-<a href="javascript:load(1)"><span id="redemption">{%trans "[ Verified ]"%}</span></a>
+<a href="javascript:load(1)"><span id="redemption">{%trans "[ V ]"%} {%trans "Verified"%}</span></a>
 &nbsp;
-<a href="javascript:load(4)"><span id="offer">{%trans "[ With errors ]"%}</span></a>
+<a href="javascript:load(4)"><span id="offer">{%trans "[ E ]"%} {%trans "With errors"%}</span></a>
 &nbsp;
-<a href="javascript:load(12)"><span id="expiration">{%trans "[ Expired ]"%}</span></a>
+<a href="javascript:load(12)"><span id="expiration">{%trans "[ X ]"%} {%trans "Expired"%}</span></a>
 &nbsp;
 <hr>
 
