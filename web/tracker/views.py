@@ -391,6 +391,14 @@ def printer(request):
     }
     return render_to_response('printer.html', variables,RequestContext(request))
 
+def pay(request,target=None):
+    variables = {
+        'page':'pay',
+        'issuer':ISSUER_ACCOUNT,
+        'target':target
+    }
+        
+    return render_to_response('pay_printer.html', variables,RequestContext(request))
     
 def generate_debt(request):
     error = ''

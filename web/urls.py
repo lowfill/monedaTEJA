@@ -56,6 +56,7 @@ urlpatterns = patterns('',
     
     url(r'^network/$', 'tracker.views.shownet', name='network'),
     url(r'^print/$', 'tracker.views.printer', name='showlist'),
+    url(r'^pay/(?P<target>\w*)$', 'tracker.views.pay', name='payPrinter'),
     url(r'^generate_debt/$', 'tracker.views.generate_debt', name='generateDebt'),
     url(r'^user/(?P<username>\w+)$', 'tracker.views.user', name='user'),
     url(r'^note/(?P<noteid>\w+)$', 'tracker.views.getnote', name='note'),

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-10-25 11:55+0200\n"
+"POT-Creation-Date: 2013-10-31 08:26+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Diego Andrés Ramírez Aragón <dramirezaragon@gmail.com>\n"
 "Language-Team: es <dramirezaragon@gmail.com>\n"
@@ -37,86 +37,33 @@ msgstr "Tag(s) o nombre de usuario"
 msgid "Login"
 msgstr "Ingresar"
 
-#: templates/base.html:72 templates/base.html.py:74 templates/printer.html:78
+#: templates/base.html:72 templates/base.html.py:74 templates/printer.html:79
 msgid "Printer"
 msgstr "Generar compromiso"
 
-#: templates/base.html:82 templates/base.html.py:85
-#: templates/batch_printer.html:8
-msgid "Batch Printer"
-msgstr "Generar compromiso en lotes"
+#: templates/base.html:80 templates/base.html.py:82
+msgid "Payment Printer"
+msgstr "Cumplir compromiso"
 
-#: templates/base.html:90
+#: templates/base.html:88
 msgid "Logout"
 msgstr "Salir"
 
-#: templates/base.html:104
+#: templates/base.html:102
 msgid "por"
 msgstr "o"
 
-#: templates/base.html:105
+#: templates/base.html:103
 msgid "Trust Network"
 msgstr "Red de confianza"
 
-#: templates/base.html:106
+#: templates/base.html:104
 msgid "FAQ"
 msgstr "Preguntas frecuentes"
 
-#: templates/base.html:111
+#: templates/base.html:109
 msgid "Based on"
 msgstr "Basado en"
-
-#: templates/batch_printer.html:11 templates/printer.html:81
-msgid "Creating debt:"
-msgstr "Generando deuda:"
-
-#: templates/batch_printer.html:14
-msgid ""
-"To create debt to many users at the same time you should create an attach a "
-"CSV file with following format:"
-msgstr ""
-"Para crear deuda a muchos usuarios al mismo tiempo debes crear y anexar un "
-"archivo CSV con el siguiente formato:"
-
-#: templates/batch_printer.html:16
-msgid ""
-"@bearer (without @),TEJA's number,#hashtag (without #),How,Expiration (in "
-"days)"
-msgstr ""
-"@portador (sin @),Número de TEJAS,#hashtag (sin el #),Cómo,Expiración (en "
-"días)"
-
-#: templates/batch_printer.html:17
-msgid "bearer1,1,Event1,with a blog post,10"
-msgstr "portador1,1,Evento1, con un post,10"
-
-#: templates/batch_printer.html:18
-msgid "bearer2,1,Event1,with a meeting with,10"
-msgstr "portador2,1,Evento1, con una reunión con,10"
-
-#: templates/batch_printer.html:21
-msgid "Keep in mind that Twitter just allows 140 characters."
-msgstr "Tenga presente que twitter sólo permite 140 caracteres."
-
-#: templates/batch_printer.html:23
-msgid ""
-"If you want to use @monedaTEJA for your event, you can use the following "
-"Google form as template:"
-msgstr ""
-"Si quires usar @monedaTEJA para tu evento, puedes usar la siguiente "
-"plantilla de Google Forms:"
-
-#: templates/batch_printer.html:24
-msgid "Form template"
-msgstr "Plantilla de Formulario"
-
-#: templates/batch_printer.html:28 templates/batch_printer.html.py:30
-msgid "Bearers:"
-msgstr "Portador:"
-
-#: templates/batch_printer.html:34
-msgid "Send"
-msgstr "Enviar"
 
 #: templates/force.html:32
 msgid "This map represents trust relationships between #PunkMoney users."
@@ -222,66 +169,139 @@ msgstr "[Transferido]"
 msgid "[Request]"
 msgstr "[Requerimiento]"
 
-#: templates/printer.html:18 templates/printer.html.py:126
-msgid "Expires in"
-msgstr "Expira en"
-
-#: templates/printer.html:24 templates/printer.html.py:28
-#: templates/printer.html:114
+#: templates/pay_printer.html:19 templates/printer.html:24
+#: templates/printer.html.py:28 templates/printer.html:119
 msgid "with"
 msgstr "con"
 
-#: templates/printer.html:27 templates/printer.html.py:28
-#: templates/printer.html:91
-msgid "committed with"
-msgstr "se comprometió con"
+#: templates/pay_printer.html:24
+msgid "don't forget the link!"
+msgstr "¡No olvides el enlace!"
 
-#: templates/printer.html:27 templates/printer.html.py:28
-#: templates/printer.html:107
+#: templates/pay_printer.html:31 templates/pay_printer.html.py:32
+#: templates/pay_printer.html:114 templates/printer.html:27
+#: templates/printer.html.py:28 templates/printer.html:112
 msgid "in"
 msgstr "en"
 
-#: templates/printer.html:87
+#: templates/pay_printer.html:83
+msgid "Paying debt:"
+msgstr "Cumpliendo compromiso:"
+
+#: templates/pay_printer.html:89 templates/printer.html:92
 msgid "Bearer"
 msgstr "Portador"
 
-#: templates/printer.html:109
+#: templates/pay_printer.html:93
+msgid "pay with"
+msgstr "con"
+
+#: templates/pay_printer.html:95
+msgid "Payment action (photo link, post link)"
+msgstr "Acción de cumplimiento (link a foto, link a post)"
+
+#: templates/pay_printer.html:116 templates/printer.html:114
 msgid "Event hashtag"
 msgstr "Hashtag del evento"
 
-#: templates/printer.html:116
+#: templates/pay_printer.html:128 templates/printer.html:186
+msgid "Your @monedaTEJA:"
+msgstr "Tu @montedaTEJA:"
+
+#: templates/printer.html:18 templates/printer.html.py:131
+msgid "Expires in"
+msgstr "Expira en"
+
+#: templates/printer.html:27 templates/printer.html.py:28
+#: templates/printer.html:96
+msgid "committed with"
+msgstr "se comprometió con"
+
+#: templates/printer.html:80
+msgid "Batch Printer"
+msgstr "Generar compromiso en lotes"
+
+#: templates/printer.html:86 templates/printer.html.py:150
+msgid "Creating debt:"
+msgstr "Generando compromiso:"
+
+#: templates/printer.html:121
 #, fuzzy
 msgid "(optional) Compromise action"
 msgstr "acción de compromiso. eg. un blog post"
 
-#: templates/printer.html:122
+#: templates/printer.html:127
 msgid "Options"
 msgstr "Opciones"
 
-#: templates/printer.html:127 templates/printer.html.py:128
-#: templates/printer.html:134
+#: templates/printer.html:132 templates/printer.html.py:133
+#: templates/printer.html:139
 msgid "days"
 msgstr "días"
 
-#: templates/printer.html:132
+#: templates/printer.html:137
 msgid "minutes"
 msgstr "minutos"
 
-#: templates/printer.html:133
+#: templates/printer.html:138
 msgid "hours"
 msgstr "horas"
 
-#: templates/printer.html:135
+#: templates/printer.html:140
 msgid "months"
 msgstr "meses"
 
-#: templates/printer.html:136
+#: templates/printer.html:141
 msgid "years"
 msgstr "años"
 
 #: templates/printer.html:153
-msgid "Your @monedaTEJA:"
-msgstr "Tu @montedaTEJA:"
+msgid ""
+"To create debt to many users at the same time you should create an attach a "
+"CSV file with following format:"
+msgstr ""
+"Para crear deuda a muchos usuarios al mismo tiempo debes crear y anexar un "
+"archivo CSV con el siguiente formato:"
+
+#: templates/printer.html:155
+msgid ""
+"@bearer (without @),TEJA's number,#hashtag (without #),How,Expiration (in "
+"days)"
+msgstr ""
+"@portador (sin @),Número de TEJAS,#hashtag (sin el #),Cómo,Expiración (en "
+"días)"
+
+#: templates/printer.html:156
+msgid "bearer1,1,Event1,with a blog post,10"
+msgstr "portador1,1,Evento1, con un post,10"
+
+#: templates/printer.html:157
+msgid "bearer2,1,Event1,with a meeting with,10"
+msgstr "portador2,1,Evento1, con una reunión con,10"
+
+#: templates/printer.html:160
+msgid "Keep in mind that Twitter just allows 140 characters."
+msgstr "Tenga presente que twitter sólo permite 140 caracteres."
+
+#: templates/printer.html:162
+msgid ""
+"If you want to use @monedaTEJA for your event, you can use the following "
+"Google form as template:"
+msgstr ""
+"Si quires usar @monedaTEJA para tu evento, puedes usar la siguiente "
+"plantilla de Google Forms:"
+
+#: templates/printer.html:163
+msgid "Form template"
+msgstr "Plantilla de Formulario"
+
+#: templates/printer.html:167 templates/printer.html.py:169
+msgid "Bearers:"
+msgstr "Portador:"
+
+#: templates/printer.html:173
+msgid "Send"
+msgstr "Enviar"
 
 #: templates/request.html:27 templates/request.html.py:39
 #: templates/request.html:50
@@ -329,9 +349,9 @@ msgid "offers"
 msgstr "ofreció"
 
 #: templates/ticker.html:22 templates/tracker.html:116
-#: templates/tracker.html.py:125
-msgid "[ C ]"
-msgstr "[ C ]"
+#: templates/tracker.html.py:125 templates/user.html:65
+msgid "[ Tv ]"
+msgstr "[ Pv ]"
 
 #: templates/ticker.html:22
 msgid "transferred"
@@ -441,15 +461,11 @@ msgstr "Por cumplir"
 msgid "Commitments"
 msgstr "[ Compromisos ]"
 
-#: templates/user.html:65
-msgid "[ Tv ]"
-msgstr "[ Pv ]"
-
 #: templates/user_info.html:28
 msgid "See all [&rarr;]"
 msgstr "Ver todas [&rarr;]"
 
-#: tracker/views.py:409
+#: tracker/views.py:411
 msgid ""
 "The attached file doesn't have the right format. Please review it and try "
 "again."
@@ -457,9 +473,12 @@ msgstr ""
 "El archivo seleccionado no tiene el formato correcto. Por favor revíselo y "
 "trate nuevamente."
 
-#: tracker/views.py:411
+#: tracker/views.py:413
 msgid "Please attach a file."
 msgstr "Por favor anexe un archivo."
+
+#~ msgid "[ C ]"
+#~ msgstr "[ C ]"
 
 #~ msgid "[ Completed ]"
 #~ msgstr "[ Completadas ]"

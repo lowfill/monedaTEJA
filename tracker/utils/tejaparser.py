@@ -25,14 +25,7 @@ TejaParser class
 class Parser(Harvester):
 
     #TODO Make this i18n
-    types_map = {'promise':['me prometio',
-                            u'me prometió',
-                            'prometio',
-                            u'prometió',
-                            'me debe',
-                            'debe',
-                            'se compromete con',
-                            u'se comprometió con',
+    types_map = {'promise':[u'se comprometió con',
                             u'se enredó con'],
                       'thanks':['@(\w+) gracias|gracias! (por)?(.*)']}
     def __init__(self):
@@ -148,9 +141,10 @@ class Parser(Harvester):
                     tweet['condition'] = None
             
                 # Get promise
-                p = re.match('(.*)(%s)(.*)' % expression, statement, re.IGNORECASE)
+                p = re.match('(.*)(%s)(.*)con(.*)' % expression, statement, re.IGNORECASE)
                 
                 if p:
+                    print p.groups()
                     if p.group(1).strip().lower() == 'i':
                         promise = p.group(3)
                     else:

@@ -76,6 +76,14 @@
 
 				<hr class="space">
 
+				{% ifequal page 'pay' %}
+					<li><b><a href="/pay">{%trans "Payment Printer" %}</a></b></li> 
+				{% else %}
+					<li><a href="/pay">{%trans "Payment Printer" %}</a></li> 
+				{% endifequal %}
+				
+				<hr class="space">
+
 				{% if user.is_authenticated %}
 					<li><a href="/disconnect">{%trans "Logout" %}</a></li> 
 				{% endif %}
