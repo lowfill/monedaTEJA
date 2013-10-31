@@ -1,0 +1,141 @@
+{% extends 'base.html' %}
+
+{% load i18n %}
+ 
+{% block javascript %}
+
+<script type=text/javascript>
+	function print() {
+
+		var urlPattern = /(http|ftp|https):\/\/[\w-]+(\.[\w-]+)+([\w.,@?^=%&amp;:\/~+#-]*[\w@?^=%&amp;\/~+#-])?/
+
+		promise = $('#promise').val()
+		event = $('#event').val()
+		event_action = $('#event_action').val()
+		recipient = $('#recipient').val()
+		
+		
+		if(event_action !=''){
+			event_action = ' {%trans "with"%} ' + event_action; 
+		}
+		
+		if(!event_action.match(urlPattern)){
+			$('#event_action').css('background','#fbe3e4');
+			$('#error_messages').addClass('error').text("{%trans "don't forget the link!"%}");
+		}
+		else{
+			$('#event_action').css('background','');
+			$('#error_messages').removeClass('error').text('');
+		}
+
+		note = '@' + recipient + event_action + ' #' + promise + ' {%trans "in"%} #'+event.replace(' ','')+'. @{{issuer}}'
+		note_encoded = escape('@' + recipient) + event_action + ' ' + +escape('#' + promise) + ' {%trans "in"%} '+escape('#'+event.replace(' ',''))+'. ' + escape(' @{{issuer}}')
+
+		note_formatted = '<h3 id=\"printed\">' + note + '</h3>'
+
+		$('div.output').html(note_formatted);
+
+		char_left = 140 - note.length;
+		$('#messages').text(char_left);
+		if(char_left < 0){
+			$('#messages').removeClass('notice');
+			$('#messages').addClass('error');
+		}
+		else if(char_left < 10){
+			$('#messages').removeClass('error');
+			$('#messages').addClass('notice');
+		}
+		else{	
+			$('#messages').removeClass('error');
+		}
+		
+
+		url = 'https://twitter.com/share?url=&text=' + note_encoded;
+
+		$('a.tweet').attr('href', url);
+
+		$('#tweetbutton').show();
+
+	}
+
+	$(document).ready(function() {
+
+		$('#promise').change(print);
+		$('#event').keyup(print);
+		$('#event_action').keyup(print);
+		$('#recipient').keyup(print);
+		$('#tweetbutton').hide();
+
+	})
+</script>
+
+
+
+{% endblock %} 
+
+{% block main %}
+
+<div id="left" class="span-16">
+
+	
+	<hr class="space">
+
+		<span id="promised">{%trans "Paying debt:"%}</span> <br>
+
+		<hr class="space">
+	
+		<h3 style="display: inline" id="printer">
+			@<input id="recipient" style='display: inline' type="text"
+				maxlength="20" size="20" placeholder="{%trans "Bearer" %}">
+		</h3>
+
+		<h3 id="printer" style="display: inline">
+			{%trans "pay with" %} 
+			<input id="event_action" type="text" maxlength="55" size="50"
+				placeholder="{%trans "Payment action (photo link, post link)" %}">.
+		</h3>
+	
+		<h3 id="printer" style="display: inline">
+			<select id="promise">
+				<option value="1T">#1T</option>
+				<option value="2T">#2T</option>
+				<option value="3T">#3T</option>
+				<option value="4T">#4T</option>
+				<option value="5T">#5T</option>
+				<option value="6T">#6T</option>
+				<option value="7T">#7T</option>
+				<option value="8T">#8T</option>
+				<option value="9T">#9T</option>
+				<option value="10T">#10T</option>
+			</select>
+		</h3>
+	
+		<h3 id="printer" style="display: inline">
+			{%trans "in"%} #
+			<input id="event" type="text" maxlength="20" size="20"
+				placeholder="{%trans "Event hashtag" %}">
+		</h3>
+</div>
+
+
+
+<div id="right" class="printer-output span-15">
+
+	<hr class="space">
+	<hr class="space">
+
+	<div id='error_messages'></div>
+	<span id="promised">{%trans "Your @monedaTEJA:"%}</span>
+
+	<hr class="space">
+
+	<div class="output"></div>
+	<div id="messages" class="printer-messages"></div>
+
+	<hr class="space">
+	<div id="tweetbutton">
+		<a class="tweet" href="https://twitter.com/share?url=''&amp;text="
+			target="_blank"><img src="/static/tweet.png" width=60></a>
+	</div>
+</div>
+{% endblock %}
