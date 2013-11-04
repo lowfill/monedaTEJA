@@ -4,6 +4,9 @@
  
 {% block javascript %}
 
+<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+<link href='http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/ui-lightness/jquery-ui.css' rel="stylesheet"/>
+
 <script type=text/javascript>
 	function print() {
 
@@ -63,6 +66,13 @@
 		$('#expiry').keyup(print);
 		$('#exptype').change(print);
 		$('#tweetbutton').hide();
+		
+		$('#recipient').autocomplete({
+			source:'/user_suggest/',
+		});
+		$('#event').autocomplete({
+			source:'/event_suggest/',
+		});
 
 	})
 </script>
@@ -89,7 +99,7 @@
 	
 		<h3 style="display: inline" id="printer">
 			@<input id="recipient" style='display: inline' type="text"
-				maxlength="20" size="20" placeholder="{%trans "Bearer" %}">
+				maxlength="20" size="20" placeholder="{%trans "Who is commited" %}">
 		</h3>
 	
 		<h3 id="printer" style="display: inline">
@@ -121,11 +131,6 @@
 				placeholder="{%trans "(optional) Compromise action" %}">.
 		</h3>
 	
-		<hr class="space">
-	
-		<p>
-			<i>{%trans "Options"%}</i>
-		</p>
 	
 		<h3 id="printer" style="display: inline">
 			{%trans "Expires in"%} <input id="expiry" type="text" size=2 maxlength=3

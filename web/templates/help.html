@@ -10,21 +10,26 @@
 
 	<h2>¿Cómo funciona?…</h2>
 
-	<h3>Compromisos</h3>
-	
-	<p>Tu puedes generar @monedaTEJA haciendo un tweet. Por ejemplo:</p>
-	
-	<div id="tweet">@receptor_del_compromiso se comprometió con #1T en #Evento con una reunión con otro participante. Expira en 30 días. @monedaTEJA</span></div>
+	<p>
+	Si bien para usar la <span class="teja">@monedaTEJA</span> no es necesario registrarte en este sitio, 
+	te recomendamos hacerlo (ingresas con tu usuario/contraseña de twitter). Así podras usar las herramientas que hemos puesto a tu disposición para <a href="/print"><b>generar</b></a>, <a href="/pay"><b>cumplir</b></a> y <a href="/dashboard"><b>verificar</b> tus compromisos</a>.
+	<br>
+	Sin embargo, si prefieres hacerlo directamente desde twitter puedes hacerlo siguiendo las reglas que se explican a continuación. 
+	</p>
+	<h3>Generar compromiso</h3>
+
+	<p>
+	La manera más sencilla de generar @monedaTEJA es usando el link <b><a href="/print">Generar compromiso</a></b>. Esto garantizará que la moneda ha sido generada en el formato correcto y podrá ser rastreada. Si prefieres hacerlo manualmente desde tu twitter, las reglas son bastante sencillas:
+		
+	<div id="tweet">@quien_va_a_cumplir se comprometió con #1T en #Evento con una reunión con otro participante. Expira en 30 días. @monedaTEJA</span></div>
 	
 	<hr class="space">
 	
 	<p>La nueva @monedaTEJA aparecerá en la <a href="/">página de seguimiento</a> un minuto después.</p>
 	
 	
-	<p>
-	La manera más sencilla de crear @monedaTEJA es usando el link <b><a href="/print">Generar compromiso</a></b>. Esto garantizará que la moneda ha sido generada en el formato correcto y podrá ser rastreada. Si prefieres hacerlo manualmente desde tu twitter, las reglas son bastante sencillas:
 	<ul>
-		<li>Tu tweet debe comenzar con el nombre de usuario de Twitter del receptor (e.g. <span style="display:inline" id="promise">@receptor_del_compromiso</span>)</li>
+		<li>Tu tweet debe comenzar con el nombre de usuario de Twitter quién se esta comprometiendo (e.g. <span style="display:inline" id="promise">@quien_va_a_cumplir</span>)</li>
 		<li>Tiene que contener la frase<span style="display:inline" id="promise">''se comprometió con'</span></li>
       <li>Tiene que contener el número de tejas que se espera generar: <span style="display:inline" id="promise">(e.g. #1T, que equivale a 1 @monedaTEJA)</span></li>
       <li>Tiene que contener el hashtag del evento o iniciativa asociada: <span style="display:inline" id="promise">(e.g. #Nombre_evento) </span></li>
@@ -37,7 +42,7 @@
 	
 	<p>Si no aparece en la página de seguimiento es probable que tengas un error de sintaxis.</p>
 	
-	<h3>Pagos</h3>
+	<h3>Cumplir compromiso</h3>
 	
 	<p>
 	La manera más sencilla de pagar @monedaTEJA es usando el link <b><a href="/pay">Pagar compromiso</a></b>. Esto garantizará que la moneda ha sido generada en el formato correcto y podrá ser rastreada. Si prefieres hacerlo manualmente desde tu twitter, las reglas son bastante sencillas:
@@ -45,14 +50,14 @@
 <p>
 Responde  a la nota original o escribe un tweet con el siguiente formato:</p>
 	
-	<div id="tweet">@emisor_del_compromiso acá esta el link al post http://example.org  #1T #Evento @monedaTEJA</div>
+	<div id="tweet">@quien_genero_el_compromiso acá esta el link al post http://example.org  #1T #Evento @monedaTEJA</div>
 	
 	<p>Las reglas son las siguientes:</p>
 	
 	<ul>
 	
 	<li>Tu tweet debe ser un reply a la nota original</li>
-	<li>Opcionalmente puede contener el nombre de usuario del emisor del compromiso <span id="promise" style="display:inline">(e.g. @emisor_del_compromiso)</span></li>
+	<li>Opcionalmente puede contener el nombre de usuario quién generó el compromiso <span id="promise" style="display:inline">(e.g. @quien_genero_el_compromiso)</span></li>
 	<li>Debe contener un enlace al recurso relacionado con el pago: Enlace a una página web, enlace a una foto del encuentro, etc. <span id="promise" style="display:inline">(p.e. acá esta el link al post http://example.org)</span></li>
 	<li>Debe contener el hashtag número de TEJAs que estas pagando <span id="promise" style="display:inline">(e.g. #1T, que equivale a 1 @monedaTEJA)</span></li>
 	<li>Debe contener el hashtag del evento o iniciativa asociada: <span style="display:inline" id="promise">(e.g. #Nombre_evento) </span></li>
@@ -60,18 +65,21 @@ Responde  a la nota original o escribe un tweet con el siguiente formato:</p>
 	</ul>
 	
 	
-	<h3>Agradecimientos / verificación</h3>
+	<h3>Verificar compromiso</h3>
+
+	<p>
+	La manera más sencilla de verificar es @monedaTEJA es usando el link <b><a href="/dashboard">Mi perfil</a></b> y seleccionando la transacción que quiero verificar. Esto garantizará que la moneda ha sido generada en el formato correcto y podrá ser rastreada. Si prefieres hacerlo manualmente desde tu twitter, las reglas son bastante sencillas:
 	
-	<p>Para agradecer a alguien el pago de una @monedaTEJA, responde a la nota original o otra respuesta de la misma, con</p>
+	<p>Responde a la nota original o otra respuesta de la misma, con</p>
 	
-	<div id="tweet">@deudor  gracias #nT #Evento @monedaTEJA</div>
+	<div id="tweet">@quien_cumplio_el_compromiso  gracias #nT #Evento @monedaTEJA</div>
 	
 	<p>Las reglas son:</p>
 	
 	<ul>
 	
 	<li>Tu tweet debe ser una respuesta a la nota original, o a otra respuesta de la misma.</li>
-	<li>Debe contener el nombre de usuario del deudor <span id="promise" style="display:inline">@deudor</span></li>
+	<li>Debe contener el nombre de usuario del deudor <span id="promise" style="display:inline">@quien_cumplio_el_compromiso</span></li>
 	<li>Debe contener la palabra <span id="promise" style="display:inline">gracias</span></li>
 	<li>Debe contener una referencia a <span id="promise" style="display:inline">@monedaTEJA</span></li>
 	
@@ -89,9 +97,9 @@ Responde  a la nota original o escribe un tweet con el siguiente formato:</p>
 	
 	<hr class="space">
 	
-	<h3>Karma</h3>
+	<h3>Red de confianza</h3>
 	
-	<p>Karma es una medida simple que muestra cuantos <span id="redemption">agradecimientos</span> ha recibido un usuario.</p>
+	<p>La Red de confianza es una medida simple que muestra cuantos <span id="redemption">agradecimientos</span> ha recibido un usuario.</p>
 	
 	<p>El  mapa de <b><a href="/network">Karma</a></b> representa las relaciones de gratitud entre los usuarios de la @monedaTEJA. Para ser incluido dentro de este mapa debes haber completado satisfactoriamente una transacción dentro del sistema.</p>
 		

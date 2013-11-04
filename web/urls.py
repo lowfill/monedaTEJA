@@ -60,6 +60,9 @@ urlpatterns = patterns('',
     url(r'^generate_debt/$', 'tracker.views.generate_debt', name='generateDebt'),
     url(r'^user/(?P<username>\w+)$', 'tracker.views.user', name='user'),
     url(r'^note/(?P<noteid>\w+)$', 'tracker.views.getnote', name='note'),
+    url(r'^dashboard/$', 'tracker.views.dashboard', name='dashboard'),
+    url(r'^user_suggest/(?P<username>\w*)$', 'tracker.views.user_suggest', name='userSuggest'),
+    url(r'^event_suggest/$', 'tracker.views.event_suggest', name='evetSuggest'),
     
     # trust list
     url(r'^graph/$', 'tracker.views.trustnet', name='graph'),

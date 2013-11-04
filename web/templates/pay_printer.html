@@ -29,7 +29,8 @@
 		}
 
 		note = '@' + recipient + event_action + ' #' + promise + ' {%trans "in"%} #'+event.replace(' ','')+'. @{{issuer}}'
-		note_encoded = escape('@' + recipient) + event_action + ' ' + +escape('#' + promise) + ' {%trans "in"%} '+escape('#'+event.replace(' ',''))+'. ' + escape(' @{{issuer}}')
+		note_encoded = escape('@' + recipient) + event_action + ' ' +escape('#' + promise) + ' {%trans "in"%} '+escape('#'+event.replace(' ',''))+'. ' + escape(' @{{issuer}}')
+
 
 		note_formatted = '<h3 id=\"printed\">' + note + '</h3>'
 

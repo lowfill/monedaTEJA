@@ -7,6 +7,7 @@ from django.shortcuts import render_to_response, redirect
 from django.contrib.messages.api import get_messages
 from django.db.models import Q
 from django.utils.translation import ugettext as _
+from django.utils import simplejson
 
 
 from tracker.models import *
@@ -43,6 +44,32 @@ def finish_login(request):
 def home(request):
     return HttpResponseRedirect('/tracker')
 
+def dashboard(request):
+    if request.user.is_authenticated():
+        return HttpResponseRedirect('/user/'+request.user.username)
+    else:
+        return HttpResponseRedirect('/tracker')
+    
+def user_suggest(request, username):
+    term = request.GET['term']
+    suggested = users.objects.filter(username__startswith=term)
+    resp = []
+    if len(suggested) > 0:
+        for user in suggested:
+            resp.append(user.username)
+    
+    return HttpResponse(simplejson.dumps(resp),mimetype='text/json')
+
+def event_suggest(request):
+    term = request.GET['term']
+    suggested = tags.objects.filter(tag__startswith=term)
+    resp = []
+    if len(suggested) > 0:
+        for tag in suggested:
+            resp.append(tag.tag)
+    
+    return HttpResponse(simplejson.dumps(resp),mimetype='text/json')
+        
 def tracker(request, tag_1 = None, tag_2 = None, tag_3 = None):
 
     # convert tags to ids and get related tags
