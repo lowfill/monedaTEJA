@@ -194,6 +194,8 @@ class Parser(Harvester):
                     self.setParsed(tweet['tweet_id'])
                     self.createNote(tweet)
                     
+                    self.sendWelcome(tweet['author'], tweet['recipient'],tweet['tweet_id'])
+                    
                     E = Event(tweet['tweet_id'], tweet['tweet_id'], 10, tweet['created'], tweet['author'], tweet['recipient'])
                     E.save()
         
@@ -584,7 +586,23 @@ class Parser(Harvester):
                 self.TW.update_status(message)
             except:
                 self.logError("Tweeting message failed (%s)" % message)      
-                
+
+    def sendWelcome(self,author,recipient,note):
+        #self.sendTweet('@%s %s @%s %s http://www.punkmoney.org/note/%s' % (expression ,tweet['author'], tweet['recipient'], tweet['promise'], tweet['tweet_id']))
+        #Buscar si el usuario es nuevo
+        try:
+            query = "SELECT count(*) from tracker_events where from_user = '%s'" % author
+            print query
+            u = self.getSingleValue(query)
+            print u
+            message = u"@%s Haz adquirido un compromiso con @%s por favor visita http://www.monedateja.net/note/%s para saber más" % (author, recipient, note)
+
+            if u == 0:
+                print message
+                self.TW.update_status(message)
+        except Exception, e:
+            self.logError("Tweeting message failed (%s)" % e)
+                            
     # checkTrusted
     # Check if there is a trust path between two users
     def checkTrusted(self,from_user, to_user):

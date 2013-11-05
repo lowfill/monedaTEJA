@@ -3,6 +3,8 @@
 {% load i18n %}
  
 {% block javascript %}
+<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+<link href='http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/ui-lightness/jquery-ui.css' rel="stylesheet"/>
 
 <script type=text/javascript>
 	function print() {
@@ -67,6 +69,13 @@
 		$('#recipient').keyup(print);
 		$('#tweetbutton').hide();
 
+		$('#recipient').autocomplete({
+			source:'/user_suggest/',
+		});
+		$('#event').autocomplete({
+			source:'/event_suggest/',
+		});
+		
 	})
 </script>
 
