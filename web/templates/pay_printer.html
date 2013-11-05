@@ -29,6 +29,7 @@
 			$('#event_action').css('background','');
 			$('#error_messages').removeClass('error').text('');
 		}
+		recipient = recipient.replace('@','')
 
 		note = '@' + recipient + event_action + ' #' + promise + ' {%trans "in"%} #'+event.replace(' ','')+'. @{{issuer}}'
 		note_encoded = escape('@' + recipient) + event_action + ' ' +escape('#' + promise) + ' {%trans "in"%} '+escape('#'+event.replace(' ',''))+'. ' + escape(' @{{issuer}}')

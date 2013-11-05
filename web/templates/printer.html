@@ -26,6 +26,8 @@
 		if(event_action !=''){
 			event_action = ' {%trans "with"%} ' + event_action; 
 		}
+		
+		recipient = recipient.replace('@','')
 
 		note = '@' + recipient + ' {%trans "committed with"%} #' + promise + ' {%trans "in"%} #'+event.replace(' ','')+ event_action +'. ' + expiry + ' @{{issuer}}'
 		note_encoded = escape('@' + recipient) + ' {%trans "committed with"%} '+escape('#' + promise) + ' {%trans "in"%} '+escape('#'+event.replace(' ',''))+ ' {%trans "with"%} '+ event_action +'. ' + expiry + escape(' @{{issuer}}')
