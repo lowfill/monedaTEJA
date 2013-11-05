@@ -595,7 +595,7 @@ class Parser(Harvester):
             print query
             u = self.getSingleValue(query)
             print u
-            message = u"@%s Haz adquirido un compromiso con @%s por favor visita http://www.monedateja.net/ para gestionarlo." % (author, recipient)
+            message = u"@%s Haz adquirido un compromiso con @%s por favor visita http://www.monedateja.net/ para darte de alta y gestionarlo." % (author, recipient)
 
             if u == 0:
                 print message
