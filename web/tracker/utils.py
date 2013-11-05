@@ -206,7 +206,8 @@ def generate_debt_from_file(user,fileObject):
         csv = DebtModel.import_from_file(file=fileObject)
         for debt in csv:
             event = debt.event.replace(' ','').lower()
-            tweet = "@%s se enredó con #%dT por #%s. Expira en %d días. @%s " % (debt.name , debt.ammount, event , debt.expiration,ISSUER_ACCOUNT)
+            name = debt.name.replace('@','')
+            tweet = "@%s se enredó con #%dT por #%s. Expira en %d días. @%s " % (name , debt.ammount, event , debt.expiration,ISSUER_ACCOUNT)
             api.update_status(status=tweet)
             
     except Exception, e:
