@@ -5,6 +5,9 @@
 <script type="text/javascript">
 	$('document').ready(function() {
 		loadRecent();
+		if(location.hash == "#verify"){
+			load(3);
+		}
 	})
 
 	function loadRecent() {
@@ -62,9 +65,9 @@
 &nbsp;
 <a href="javascript:load(10)"><span id="request">{%trans "[ Cm ]"%} {%trans "Commitments"%}</span></a>
 &nbsp;
-<a href="javascript:load(3)"><span id="transfer">{%trans "[ Tv ]"%} {%trans "To be checked"%}</span></a>
+<a href="javascript:load(3)" id="verify"><span id="transfer">{%trans "[ Tv ]"%} {%trans "To be checked"%}</span></a>
 &nbsp;
-<a href="javascript:load(1)"><span id="redemption">{%trans "[ V ]"%} {%trans "Verified"%}</span></a>
+<a href="javascript:load(1)" ><span id="redemption">{%trans "[ V ]"%} {%trans "Verified"%}</span></a>
 &nbsp;
 <a href="javascript:load(4)"><span id="offer">{%trans "[ E ]"%} {%trans "With errors"%}</span></a>
 &nbsp;

@@ -198,7 +198,7 @@ msgstr "con"
 
 #: templates/pay_printer.html:96
 msgid "Payment action (photo link, post link)"
-msgstr "Acción de cumplimiento (link a foto, link a post)"
+msgstr "Acción de cumplimiento (link a foto, link a post con http://)"
 
 #: templates/pay_printer.html:117 templates/printer.html:114
 msgid "Event hashtag"
@@ -231,7 +231,7 @@ msgstr "Quién se compromete"
 
 #: templates/printer.html:121
 msgid "(optional) Compromise action"
-msgstr "acción de compromiso. eg. un blog post"
+msgstr "acción de compromiso. eg. un blog post (opcional)"
 
 #: templates/printer.html:127 templates/printer.html.py:128
 #: templates/printer.html:134
