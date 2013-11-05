@@ -440,12 +440,12 @@ def generate_debt(request):
                 error = _('Please attach a file.')    
         
     variables = {
-        'page':'batch_printer',
+        'page':'printer',
         'issuer':ISSUER_ACCOUNT,
         'error' : error
     }
     
-    return render_to_response('batch_printer.html', variables,RequestContext(request))
+    return render_to_response('printer.html', variables,RequestContext(request))
 
 def help(request):
     variables = {

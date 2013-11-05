@@ -201,13 +201,17 @@ def connectTwitter():
 
 def generate_debt_from_file(user,fileObject):
     try:
-        api = connectTwitter(user)
-        print api
+        api = connectTwitter()
+        
         csv = DebtModel.import_from_file(file=fileObject)
         for debt in csv:
             event = debt.event.replace(' ','').lower()
             name = debt.name.replace('@','')
-            tweet = "@%s se enredó con #%dT por #%s. Expira en %d días. @%s " % (name , debt.ammount, event , debt.expiration,ISSUER_ACCOUNT)
+            if(debt.how):
+                tweet = u"@%s se comprometió con #%dT por #%s con %s. Expira en %d días. @%s " % (name , debt.ammount, event, debt.how , debt.expiration,ISSUER_ACCOUNT)
+            else:
+                tweet = u"@%s se comprometió con #%dT por #%s. Expira en %d días. @%s " % (name , debt.ammount, event , debt.expiration,ISSUER_ACCOUNT)
+            
             api.update_status(status=tweet)
             
     except Exception, e:
