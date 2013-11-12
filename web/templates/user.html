@@ -1,13 +1,31 @@
 {% extends 'base.html' %}
 {% load i18n %} 
 {% block javascript %}
+<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+<link href='http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/ui-lightness/jquery-ui.css' rel="stylesheet"/>
+
+<link rel="stylesheet" href="/static/fontello/css/monedateja.css">
+<link rel="stylesheet" href="/static/fontello/css/animation.css">
+<!--[if IE 7]>
+<link rel="stylesheet" href="/static/fontello/css/monedateja-ie7.css">
+<![endif]-->
 
 <script type="text/javascript">
 	$('document').ready(function() {
-		loadRecent();
+		
 		if(location.hash == "#verify"){
 			load(3);
+			$('#ticker').animate({'background-color':'#F0F8FF'}).animate({'background-color':'#fff'},3000);
+			$('#verify').addClass('ticker-selected');
 		}
+		else{
+			loadRecent();
+		}
+		
+		$('.loader').click(function(){
+			$('.loader').removeClass('ticker-selected');
+			$(this).addClass('ticker-selected');
+		});
 	})
 
 	function loadRecent() {
@@ -61,17 +79,17 @@
 <hr class="Space">
 <hr class="Space">
 
-<a href="javascript:loadRecent()">{%trans "[ All ]"%}</a>
+<a href="javascript:loadRecent()" class='loader'>{%trans "[ All ]"%}</a>
 &nbsp;
-<a href="javascript:load(10)"><span id="request">{%trans "[ Cm ]"%} {%trans "Commitments"%}</span></a>
+<a href="javascript:load(10)" class='loader request'><span id="request">{%trans "[ Cm ]"%} {%trans "My Commitments"%}</span></a>
 &nbsp;
-<a href="javascript:load(3)" id="verify"><span id="transfer">{%trans "[ Tv ]"%} {%trans "To be checked"%}</span></a>
+<a href="javascript:load(3)"  class='loader transfer' id="verify" ><span id="transfer">{%trans "[ Tv ]"%} {%trans "To be checked"%}</span></a>
 &nbsp;
-<a href="javascript:load(1)" ><span id="redemption">{%trans "[ V ]"%} {%trans "Verified"%}</span></a>
+<a href="javascript:load(1)"  class='loader redemption'><span id="redemption">{%trans "[ V ]"%} {%trans "Verified"%}</span></a>
 &nbsp;
-<a href="javascript:load(4)"><span id="offer">{%trans "[ E ]"%} {%trans "With errors"%}</span></a>
+<a href="javascript:load(4)" class='loader offer'><span id="offer">{%trans "[ E ]"%} {%trans "With errors"%}</span></a>
 &nbsp;
-<a href="javascript:load(12)"><span id="expiration">{%trans "[ X ]"%} {%trans "Expired"%}</span></a>
+<a href="javascript:load(12)" class='loader expiration'><span id="expiration">{%trans "[ X ]"%} {%trans "Expired"%}</span></a>
 &nbsp;
 <hr>
 

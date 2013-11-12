@@ -43,3 +43,20 @@ $(function(){
 		}
 	});
 });
+$(function(){
+	$('.verify-payment').live('click',function(e){
+		e.preventDefault();
+		url = $(this).attr('href');
+		note_id = url.split('/')[2];
+		$.ajax({url:url,
+				success:function(data){
+					if(data.code=='200'){
+						$('#3-'+note_id).hide(1000);
+					}
+					else{
+						$('#3-'+note_id).addClass('error');
+					}
+				}
+		});
+	});
+});

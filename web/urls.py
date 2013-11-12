@@ -63,6 +63,7 @@ urlpatterns = patterns('',
     url(r'^dashboard/$', 'tracker.views.dashboard', name='dashboard'),
     url(r'^user_suggest/(?P<username>\w*)$', 'tracker.views.user_suggest', name='userSuggest'),
     url(r'^event_suggest/$', 'tracker.views.event_suggest', name='evetSuggest'),
+    url(r'^verify/(?P<event>\w*)$', 'tracker.views.verify', name='verify'),
     
     # trust list
     url(r'^graph/$', 'tracker.views.trustnet', name='graph'),

@@ -2,6 +2,7 @@
 from django.http import HttpResponse
 from django.utils import simplejson
 from django.db.models import Q
+from django.utils.translation import ugettext as _
 
 from social_auth.models import UserSocialAuth
 
@@ -188,10 +189,19 @@ def relatedTags(base_tags = None):
     # Return tags    
     return tags_final
     
-def connectTwitter():
+def connectTwitter(user=None):
         try:
+            
+            access_key = TW_ACCESS_KEY
+            access_secret = TW_ACCESS_SECRET 
+            if(user!=None):
+                oauth_info = user.social_auth.filter(provider='twitter')[0]
+                tokens = oauth_info.tokens
+                access_key = tokens['oauth_token']
+                access_secret = tokens['oauth_token_secret']
+                
             auth = tweepy.OAuthHandler(TWITTER_CONSUMER_KEY, TWITTER_CONSUMER_SECRET)
-            auth.set_access_token(TW_ACCESS_KEY, TW_ACCESS_SECRET)
+            auth.set_access_token(access_key, access_secret)
             api = tweepy.API(auth)
         except Exception, e:
             raise Exception("Error connecting to Twitter API: %s" % e)
@@ -201,7 +211,7 @@ def connectTwitter():
 
 def generate_debt_from_file(user,fileObject):
     try:
-        api = connectTwitter()
+        api = connectTwitter(user)
         
         csv = DebtModel.import_from_file(file=fileObject)
         for debt in csv:
@@ -219,6 +229,24 @@ def generate_debt_from_file(user,fileObject):
         #raise Exception("Error connecting to Twitter API: %s" % e)
         return False
         
+def verify_payment(user,event):
+    try:
+        api = connectTwitter(user)
+        note = notes.objects.get(id=event)
+        tweet = tweets.objects.get(tweet_id=event)
+        raw_tags = [tweet.tag_1, tweet.tag_2, tweet.tag_3]
+        tags_final = []
+        for tag_id in raw_tags:
+            if tag_id != None:
+                t = tags.objects.get(id = tag_id)
+                tags_final.append("#"+t.tag)
+
+        tweet = _('Thanks! @%(issuer)s by %(tags)s. @%(issuer_account)s') % {'issuer':note.issuer,'tags':' '.join(tags_final),'issuer_account':ISSUER_ACCOUNT}
+        api.update_status(status=tweet,in_reply_to_status_id=event)
+        return {'code':'200','message':'OK'}
+    except Exception, e:
+        return {'code':'503','message':e.message}      
+      
 def saveUser(username):
     username = username.lower()
     try:

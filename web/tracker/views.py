@@ -69,7 +69,12 @@ def event_suggest(request):
             resp.append(tag.tag)
     
     return HttpResponse(simplejson.dumps(resp),mimetype='text/json')
-        
+
+def verify(request,event):
+    resp = verify_payment(request.user,event)        
+    print resp    
+    return HttpResponse(simplejson.dumps(resp),mimetype='text/json')
+
 def tracker(request, tag_1 = None, tag_2 = None, tag_3 = None):
 
     # convert tags to ids and get related tags
@@ -151,7 +156,8 @@ def ticker(
         
         for event in raw_events:
             note_id = event.note_id
-            
+            note = notes.objects.get(note_id)
+                         
             try:
                 tweet = tweets.objects.get(tweet_id = note_id)
                 tweet_tags = [tweet.tag_1, tweet.tag_2, tweet.tag_3]
@@ -174,11 +180,26 @@ def ticker(
 
     # filter by type and/or username if given
     elif type is not None and username is not None:
-        new_events = events.objects.filter(
-            Q(type=type),
-            Q(from_user=username) | Q(to_user=username)
-            ).order_by('-timestamp')[:max]
-            
+        if type == '10':
+            new_events = events.objects.filter(
+                Q(type=type),
+                Q(from_user=username) 
+                ).order_by('-timestamp')[:max]
+        elif type == '3':
+            #new_events = events.objects.filter(
+            #    Q(type=type),
+            #    Q(to_user=username) 
+            #    ).order_by('-timestamp')[:max]
+            #TODO Add relationship to tables to avoid this raw query
+            query = "SELECT e.*,n.status FROM tracker_events e JOIN tracker_notes n ON e.note_id=n.id AND n.status!=1 WHERE to_user=%s AND e.type=%s"
+            query+=" ORDER BY timestamp"
+            new_events = events.objects.raw(query,[username,type])[:max]
+        else:
+            new_events = events.objects.filter(
+                Q(type=type),
+                Q(to_user=username) | Q(from_user=username)
+                ).order_by('-timestamp')[:max]    
+               
     elif type is not None and username is None:
         new_events = events.objects.filter(
             Q(type=type)
@@ -242,7 +263,8 @@ def ticker(
     
     variables = {
         'events':final,
-        'show_arrow':show_arrow
+        'show_arrow':show_arrow,
+        'username':username
     }
 
     return render_to_response('ticker.html', variables)    

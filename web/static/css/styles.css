@@ -174,3 +174,18 @@ p.footer {
 .tab-selected{
 	background-color: #ddd;
 }
+.ticker-selected{
+	font-weight: bold;
+	color: #000;
+}
+.loader:hover{
+	font-weight: bold;
+	color: #000;
+}
+.ticker-actions{
+	display:inline;
+	margin-left: 2em;
+}
+.verify-payment:hover{
+	font-weight: bold;
+}

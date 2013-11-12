@@ -1,0 +1,22 @@
+{
+  "name": "monedateja",
+  "css_prefix_text": "icon-",
+  "css_use_suffix": false,
+  "hinting": true,
+  "units_per_em": 1000,
+  "ascent": 850,
+  "glyphs": [
+    {
+      "uid": "142263941b9f4cd4b2b84f1f4cd13b1d",
+      "css": "emo-thumbsup",
+      "code": 59393,
+      "src": "fontelico"
+    },
+    {
+      "uid": "06a2fbb04dffecdb444936073cae9123",
+      "css": "thumbs-up",
+      "code": 59394,
+      "src": "linecons"
+    }
+  ]
+}

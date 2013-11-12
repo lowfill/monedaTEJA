@@ -85,6 +85,8 @@
 				<hr class="space">
 
 				{% if user.is_authenticated %}
+					<li><a href="/dashboard#verify">{%trans "Verify payments" %}</a></li> 
+				<hr class="space">
 					<li><a href="/disconnect">{%trans "Logout" %}</a></li> 
 				{% endif %}
 			</ul>
