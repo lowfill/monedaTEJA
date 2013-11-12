@@ -264,7 +264,8 @@ def ticker(
     variables = {
         'events':final,
         'show_arrow':show_arrow,
-        'username':username
+        'username':username,
+        'user':request.user
     }
 
     return render_to_response('ticker.html', variables)    

@@ -39,7 +39,8 @@
                 &nbsp;<a class="tag" href="/t/{{tag}}">#{{ tag }}</a>
             {% endifnotequal %}
         {% endfor %}
-		{% if event.to_user == username and event.type == 3 %}
+        
+		{% if event.to_user == username and event.type == 3 and event.to_user == user.username %}
 		<span class='ticker-actions'>
 		<a class='verify-payment' href='/verify/{{event.note_id}}' title="{%trans 'Verify' %}" ><i class="icon-emo-thumbsup" data-note=''></i></a>
 		</span>
