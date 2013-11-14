@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-11-12 15:08+0100\n"
+"POT-Creation-Date: 2013-11-14 17:04+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Diego Andrés Ramírez Aragón <dramirezaragon@gmail.com>\n"
 "Language-Team: es <dramirezaragon@gmail.com>\n"
@@ -470,12 +470,26 @@ msgstr "Mis Compromisos"
 msgid "See all [&rarr;]"
 msgstr "Ver todas [&rarr;]"
 
-#: tracker/utils.py:244
+#: tracker/utils.py:220
+#, python-format
+msgid ""
+"@%(who)s is commited with #%(ammount)dT by #%(event)s with %(how)s. Expires "
+"in %(expiration)d days. @%(issuer_account)s"
+msgstr "@%(who)s se comprometió con #%(ammount)dT en #%(event)s con %(how)s. Expira en %(expiration)d días. @%(issuer_account)s"
+
+#: tracker/utils.py:221
+#, python-format
+msgid ""
+"@%(who)s is commited with #%(ammount)dT by #%(event)s. Expires in "
+"%(expiration)d days. @%(issuer_account)s"
+msgstr "@%(who)s se comprometió con #%(ammount)dT por #%(event)s. Expira en %(expiration)d días. @%(issuer_account)s"
+
+#: tracker/utils.py:256
 #, python-format
 msgid "Thanks! @%(issuer)s by %(tags)s. @%(issuer_account)s"
 msgstr "Gracias! @%(issuer)s por %(tags)s. @%(issuer_account)s"
 
-#: tracker/views.py:463
+#: tracker/views.py:461
 msgid ""
 "The attached file doesn't have the right format. Please review it and try "
 "again."
@@ -483,33 +497,6 @@ msgstr ""
 "El archivo seleccionado no tiene el formato correcto. Por favor revíselo y "
 "trate nuevamente."
 
-#: tracker/views.py:465
+#: tracker/views.py:463
 msgid "Please attach a file."
 msgstr "Por favor anexe un archivo."
-
-#~ msgid "Options"
-#~ msgstr "Opciones"
-
-#~ msgid "[ C ]"
-#~ msgstr "[ C ]"
-
-#~ msgid "[ Completed ]"
-#~ msgstr "[ Completadas ]"
-
-#~ msgid "[ Verified ]"
-#~ msgstr "[ Verificadas ]"
-
-#~ msgid "[ With errors ]"
-#~ msgstr "[ Con errores ]"
-
-#~ msgid "[ Expired ]"
-#~ msgstr "[ Expiradas ]"
-
-#~ msgid "Completed"
-#~ msgstr "Completadas"
-
-#~ msgid "Tracker"
-#~ msgstr "Seguimiento"
-
-#~ msgid "Help"
-#~ msgstr "Ayuda"

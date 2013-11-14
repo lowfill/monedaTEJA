@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-11-12 13:20+0100\n"
+"POT-Creation-Date: 2013-11-14 17:03+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -46,7 +46,7 @@ msgid "Payment Printer"
 msgstr ""
 
 #: templates/base.html:88
-msgid "Verify"
+msgid "Verify payments"
 msgstr ""
 
 #: templates/base.html:90
@@ -375,6 +375,10 @@ msgstr ""
 msgid "promise of"
 msgstr ""
 
+#: templates/ticker.html:45
+msgid "Verify"
+msgstr ""
+
 #: templates/tracker.html:73
 msgid "(Updates once per minute)"
 msgstr ""
@@ -453,28 +457,38 @@ msgid "Pending"
 msgstr ""
 
 #: templates/user.html:84
-msgid "Commitments"
+msgid "My Commitments"
 msgstr ""
 
 #: templates/user_info.html:28
 msgid "See all [&rarr;]"
 msgstr ""
 
-#: tracker/utils.py:244
+#: tracker/utils.py:220
+#, python-format
+msgid ""
+"@%(who)s is commited with #%(ammount)dT by #%(event)s with %(how)s. Expires "
+"in %(expiration)d days. @%(issuer_account)s"
+msgstr ""
+
+#: tracker/utils.py:221
+#, python-format
+msgid ""
+"@%(who)s is commited with #%(ammount)dT by #%(event)s. Expires in "
+"%(expiration)d days. @%(issuer_account)s"
+msgstr ""
+
+#: tracker/utils.py:256
 #, python-format
 msgid "Thanks! @%(issuer)s by %(tags)s. @%(issuer_account)s"
 msgstr ""
 
-#: tracker/utils.py:247
-msgid "OK"
-msgstr ""
-
-#: tracker/views.py:444
+#: tracker/views.py:461
 msgid ""
 "The attached file doesn't have the right format. Please review it and try "
 "again."
 msgstr ""
 
-#: tracker/views.py:446
+#: tracker/views.py:463
 msgid "Please attach a file."
 msgstr ""

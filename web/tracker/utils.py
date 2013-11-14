@@ -217,12 +217,22 @@ def generate_debt_from_file(user,fileObject):
         for debt in csv:
             event = debt.event.replace(' ','').lower()
             name = debt.name.replace('@','')
+            tpl_how = _("@%(who)s is commited with #%(ammount)dT by #%(event)s with %(how)s. Expires in %(expiration)d days. @%(issuer_account)s")
+            tpl_simple = _("@%(who)s is commited with #%(ammount)dT by #%(event)s. Expires in %(expiration)d days. @%(issuer_account)s")
             if(debt.how):
-                tweet = u"@%s se comprometió con #%dT por #%s con %s. Expira en %d días. @%s " % (name , debt.ammount, event, debt.how , debt.expiration,ISSUER_ACCOUNT)
+                tweet_length = len(tpl_how)+len(name)+len(str(debt.ammount))+len(event)+len(debt.how)+len(str(debt.expiration)) + len(ISSUER_ACCOUNT)
+                if(tweet_length > 140):
+                    excerpt_size = tweet_length - 138 - len(name) - len (event) - len(str(debt.ammount)) - len(str(debt.expiration)) - len(ISSUER_ACCOUNT)
+                    debt.how = debt.how[0:excerpt_size]+"..."
+                    
+                tweet = tpl_how % {'who':name , 'ammount':debt.ammount, 'event':event, 'how':debt.how , 'expiration':debt.expiration,'issuer_account':ISSUER_ACCOUNT}
             else:
-                tweet = u"@%s se comprometió con #%dT por #%s. Expira en %d días. @%s " % (name , debt.ammount, event , debt.expiration,ISSUER_ACCOUNT)
+                tweet = tpl_simple % {'who':name , 'ammount':debt.ammount, 'event':event, 'expiration':debt.expiration,'issuer_account':ISSUER_ACCOUNT} 
             
-            api.update_status(status=tweet)
+            try:
+                api.update_status(status=tweet)
+            except Exception, e:
+                print e
             
     except Exception, e:
         print e
